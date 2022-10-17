@@ -1,0 +1,192 @@
+//
+//  LoginViewController.swift
+//  AppIIS
+//
+//  Created by tecnologias on 11/10/22.
+//
+
+import UIKit
+import DeviceKit
+
+
+
+class LoginViewController: UIViewController {
+    
+    
+    
+    @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var rfcTextField: UITextField!
+    @IBOutlet var loginButton: UIButton!
+    
+    
+    
+  
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //UserDefaults.standard.set
+        
+        /*var request = URLRequest(url: self.url)
+        
+        //request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        // Do any additional setup after loading the view.
+        
+        print("hara request")
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            print("en task")
+            if let data = data {
+                let image = UIImage(data: data)
+            } else if let error = error {
+                print("HTTP Request Failed \(error)")
+            }
+        }
+        
+        task.resume()*/
+
+        self.rfcTextField.autocapitalizationType = .allCharacters
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+    
+    
+    
+    @IBAction func loginAction(_ sender: Any) {
+        self.loginButton.isEnabled = false
+       
+        do {
+                
+                
+            let rfc = try self.rfcTextField.validatedText(validationType: ValidatorType.rfc)
+            let password = try self.passwordTextField.validatedText(validationType: ValidatorType.password)
+            let uuid = UIDevice.current.identifierForVendor!.uuidString
+            let model = UIDevice.modelName
+            let url = URL(string: "https://notificaciones.sociales.unam.mx/api/app/login")!
+            var request = URLRequest(url: url)
+            
+            request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+            
+            
+            
+            
+      
+
+        
+            
+            let params = ["user": ["rfc":rfc, "password":password], "device": ["uuid":uuid,"platform":"ios","model":model, "token":"asdasas" ] ] //as Dictionary<String, String>
+
+            guard let postData = try? JSONSerialization.data(withJSONObject: params, options: []) else {
+                return
+            }
+            
+
+
+            request.httpBody = postData
+
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                
+                // ensure there is no error for this HTTP response
+                guard error == nil else {
+                    print ("error: \(error!)")
+                    //throw AppError.customError(message: "Ocurrio un error indesperado")
+                    DispatchQueue.main.async {
+                        //self.showAlert(title: "Error", message: "ocurrio un error desconocido");
+                        
+                    }
+                    return
+                }
+                
+                // ensure there is data returned from this HTTP response
+                guard let content = data else {
+                    print("No data")
+                    //throw AppError.customError(message: "No hay datos en la respuesta")
+                    DispatchQueue.main.async {
+                        self.showAlert(title: "Error", message: "No hay datos en la respuesta");
+                        self.loginButton.isEnabled = true
+                    }
+                    return
+                }
+                
+                
+                
+                // serialise the data / NSData object into Dictionary [String : Any]
+                guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
+                    print("Not containing JSON")
+                    DispatchQueue.main.async {
+                        self.showAlert(title: "Error", message: "ocurrio un error al procesar la respuesta del servidor");
+                        self.loginButton.isEnabled = true
+                    }
+                    //throw AppError.invalidJsonResponse
+                    return
+                }
+                
+                print("gotten json response dictionary is \n \(json)")
+                if let httpResponse = response as? HTTPURLResponse {
+                    print(httpResponse)
+                    print("status",httpResponse.statusCode)
+                    if httpResponse.statusCode == 401 {
+                        DispatchQueue.main.async {
+                            self.showAlert(title: "No se puede acceder", message: "Nombre de usuario o contraseña inváida");
+                            self.loginButton.isEnabled = true
+                        }
+                        //throw AppError.invalidUserOrPassword
+                        
+                    }
+                        
+                }
+                
+                
+                print("update UI using the response here")
+                print (json)
+                DispatchQueue.main.async {
+                   // self.loginButton.isEnabled = true
+                }
+                
+               
+            }
+            
+            //self.view.makeToast("This is a piece of toast")
+            // execute the HTTP request
+            task.resume()
+                
+                
+        } catch let validationError as ValidationError {
+            showAlert(title: "Error", message: validationError.message)
+            self.loginButton.isEnabled = true
+        }
+        
+        /*catch let appError as AppError {
+            showAlert(title: "Error", message: appError.description)
+            self.loginButton.isEnabled = true
+        }*/
+        catch {
+            print("others")
+        }
+        
+       
+        
+        
+        
+        
+
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+}

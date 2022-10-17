@@ -1,24 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TaH-7L-DAW">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Start View Controller-->
+        <scene sceneID="eos-gg-xK8">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="aRL-Iv-esj" customClass="StartViewController" customModule="AppIIS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pq8-ET-Mu0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vA5-dE-0Gk">
+                                <rect key="frame" x="176" y="618" width="38" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_iis_vertical_dorado_y_negro" translatesAutoresizingMaskIntoConstraints="NO" id="QS9-Fv-WTP">
+                                <rect key="frame" x="86.5" y="171" width="202.5" height="325"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Nc9-ae-G6y"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QS9-Fv-WTP" firstAttribute="centerY" secondItem="pq8-ET-Mu0" secondAttribute="centerY" id="GwL-as-bHH"/>
+                            <constraint firstItem="QS9-Fv-WTP" firstAttribute="centerX" secondItem="pq8-ET-Mu0" secondAttribute="centerX" id="hb4-l8-sd0"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="bXn-e4-3Pf"/>
+                    <connections>
+                        <segue destination="TaH-7L-DAW" kind="show" id="sSm-3V-2zS"/>
+                        <segue destination="BYZ-38-t0r" kind="show" id="PDz-me-oY7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dY6-wY-Tkm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-89.230769230769226" y="-452.1327014218009"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="hr8-Gj-4rt">
+            <objects>
+                <viewController id="TaH-7L-DAW" customClass="LoginViewController" customModule="AppIIS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HxV-tF-mg4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mrS-LH-CCQ">
+                                <rect key="frame" x="30" y="498" width="315" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="RFC" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wEw-Bd-ZSd">
+                                <rect key="frame" x="30" y="434" width="315" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huN-sT-yZY">
+                                <rect key="frame" x="30" y="562" width="315" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Login"/>
+                                <connections>
+                                    <action selector="loginAction:" destination="TaH-7L-DAW" eventType="touchUpInside" id="rKL-vR-eQp"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_iis_vertical_dorado_y_negro" translatesAutoresizingMaskIntoConstraints="NO" id="KpK-ht-IvN">
+                                <rect key="frame" x="110" y="80" width="155" height="275"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="155" id="5zQ-Zn-aEG"/>
+                                    <constraint firstAttribute="height" constant="275" id="ack-Hk-Mxx"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="eaO-6h-WWk"/>
+                        <color key="backgroundColor" name="LaunchScreenBackground"/>
+                        <constraints>
+                            <constraint firstItem="eaO-6h-WWk" firstAttribute="bottom" secondItem="huN-sT-yZY" secondAttribute="bottom" constant="50" id="470-gi-ZxR"/>
+                            <constraint firstItem="eaO-6h-WWk" firstAttribute="trailing" secondItem="wEw-Bd-ZSd" secondAttribute="trailing" constant="30" id="4az-MH-8GN"/>
+                            <constraint firstItem="KpK-ht-IvN" firstAttribute="top" secondItem="eaO-6h-WWk" secondAttribute="top" constant="80" id="57d-6r-ZEs"/>
+                            <constraint firstItem="mrS-LH-CCQ" firstAttribute="leading" secondItem="eaO-6h-WWk" secondAttribute="leading" constant="30" id="N26-yL-Aja"/>
+                            <constraint firstItem="wEw-Bd-ZSd" firstAttribute="leading" secondItem="eaO-6h-WWk" secondAttribute="leading" constant="30" id="SFZ-TS-chu"/>
+                            <constraint firstItem="huN-sT-yZY" firstAttribute="leading" secondItem="eaO-6h-WWk" secondAttribute="leading" constant="30" id="aV6-Hf-iNZ"/>
+                            <constraint firstItem="mrS-LH-CCQ" firstAttribute="top" secondItem="wEw-Bd-ZSd" secondAttribute="bottom" constant="30" id="dYo-nv-mBb"/>
+                            <constraint firstItem="huN-sT-yZY" firstAttribute="top" secondItem="mrS-LH-CCQ" secondAttribute="bottom" constant="30" id="gHH-bK-Vdz"/>
+                            <constraint firstItem="KpK-ht-IvN" firstAttribute="centerX" secondItem="HxV-tF-mg4" secondAttribute="centerX" id="t2m-vb-g8B"/>
+                            <constraint firstItem="eaO-6h-WWk" firstAttribute="trailing" secondItem="mrS-LH-CCQ" secondAttribute="trailing" constant="30" id="u8R-zC-ug2"/>
+                            <constraint firstItem="eaO-6h-WWk" firstAttribute="trailing" secondItem="huN-sT-yZY" secondAttribute="trailing" constant="30" id="vXh-JM-E0D"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="v6g-JS-wrg"/>
+                    <connections>
+                        <outlet property="loginButton" destination="huN-sT-yZY" id="ZXT-oj-AcL"/>
+                        <outlet property="passwordTextField" destination="mrS-LH-CCQ" id="bPI-aI-xES"/>
+                        <outlet property="rfcTextField" destination="wEw-Bd-ZSd" id="ifu-br-dXN"/>
+                        <segue destination="BYZ-38-t0r" kind="show" id="Pmc-f9-nug"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VRq-aJ-zA6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-32.307692307692307" y="460.66350710900474"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="AppIIS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="main view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGm-W8-3jZ">
+                                <rect key="frame" x="190" y="379" width="76" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="See-bd-Bvo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1563" y="-262"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Pmc-f9-nug"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="logo_iis_vertical_dorado_y_negro" width="202.5" height="325"/>
+        <namedColor name="LaunchScreenBackground">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
