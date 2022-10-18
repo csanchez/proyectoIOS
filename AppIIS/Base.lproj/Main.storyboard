@@ -38,7 +38,6 @@
                     <navigationItem key="navigationItem" id="bXn-e4-3Pf"/>
                     <connections>
                         <segue destination="TaH-7L-DAW" kind="show" id="sSm-3V-2zS"/>
-                        <segue destination="BYZ-38-t0r" kind="show" id="PDz-me-oY7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dY6-wY-Tkm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -78,6 +77,25 @@
                                     <constraint firstAttribute="height" constant="275" id="ack-Hk-Mxx"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jpk-j8-Bsd">
+                                <rect key="frame" x="137.5" y="273.5" width="100" height="100"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="mPv-lb-UiF">
+                                        <rect key="frame" x="31.5" y="31.5" width="37" height="37"/>
+                                        <color key="color" systemColor="systemRedColor"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="ETw-TL-YaD"/>
+                                    <constraint firstItem="mPv-lb-UiF" firstAttribute="centerY" secondItem="jpk-j8-Bsd" secondAttribute="centerY" id="JVb-NW-0Sd"/>
+                                    <constraint firstItem="mPv-lb-UiF" firstAttribute="centerX" secondItem="jpk-j8-Bsd" secondAttribute="centerX" id="c73-kn-EBn"/>
+                                    <constraint firstAttribute="width" constant="100" id="y72-w7-kCA"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eaO-6h-WWk"/>
                         <color key="backgroundColor" name="LaunchScreenBackground"/>
@@ -87,6 +105,8 @@
                             <constraint firstItem="KpK-ht-IvN" firstAttribute="top" secondItem="eaO-6h-WWk" secondAttribute="top" constant="80" id="57d-6r-ZEs"/>
                             <constraint firstItem="mrS-LH-CCQ" firstAttribute="leading" secondItem="eaO-6h-WWk" secondAttribute="leading" constant="30" id="N26-yL-Aja"/>
                             <constraint firstItem="wEw-Bd-ZSd" firstAttribute="leading" secondItem="eaO-6h-WWk" secondAttribute="leading" constant="30" id="SFZ-TS-chu"/>
+                            <constraint firstItem="jpk-j8-Bsd" firstAttribute="centerX" secondItem="HxV-tF-mg4" secondAttribute="centerX" id="TUt-bN-6vL"/>
+                            <constraint firstItem="jpk-j8-Bsd" firstAttribute="centerY" secondItem="HxV-tF-mg4" secondAttribute="centerY" id="TWf-QU-2FV"/>
                             <constraint firstItem="huN-sT-yZY" firstAttribute="leading" secondItem="eaO-6h-WWk" secondAttribute="leading" constant="30" id="aV6-Hf-iNZ"/>
                             <constraint firstItem="mrS-LH-CCQ" firstAttribute="top" secondItem="wEw-Bd-ZSd" secondAttribute="bottom" constant="30" id="dYo-nv-mBb"/>
                             <constraint firstItem="huN-sT-yZY" firstAttribute="top" secondItem="mrS-LH-CCQ" secondAttribute="bottom" constant="30" id="gHH-bK-Vdz"/>
@@ -97,15 +117,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="v6g-JS-wrg"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="mPv-lb-UiF" id="eaD-xm-Wex"/>
+                        <outlet property="loadingView" destination="jpk-j8-Bsd" id="4UM-dA-Fo2"/>
                         <outlet property="loginButton" destination="huN-sT-yZY" id="ZXT-oj-AcL"/>
                         <outlet property="passwordTextField" destination="mrS-LH-CCQ" id="bPI-aI-xES"/>
                         <outlet property="rfcTextField" destination="wEw-Bd-ZSd" id="ifu-br-dXN"/>
-                        <segue destination="BYZ-38-t0r" kind="show" id="Pmc-f9-nug"/>
+                        <segue destination="e74-Kn-Yoh" kind="show" identifier="loginToMainSegue" id="T6q-sY-rKp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRq-aJ-zA6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-32.307692307692307" y="460.66350710900474"/>
+            <point key="canvasLocation" x="-32.799999999999997" y="460.11994002998506"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -130,12 +152,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1563" y="-262"/>
+            <point key="canvasLocation" x="4844" y="-250.52473763118442"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="GrR-sX-Db2">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="brq-qZ-CnD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DFA-JP-52A" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="IGQ-2j-Qh8"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="NVy-Fg-eS2"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kTC-CW-MCW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Xby-k3-AUd"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="3743.1999999999998" y="-250.52473763118442"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="xtx-9T-4Me">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="e74-Kn-Yoh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="dfi-Og-BJ7"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="06k-yh-RqX">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="DFA-JP-52A" kind="relationship" relationship="viewControllers" id="qNV-j8-Mbk"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hd0-Hm-PTp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2804" y="-250.52473763118442"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Pmc-f9-nug"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="logo_iis_vertical_dorado_y_negro" width="202.5" height="325"/>
         <namedColor name="LaunchScreenBackground">
@@ -143,6 +200,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

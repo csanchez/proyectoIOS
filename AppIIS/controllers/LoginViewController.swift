@@ -17,33 +17,15 @@ class LoginViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var rfcTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var loadingView: UIView!
     
-    
-    
-  
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //UserDefaults.standard.set
-        
-        /*var request = URLRequest(url: self.url)
-        
-        //request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        // Do any additional setup after loading the view.
-        
-        print("hara request")
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("en task")
-            if let data = data {
-                let image = UIImage(data: data)
-            } else if let error = error {
-                print("HTTP Request Failed \(error)")
-            }
-        }
-        
-        task.resume()*/
-
         self.rfcTextField.autocapitalizationType = .allCharacters
+        self.hideSpinner()
+        
     }
     
 
@@ -61,7 +43,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginAction(_ sender: Any) {
         self.loginButton.isEnabled = false
-       
+        self.showSpinner()
         do {
                 
                 
@@ -75,14 +57,7 @@ class LoginViewController: UIViewController {
             request.httpMethod = "POST"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-            
-            
-            
-            
-      
 
-        
-            
             let params = ["user": ["rfc":rfc, "password":password], "device": ["uuid":uuid,"platform":"ios","model":model, "token":"asdasas" ] ] //as Dictionary<String, String>
 
             guard let postData = try? JSONSerialization.data(withJSONObject: params, options: []) else {
@@ -99,10 +74,11 @@ class LoginViewController: UIViewController {
                 guard error == nil else {
                     print ("error: \(error!)")
                     //throw AppError.customError(message: "Ocurrio un error indesperado")
-                    DispatchQueue.main.async {
+                    /*DispatchQueue.main.async {
                         //self.showAlert(title: "Error", message: "ocurrio un error desconocido");
                         
-                    }
+                    }*/
+                    self.showAlertAndEnableView(title: "Error", message: "ocurrio un error desconocido")
                     return
                 }
                 
@@ -110,10 +86,11 @@ class LoginViewController: UIViewController {
                 guard let content = data else {
                     print("No data")
                     //throw AppError.customError(message: "No hay datos en la respuesta")
-                    DispatchQueue.main.async {
+                    /*DispatchQueue.main.async {
                         self.showAlert(title: "Error", message: "No hay datos en la respuesta");
                         self.loginButton.isEnabled = true
-                    }
+                    }*/
+                    self.showAlertAndEnableView(title: "Error", message: "No hay datos en la respuesta")
                     return
                 }
                 
@@ -121,13 +98,12 @@ class LoginViewController: UIViewController {
                 
                 // serialise the data / NSData object into Dictionary [String : Any]
                guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
-                //guard let json: UserResponse = try? JSONDecoder().decode(UserResponse.self, from: content) else {
-                    //guard    let json = try JSONDecoder().decode(DemoData.self, from: jsonData)
                     print("Not containing JSON")
-                    DispatchQueue.main.async {
+                   /* DispatchQueue.main.async {
                         self.showAlert(title: "Error", message: "ocurrio un error al procesar la respuesta del servidor");
                         self.loginButton.isEnabled = true
-                    }
+                    }*/
+                   self.showAlertAndEnableView(title:"Error", message:"ocurrio un error al procesar la respuesta del servidor")
                     //throw AppError.invalidJsonResponse
                     return
                 }
@@ -137,31 +113,16 @@ class LoginViewController: UIViewController {
                     print(httpResponse)
                     print("status",httpResponse.statusCode)
                     if httpResponse.statusCode == 401 {
-                        DispatchQueue.main.async {
+                        /*DispatchQueue.main.async {
                             self.showAlert(title: "No se puede acceder", message: "Nombre de usuario o contraseña inváida");
                             self.loginButton.isEnabled = true
-                        }
+                        }*/
+                        self.showAlertAndEnableView(title: "No se puede acceder", message: "Nombre de usuario o contraseña inváida")
                         //throw AppError.invalidUserOrPassword
-                        
+                        return
                     }
                         
                 }
-                
-                
-                /*guard let userResponse: UserResponse = try! JSONDecoder().decode(UserResponse.self, from: json) else {
-                     //guard    let json = try JSONDecoder().decode(DemoData.self, from: jsonData)
-                     print("Not containing JSON")
-                     DispatchQueue.main.async {
-                         self.showAlert(title: "Error", message: "ocurrio un error al procesar la respuesta del servidor");
-                         self.loginButton.isEnabled = true
-                     }
-                     //throw AppError.invalidJsonResponse
-                     return
-                 }*/
-                
-                
-               
-                
                 
                 let user = json["user"] as? [String:Any]
                 
@@ -186,6 +147,8 @@ class LoginViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                    // self.loginButton.isEnabled = true
+                    self.hideSpinner()
+                    self.performSegue(withIdentifier: "loginToMainSegue", sender: Self.self)
                 }
                 
                
@@ -206,20 +169,28 @@ class LoginViewController: UIViewController {
             self.loginButton.isEnabled = true
         }*/
         catch {
-            print("others")
+            print("other error")
         }
+         
         
-       
-        
-        
-        
-        
+    }
+    
+    private func showSpinner() {
+        activityIndicator.startAnimating()
+        loadingView.isHidden = false
+    }
 
-        
-        
-        
-        
-        
+    private func hideSpinner() {
+        activityIndicator.stopAnimating()
+        loadingView.isHidden = true
+    }
+    
+    private func showAlertAndEnableView(title:String, message:String){
+        DispatchQueue.main.async {
+            self.showAlert(title:title, message: message);
+            self.loginButton.isEnabled = true
+            self.hideSpinner()
+        }
     }
     
     
