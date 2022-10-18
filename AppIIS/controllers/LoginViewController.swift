@@ -120,7 +120,9 @@ class LoginViewController: UIViewController {
                 
                 
                 // serialise the data / NSData object into Dictionary [String : Any]
-                guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
+               guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
+                //guard let json: UserResponse = try? JSONDecoder().decode(UserResponse.self, from: content) else {
+                    //guard    let json = try JSONDecoder().decode(DemoData.self, from: jsonData)
                     print("Not containing JSON")
                     DispatchQueue.main.async {
                         self.showAlert(title: "Error", message: "ocurrio un error al procesar la respuesta del servidor");
@@ -146,8 +148,42 @@ class LoginViewController: UIViewController {
                 }
                 
                 
-                print("update UI using the response here")
-                print (json)
+                /*guard let userResponse: UserResponse = try! JSONDecoder().decode(UserResponse.self, from: json) else {
+                     //guard    let json = try JSONDecoder().decode(DemoData.self, from: jsonData)
+                     print("Not containing JSON")
+                     DispatchQueue.main.async {
+                         self.showAlert(title: "Error", message: "ocurrio un error al procesar la respuesta del servidor");
+                         self.loginButton.isEnabled = true
+                     }
+                     //throw AppError.invalidJsonResponse
+                     return
+                 }*/
+                
+                
+               
+                
+                
+                let user = json["user"] as? [String:Any]
+                
+                let appToken =  user?["app_token"]
+                let email =  user?["email"]
+                let firstName =  user?["first_name"]
+                //let firstName =  user?["iis_role"]
+                let lastName =  user?["last_name"]
+                let picture =  user?["picture_url"]
+                let rfc =  user?["rfc"]
+                let userType =  user?["user_type"]
+                
+                let defaults = UserDefaults.standard
+                defaults.set(appToken!, forKey: "app_token")
+                defaults.set(email!, forKey: "email")
+                defaults.set(firstName!, forKey: "first_name")
+                //defaults.set( forKey: "iis_role")
+                defaults.set(lastName!, forKey: "last_name")
+                defaults.set(picture!, forKey: "picture_url")
+                defaults.set(rfc!, forKey: "rfc")
+                defaults.set(userType!, forKey: "user_type")
+                
                 DispatchQueue.main.async {
                    // self.loginButton.isEnabled = true
                 }
