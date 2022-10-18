@@ -136,6 +136,7 @@ class LoginViewController: UIViewController {
                 let userType =  user?["user_type"]
                 
                 let defaults = UserDefaults.standard
+                defaults.set(true, forKey: "loggedIn")
                 defaults.set(appToken!, forKey: "app_token")
                 defaults.set(email!, forKey: "email")
                 defaults.set(firstName!, forKey: "first_name")
@@ -148,7 +149,10 @@ class LoginViewController: UIViewController {
                 DispatchQueue.main.async {
                    // self.loginButton.isEnabled = true
                     self.hideSpinner()
-                    self.performSegue(withIdentifier: "loginToMainSegue", sender: Self.self)
+                    //self.performSegue(withIdentifier: "loginToMainSegue", sender: Self.self)
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
+                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
                 }
                 
                
@@ -162,6 +166,7 @@ class LoginViewController: UIViewController {
         } catch let validationError as ValidationError {
             showAlert(title: "Error", message: validationError.message)
             self.loginButton.isEnabled = true
+            self.hideSpinner()
         }
         
         /*catch let appError as AppError {
@@ -177,11 +182,13 @@ class LoginViewController: UIViewController {
     
     private func showSpinner() {
         activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
         loadingView.isHidden = false
     }
 
     private func hideSpinner() {
         activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
         loadingView.isHidden = true
     }
     

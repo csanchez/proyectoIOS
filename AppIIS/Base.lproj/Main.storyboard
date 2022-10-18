@@ -47,7 +47,7 @@
         <!--Login View Controller-->
         <scene sceneID="hr8-Gj-4rt">
             <objects>
-                <viewController id="TaH-7L-DAW" customClass="LoginViewController" customModule="AppIIS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginNavigationController" id="TaH-7L-DAW" customClass="LoginViewController" customModule="AppIIS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HxV-tF-mg4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -77,39 +77,35 @@
                                     <constraint firstAttribute="height" constant="275" id="ack-Hk-Mxx"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jpk-j8-Bsd">
-                                <rect key="frame" x="137.5" y="273.5" width="100" height="100"/>
-                                <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="mPv-lb-UiF">
-                                        <rect key="frame" x="31.5" y="31.5" width="37" height="37"/>
-                                        <color key="color" systemColor="systemRedColor"/>
-                                    </activityIndicatorView>
-                                </subviews>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jpk-j8-Bsd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="ETw-TL-YaD"/>
-                                    <constraint firstItem="mPv-lb-UiF" firstAttribute="centerY" secondItem="jpk-j8-Bsd" secondAttribute="centerY" id="JVb-NW-0Sd"/>
-                                    <constraint firstItem="mPv-lb-UiF" firstAttribute="centerX" secondItem="jpk-j8-Bsd" secondAttribute="centerX" id="c73-kn-EBn"/>
-                                    <constraint firstAttribute="width" constant="100" id="y72-w7-kCA"/>
-                                </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="mPv-lb-UiF">
+                                <rect key="frame" x="169" y="305" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eaO-6h-WWk"/>
                         <color key="backgroundColor" name="LaunchScreenBackground"/>
                         <constraints>
+                            <constraint firstItem="jpk-j8-Bsd" firstAttribute="trailing" secondItem="eaO-6h-WWk" secondAttribute="trailing" id="0Kt-sr-mcK"/>
                             <constraint firstItem="eaO-6h-WWk" firstAttribute="bottom" secondItem="huN-sT-yZY" secondAttribute="bottom" constant="50" id="470-gi-ZxR"/>
                             <constraint firstItem="eaO-6h-WWk" firstAttribute="trailing" secondItem="wEw-Bd-ZSd" secondAttribute="trailing" constant="30" id="4az-MH-8GN"/>
                             <constraint firstItem="KpK-ht-IvN" firstAttribute="top" secondItem="eaO-6h-WWk" secondAttribute="top" constant="80" id="57d-6r-ZEs"/>
+                            <constraint firstItem="mPv-lb-UiF" firstAttribute="centerY" secondItem="HxV-tF-mg4" secondAttribute="centerY" id="Apr-OX-fsF"/>
                             <constraint firstItem="mrS-LH-CCQ" firstAttribute="leading" secondItem="eaO-6h-WWk" secondAttribute="leading" constant="30" id="N26-yL-Aja"/>
                             <constraint firstItem="wEw-Bd-ZSd" firstAttribute="leading" secondItem="eaO-6h-WWk" secondAttribute="leading" constant="30" id="SFZ-TS-chu"/>
-                            <constraint firstItem="jpk-j8-Bsd" firstAttribute="centerX" secondItem="HxV-tF-mg4" secondAttribute="centerX" id="TUt-bN-6vL"/>
-                            <constraint firstItem="jpk-j8-Bsd" firstAttribute="centerY" secondItem="HxV-tF-mg4" secondAttribute="centerY" id="TWf-QU-2FV"/>
                             <constraint firstItem="huN-sT-yZY" firstAttribute="leading" secondItem="eaO-6h-WWk" secondAttribute="leading" constant="30" id="aV6-Hf-iNZ"/>
                             <constraint firstItem="mrS-LH-CCQ" firstAttribute="top" secondItem="wEw-Bd-ZSd" secondAttribute="bottom" constant="30" id="dYo-nv-mBb"/>
                             <constraint firstItem="huN-sT-yZY" firstAttribute="top" secondItem="mrS-LH-CCQ" secondAttribute="bottom" constant="30" id="gHH-bK-Vdz"/>
+                            <constraint firstItem="mPv-lb-UiF" firstAttribute="centerX" secondItem="HxV-tF-mg4" secondAttribute="centerX" id="i81-RX-NMO"/>
+                            <constraint firstItem="jpk-j8-Bsd" firstAttribute="top" secondItem="eaO-6h-WWk" secondAttribute="top" id="jsQ-au-VL5"/>
+                            <constraint firstItem="jpk-j8-Bsd" firstAttribute="bottom" secondItem="eaO-6h-WWk" secondAttribute="bottom" id="kEJ-5v-HJA"/>
+                            <constraint firstItem="jpk-j8-Bsd" firstAttribute="leading" secondItem="eaO-6h-WWk" secondAttribute="leading" id="lpq-FZ-jcY"/>
                             <constraint firstItem="KpK-ht-IvN" firstAttribute="centerX" secondItem="HxV-tF-mg4" secondAttribute="centerX" id="t2m-vb-g8B"/>
                             <constraint firstItem="eaO-6h-WWk" firstAttribute="trailing" secondItem="mrS-LH-CCQ" secondAttribute="trailing" constant="30" id="u8R-zC-ug2"/>
                             <constraint firstItem="eaO-6h-WWk" firstAttribute="trailing" secondItem="huN-sT-yZY" secondAttribute="trailing" constant="30" id="vXh-JM-E0D"/>
@@ -122,7 +118,6 @@
                         <outlet property="loginButton" destination="huN-sT-yZY" id="ZXT-oj-AcL"/>
                         <outlet property="passwordTextField" destination="mrS-LH-CCQ" id="bPI-aI-xES"/>
                         <outlet property="rfcTextField" destination="wEw-Bd-ZSd" id="ifu-br-dXN"/>
-                        <segue destination="e74-Kn-Yoh" kind="show" identifier="loginToMainSegue" id="T6q-sY-rKp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRq-aJ-zA6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -134,7 +129,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="AppIIS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="main view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGm-W8-3jZ">
@@ -163,7 +158,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="NVy-Fg-eS2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kTC-CW-MCW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -177,7 +172,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="xtx-9T-4Me">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="e74-Kn-Yoh" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="e74-Kn-Yoh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="dfi-Og-BJ7"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="06k-yh-RqX">
@@ -200,9 +195,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
