@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1801D53D28FF54FB00651F7A /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801D53C28FF54FB00651F7A /* NotificationsViewController.swift */; };
+		1801D53F28FF570300651F7A /* TramitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801D53E28FF570300651F7A /* TramitesViewController.swift */; };
+		1801D54128FF570F00651F7A /* SpacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801D54028FF570F00651F7A /* SpacesViewController.swift */; };
 		1863544928F8C3A2001D72D3 /* DeviceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1863544828F8C3A2001D72D3 /* DeviceKit */; };
 		1863544C28F8C56C001D72D3 /* ModelName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863544B28F8C56C001D72D3 /* ModelName.swift */; };
 		1866933028F7694A00463A81 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1866932F28F7694900463A81 /* Toast.swift */; };
@@ -48,6 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1801D53C28FF54FB00651F7A /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		1801D53E28FF570300651F7A /* TramitesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramitesViewController.swift; sourceTree = "<group>"; };
+		1801D54028FF570F00651F7A /* SpacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesViewController.swift; sourceTree = "<group>"; };
 		1863544B28F8C56C001D72D3 /* ModelName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelName.swift; sourceTree = "<group>"; };
 		1866932F28F7694900463A81 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		1876360828FDDAEF00C0E046 /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
@@ -191,6 +197,9 @@
 				18894B5F28F5FDC600C5EBEB /* MainViewController.swift */,
 				18894B8F28F605F400C5EBEB /* StartViewController.swift */,
 				18894B9128F6060B00C5EBEB /* LoginViewController.swift */,
+				1801D53C28FF54FB00651F7A /* NotificationsViewController.swift */,
+				1801D53E28FF570300651F7A /* TramitesViewController.swift */,
+				1801D54028FF570F00651F7A /* SpacesViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -339,10 +348,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1801D53D28FF54FB00651F7A /* NotificationsViewController.swift in Sources */,
 				18894B9228F6060B00C5EBEB /* LoginViewController.swift in Sources */,
 				18894B9028F605F400C5EBEB /* StartViewController.swift in Sources */,
 				1876360B28FDDB4E00C0E046 /* RFCValidator.swift in Sources */,
 				1876361228FDDE2200C0E046 /* PasswordValidator.swift in Sources */,
+				1801D54128FF570F00651F7A /* SpacesViewController.swift in Sources */,
 				18894B6028F5FDC600C5EBEB /* MainViewController.swift in Sources */,
 				1876361028FDDCBA00C0E046 /* UITextFieldValidation.swift in Sources */,
 				1876361428FDE31B00C0E046 /* AppError.swift in Sources */,
@@ -353,6 +364,7 @@
 				18894B5E28F5FDC600C5EBEB /* SceneDelegate.swift in Sources */,
 				1866933028F7694A00463A81 /* Toast.swift in Sources */,
 				1876360928FDDAF000C0E046 /* Validators.swift in Sources */,
+				1801D53F28FF570300651F7A /* TramitesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
