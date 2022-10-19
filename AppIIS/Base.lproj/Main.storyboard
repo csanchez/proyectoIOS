@@ -3,6 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -124,30 +125,56 @@
             </objects>
             <point key="canvasLocation" x="1046" y="663"/>
         </scene>
-        <!--Notifications View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Notifications Table View Controller-->
+        <scene sceneID="jh1-dW-Tsa">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="NotificationsViewController" customModule="AppIIS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <tableViewController id="p79-TI-Stx" customClass="NotificationsTableViewController" customModule="AppIIS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="5UX-wo-FJv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="main view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGm-W8-3jZ">
-                                <rect key="frame" x="190" y="379" width="76" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="See-bd-Bvo"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="sectionIndexBackgroundColor" name="AccentColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notificationCell" textLabel="1qL-oG-B7Q" detailTextLabel="jPH-NP-fQO" imageView="rUT-bK-hod" style="IBUITableViewCellStyleSubtitle" id="FWK-vD-RRk">
+                                <rect key="frame" x="0.0" y="50" width="375" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FWK-vD-RRk" id="2cG-ya-ZdD">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Fecha                           sender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1qL-oG-B7Q">
+                                            <rect key="frame" x="55" y="6" width="164.5" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rUT-bK-hod">
+                                            <rect key="frame" x="16" y="7" width="24" height="28"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="large"/>
+                                        </imageView>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Este es el titulo de la notificacion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jPH-NP-fQO">
+                                            <rect key="frame" x="55" y="22.5" width="186.5" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="p79-TI-Stx" id="Aop-aO-yc3"/>
+                            <outlet property="delegate" destination="p79-TI-Stx" id="GXt-ob-3AO"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="UDS-Rx-2LZ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bhP-Vm-Njr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4844" y="-250.52473763118442"/>
+            <point key="canvasLocation" x="4844" y="-287"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="BUU-W8-7GF">
@@ -162,7 +189,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PgI-cD-ig4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6063" y="-251"/>
+            <point key="canvasLocation" x="6135" y="-287"/>
         </scene>
         <!--Tramites View Controller-->
         <scene sceneID="hM1-Ro-fZT">
@@ -196,26 +223,6 @@
             </objects>
             <point key="canvasLocation" x="4844" y="1245"/>
         </scene>
-        <!--Notificaciones-->
-        <scene sceneID="GrR-sX-Db2">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="brq-qZ-CnD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DFA-JP-52A" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notificaciones" id="IGQ-2j-Qh8"/>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="NVy-Fg-eS2"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kTC-CW-MCW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Xby-k3-AUd"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="3743.1999999999998" y="-250.52473763118442"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xtx-9T-4Me">
             <objects>
@@ -223,11 +230,12 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="dfi-Og-BJ7"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="06k-yh-RqX">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="DFA-JP-52A" kind="relationship" relationship="viewControllers" id="qNV-j8-Mbk"/>
+                        <segue destination="F8b-xT-2we" kind="relationship" relationship="viewControllers" id="pbk-7p-nXR"/>
                         <segue destination="Hsm-Ui-GRq" kind="relationship" relationship="viewControllers" id="Inu-oR-mdu"/>
                         <segue destination="Pks-A6-QK6" kind="relationship" relationship="viewControllers" id="71B-Da-7yi"/>
                     </connections>
@@ -274,9 +282,32 @@
             </objects>
             <point key="canvasLocation" x="3742" y="1245"/>
         </scene>
+        <!--Notificaciones-->
+        <scene sceneID="f3Y-ma-Eqf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F8b-xT-2we" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Notificaciones" id="PRm-s1-4oY"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lbg-Nq-XkK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="p79-TI-Stx" kind="relationship" relationship="rootViewController" id="CCc-zN-fwF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1If-dy-jV7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3742" y="-287"/>
+        </scene>
     </scenes>
     <resources>
         <image name="logo_iis_vertical_dorado_y_negro" width="202.5" height="325"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="LaunchScreenBackground">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
