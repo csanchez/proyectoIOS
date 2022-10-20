@@ -3,4 +3,114 @@
    uuid = "5CD29805-EBDF-43C0-BA69-EF6E19050408"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CF305412-8156-4D58-A201-84F63F7763B0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppIIS/controllers/NotificationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "NotificationViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "CF305412-8156-4D58-A201-84F63F7763B0 - d38c47a470a4d8aa"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppIIS.NotificationViewController.senderLabel.getter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "AppIIS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tecnologias/XCodeProjects/AppIIS/AppIIS/controllers/NotificationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "94">
+               </Location>
+               <Location
+                  uuid = "CF305412-8156-4D58-A201-84F63F7763B0 - 7301316af8ce649e"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppIIS.NotificationViewController.senderLabel.setter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "AppIIS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tecnologias/XCodeProjects/AppIIS/AppIIS/controllers/NotificationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  uuid = "CF305412-8156-4D58-A201-84F63F7763B0 - c8ec34e2a0ee63af"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppIIS.NotificationViewController.senderLabel.modify : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "AppIIS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tecnologias/XCodeProjects/AppIIS/AppIIS/controllers/NotificationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "CF305412-8156-4D58-A201-84F63F7763B0 - 6d212ac5830e25bd"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppIIS.NotificationViewController.senderLabel.modify : Swift.Optional&lt;__C.UILabel&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "AppIIS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tecnologias/XCodeProjects/AppIIS/AppIIS/controllers/NotificationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "15">
+               </Location>
+               <Location
+                  uuid = "CF305412-8156-4D58-A201-84F63F7763B0 - a69b2c57fef1ced1"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppIIS.NotificationViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; AppIIS.NotificationViewController"
+                  moduleName = "AppIIS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tecnologias/XCodeProjects/AppIIS/AppIIS/controllers/NotificationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "438">
+               </Location>
+               <Location
+                  uuid = "CF305412-8156-4D58-A201-84F63F7763B0 - 4fbf9bec26395098"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppIIS.NotificationViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;AppIIS.NotificationViewController&gt;"
+                  moduleName = "AppIIS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tecnologias/XCodeProjects/AppIIS/AppIIS/controllers/NotificationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "395">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -10,9 +10,29 @@ import UIKit
 class NotificationViewController: UIViewController {
     
     var notification: IisNotification?
-
+    
+    @IBOutlet var initialsView: UIView!
+    @IBOutlet var senderLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var initialsLabel: UILabel!
+    @IBOutlet var messageLabel: UILabel!
+    @IBOutlet var titleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.initialsView.layer.cornerRadius = 50
+        self.initialsView.layer.masksToBounds = true
+        
+        self.senderLabel.text = self.notification?.sender
+        self.dateLabel.text = self.notification?.createdAt
+        self.initialsLabel.text = self.notification?.originInitials
+        self.messageLabel.text = self.notification?.message
+        self.titleLabel.text = self.notification?.title
+        
+      //  [self.messageLabel sizeToFit];
+        self.messageLabel.numberOfLines = 0;
+
 
         // Do any additional setup after loading the view.
     }
