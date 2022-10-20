@@ -10,7 +10,12 @@ import UIKit
 class NotificationsTableViewController: UITableViewController {
     
     
+    
+    
+    @IBOutlet var notificationTable: UITableView!
+    
     var activityIndicator = UIActivityIndicatorView()
+    var notifications: [IisNotification] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,12 +64,6 @@ class NotificationsTableViewController: UITableViewController {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer \(authToken!)", forHTTPHeaderField: "Authorization")
         
-        
-       /* let session: () = URLSession.shared.dataTask(with: request) { result in
-            handler(result.decode())
-        }*/
-        
-        
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             
             if let httpResponse = response as? HTTPURLResponse {
@@ -77,13 +76,11 @@ class NotificationsTableViewController: UITableViewController {
                     self.hideActivityIndicator()
                     return
                 }
-                    
             }
             
             // ensure there is no error for this HTTP response
             guard error == nil else {
-                print ("error: \(error!)")
-
+                print ( "error: \(error!)" )
                 self.showAlert(title: "Error", message: "ocurrio un error desconocido")
                 return
             }
@@ -95,40 +92,61 @@ class NotificationsTableViewController: UITableViewController {
                 return
             }
             
-            
-            guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
-                 print("Not containing JSON")
-                 return
-             }
-            
-            print(json)
-            
             do {
-                let res = try JSONDecoder().decode(NotificationsResponse.self, from: content)
-                
-                
-                print(res)
+                let notificationsResponse = try JSONDecoder().decode(NotificationsResponse.self, from: content)
+                print(notificationsResponse)
+                self.notifications = notificationsResponse.notifications
+                DispatchQueue.main.async {
+                    self.notificationTable.reloadData()
+                }
+                self.hideActivityIndicator()
             } catch let error2 {
                 print(error2)
                 self.showAlert(title:"Error", message:"ocurrio un error al procesar la respuesta del servidor")
             }
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-           
         }
-        
-        //self.view.makeToast("This is a piece of toast")
-        // execute the HTTP request
+
         task.resume()
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            let destination = segue.destination as! PokemonInfoViewController
+            destination.receivedPokemon = pokemonSelected
+    }
+    
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        print(self.notifications.count)
+        return self.notifications.count
+    }
+
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "notificationCell", for: indexPath) as! NotificationCell
+        cell.initialsLabel?.text = self.notifications[indexPath.row].originInitials
+        cell.senderLabel?.text = self.notifications[indexPath.row].sender
+        cell.titleLabel?.text = self.notifications[indexPath.row].title
+        cell.dateLabel?.text = self.notifications[indexPath.row].createdAt
+        
+        if self.notifications[indexPath.row].status == "unseen"{
+            cell.makeBoldLabels()
+        }
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            pokemonSelected = manager.pokemonAtIndex(index: indexPath.row)
+            self.performSegue(withIdentifier: "showNotificationDetail", sender: Self.self)
+        }
+    
+    
 
 }

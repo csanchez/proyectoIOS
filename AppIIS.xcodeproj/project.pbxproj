@@ -36,6 +36,7 @@
 		18894B8228F5FDE600C5EBEB /* AppIISUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18894B8128F5FDE600C5EBEB /* AppIISUITestsLaunchTests.swift */; };
 		18894B9028F605F400C5EBEB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18894B8F28F605F400C5EBEB /* StartViewController.swift */; };
 		18894B9228F6060B00C5EBEB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18894B9128F6060B00C5EBEB /* LoginViewController.swift */; };
+		18AC6F442901CE1800E9FDEB /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AC6F432901CE1700E9FDEB /* NotificationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		18894B8128F5FDE600C5EBEB /* AppIISUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIISUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		18894B8F28F605F400C5EBEB /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		18894B9128F6060B00C5EBEB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		18AC6F432901CE1700E9FDEB /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 				1801D53E28FF570300651F7A /* TramitesViewController.swift */,
 				1801D54028FF570F00651F7A /* SpacesViewController.swift */,
 				1801D54228FF647F00651F7A /* NotificationsTableViewController.swift */,
+				18AC6F432901CE1700E9FDEB /* NotificationViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				1876361228FDDE2200C0E046 /* PasswordValidator.swift in Sources */,
 				184091BC29008F29007FA886 /* IisNotification.swift in Sources */,
 				1801D54128FF570F00651F7A /* SpacesViewController.swift in Sources */,
+				18AC6F442901CE1800E9FDEB /* NotificationViewController.swift in Sources */,
 				18894B6028F5FDC600C5EBEB /* MainViewController.swift in Sources */,
 				1876361028FDDCBA00C0E046 /* UITextFieldValidation.swift in Sources */,
 				1876361428FDE31B00C0E046 /* AppError.swift in Sources */,
