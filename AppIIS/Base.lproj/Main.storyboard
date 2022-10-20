@@ -124,74 +124,74 @@
             </objects>
             <point key="canvasLocation" x="1046" y="663"/>
         </scene>
-        <!--Notifications Table View Controller-->
+        <!--Notificaciones-->
         <scene sceneID="jh1-dW-Tsa">
             <objects>
                 <tableViewController id="p79-TI-Stx" customClass="NotificationsTableViewController" customModule="AppIIS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="5UX-wo-FJv">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="5UX-wo-FJv">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="sectionIndexBackgroundColor" name="AccentColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notificationCell" id="FWK-vD-RRk" customClass="NotificationCell" customModule="AppIIS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="430" height="50.333332061767578"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notificationCell" rowHeight="50" id="FWK-vD-RRk" customClass="NotificationCell" customModule="AppIIS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="430" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FWK-vD-RRk" id="2cG-ya-ZdD">
-                                    <rect key="frame" x="0.0" y="0.0" width="430" height="50.333332061767578"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="430" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XUb-Wk-VYz">
-                                            <rect key="frame" x="10" y="9.9999999999999982" width="30" height="30.333333333333329"/>
+                                            <rect key="frame" x="5" y="10" width="30" height="30"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYD-ph-UvS">
-                                                    <rect key="frame" x="2" y="8" width="26.333333333333332" height="14.333333333333336"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <rect key="frame" x="4" y="9" width="22.333333333333332" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBrownColor"/>
                                             <constraints>
-                                                <constraint firstItem="XYD-ph-UvS" firstAttribute="centerX" secondItem="XUb-Wk-VYz" secondAttribute="centerX" id="Ewr-gr-xpc"/>
-                                                <constraint firstAttribute="width" constant="30" id="cXU-nJ-tzp"/>
-                                                <constraint firstItem="XYD-ph-UvS" firstAttribute="centerY" secondItem="XUb-Wk-VYz" secondAttribute="centerY" id="iyF-Sv-KnP"/>
-                                                <constraint firstAttribute="height" constant="30" id="ojS-Zz-sbe"/>
+                                                <constraint firstItem="XYD-ph-UvS" firstAttribute="centerX" secondItem="XUb-Wk-VYz" secondAttribute="centerX" id="Mai-uI-emd"/>
+                                                <constraint firstItem="XYD-ph-UvS" firstAttribute="centerY" secondItem="XUb-Wk-VYz" secondAttribute="centerY" id="otN-DX-1bq"/>
+                                                <constraint firstAttribute="height" constant="30" id="rOz-Dm-sgo"/>
+                                                <constraint firstAttribute="width" constant="30" id="uLk-sm-MHN"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K44-VX-M2E">
-                                            <rect key="frame" x="50" y="10" width="310" height="13.333333333333336"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roE-ZX-deq">
-                                            <rect key="frame" x="50" y="28.333333333333332" width="350" height="14.333333333333332"/>
+                                            <rect key="frame" x="40" y="10" width="31" height="13.333333333333336"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2yb-A4-4dE">
                                             <rect key="frame" x="365" y="10" width="60" height="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="BgK-uG-52n"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roE-ZX-deq">
+                                            <rect key="frame" x="40" y="25.666666666666668" width="31" height="14.333333333333332"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="XUb-Wk-VYz" firstAttribute="centerY" secondItem="2cG-ya-ZdD" secondAttribute="centerY" id="5fn-Zf-7U9"/>
-                                        <constraint firstAttribute="trailing" secondItem="roE-ZX-deq" secondAttribute="trailing" constant="30" id="DOz-bh-fAe"/>
-                                        <constraint firstAttribute="trailing" secondItem="K44-VX-M2E" secondAttribute="trailing" constant="70" id="MGa-QE-CDQ"/>
-                                        <constraint firstItem="roE-ZX-deq" firstAttribute="top" secondItem="K44-VX-M2E" secondAttribute="bottom" constant="5" id="MIw-LT-RjQ"/>
-                                        <constraint firstItem="2yb-A4-4dE" firstAttribute="leading" secondItem="K44-VX-M2E" secondAttribute="trailing" constant="5" id="PAV-vy-T8B"/>
-                                        <constraint firstItem="roE-ZX-deq" firstAttribute="leading" secondItem="XUb-Wk-VYz" secondAttribute="trailing" constant="10" id="XaI-47-JYz"/>
-                                        <constraint firstAttribute="trailing" secondItem="2yb-A4-4dE" secondAttribute="trailing" constant="5" id="YDP-Yy-Lrm"/>
-                                        <constraint firstItem="2yb-A4-4dE" firstAttribute="top" secondItem="2cG-ya-ZdD" secondAttribute="top" constant="10" id="ccd-lw-ALW"/>
-                                        <constraint firstAttribute="bottom" secondItem="XUb-Wk-VYz" secondAttribute="bottom" constant="10" id="nFu-tf-0PT"/>
-                                        <constraint firstItem="K44-VX-M2E" firstAttribute="leading" secondItem="XUb-Wk-VYz" secondAttribute="trailing" constant="10" id="nbf-my-1Vc"/>
-                                        <constraint firstItem="K44-VX-M2E" firstAttribute="top" secondItem="2cG-ya-ZdD" secondAttribute="top" constant="10" id="pDE-m4-tPL"/>
-                                        <constraint firstItem="XUb-Wk-VYz" firstAttribute="top" secondItem="2cG-ya-ZdD" secondAttribute="top" constant="10" id="yWx-vc-ecs"/>
-                                        <constraint firstItem="XUb-Wk-VYz" firstAttribute="leading" secondItem="2cG-ya-ZdD" secondAttribute="leading" constant="10" id="zP7-KJ-IdR"/>
+                                        <constraint firstItem="XUb-Wk-VYz" firstAttribute="centerY" secondItem="2cG-ya-ZdD" secondAttribute="centerY" id="906-pm-dwP"/>
+                                        <constraint firstAttribute="trailing" secondItem="2yb-A4-4dE" secondAttribute="trailing" constant="5" id="BUU-rO-y3s"/>
+                                        <constraint firstItem="roE-ZX-deq" firstAttribute="leading" secondItem="XUb-Wk-VYz" secondAttribute="trailing" constant="5" id="Xxg-6H-AXg"/>
+                                        <constraint firstItem="XUb-Wk-VYz" firstAttribute="leading" secondItem="2cG-ya-ZdD" secondAttribute="leading" constant="5" id="bjz-xJ-cK4"/>
+                                        <constraint firstAttribute="bottom" secondItem="XUb-Wk-VYz" secondAttribute="bottom" constant="10" id="hZj-HZ-gfF"/>
+                                        <constraint firstAttribute="bottom" secondItem="roE-ZX-deq" secondAttribute="bottom" constant="10" id="lqU-Xk-bYN"/>
+                                        <constraint firstItem="XUb-Wk-VYz" firstAttribute="top" secondItem="2cG-ya-ZdD" secondAttribute="top" constant="10" id="nvo-c3-VgI"/>
+                                        <constraint firstItem="K44-VX-M2E" firstAttribute="top" secondItem="2cG-ya-ZdD" secondAttribute="top" constant="10" id="oeg-IT-dpI"/>
+                                        <constraint firstItem="K44-VX-M2E" firstAttribute="leading" secondItem="XUb-Wk-VYz" secondAttribute="trailing" constant="5" id="uy1-lI-bZ8"/>
+                                        <constraint firstItem="2yb-A4-4dE" firstAttribute="top" secondItem="2cG-ya-ZdD" secondAttribute="top" constant="10" id="ynP-nU-8qN"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -208,26 +208,27 @@
                             <outlet property="delegate" destination="p79-TI-Stx" id="GXt-ob-3AO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="UDS-Rx-2LZ"/>
+                    <navigationItem key="navigationItem" title="Notificaciones" id="UDS-Rx-2LZ"/>
                     <connections>
                         <outlet property="notificationTable" destination="5UX-wo-FJv" id="1y0-Ip-IDe"/>
-                        <segue destination="DKM-Ve-MeR" kind="presentation" identifier="showNotificationDetail" id="ZGT-uW-zWa"/>
+                        <segue destination="DKM-Ve-MeR" kind="show" identifier="showNotificationDetail" id="ScU-qn-KMy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bhP-Vm-Njr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4967" y="-294"/>
+            <point key="canvasLocation" x="4964.6511627906975" y="-294.20600858369102"/>
         </scene>
-        <!--View Controller-->
+        <!--Notification View Controller-->
         <scene sceneID="BUU-W8-7GF">
             <objects>
-                <viewController id="DKM-Ve-MeR" sceneMemberID="viewController">
+                <viewController id="DKM-Ve-MeR" customClass="NotificationViewController" customModule="AppIIS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vUm-C6-jjh">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="863"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Ng4-4U-hVb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="xnD-ZJ-aV3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PgI-cD-ig4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,7 +9,7 @@ import UIKit
 
 class NotificationViewController: UIViewController {
     
-    var notification: Pokemon?
+    var notification: IisNotification?
 
     override func viewDidLoad() {
         super.viewDidLoad()

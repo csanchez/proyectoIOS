@@ -16,6 +16,7 @@ class NotificationsTableViewController: UITableViewController {
     
     var activityIndicator = UIActivityIndicatorView()
     var notifications: [IisNotification] = []
+    var notificationSelected: IisNotification?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,8 +68,6 @@ class NotificationsTableViewController: UITableViewController {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             
             if let httpResponse = response as? HTTPURLResponse {
-                print(httpResponse)
-                print("status",httpResponse.statusCode)
                 if httpResponse.statusCode == 401 {
                     self.showAlert(title: "No se puede acceder", message: "Tu sesión ha expirado.")
                     let defaults = UserDefaults.standard
@@ -80,28 +79,24 @@ class NotificationsTableViewController: UITableViewController {
             
             // ensure there is no error for this HTTP response
             guard error == nil else {
-                print ( "error: \(error!)" )
                 self.showAlert(title: "Error", message: "ocurrio un error desconocido")
                 return
             }
             
             // ensure there is data returned from this HTTP response
             guard let content = data else {
-                print("No data")
                 self.showAlert(title: "Error", message: "No hay datos en la respuesta")
                 return
             }
             
             do {
                 let notificationsResponse = try JSONDecoder().decode(NotificationsResponse.self, from: content)
-                print(notificationsResponse)
                 self.notifications = notificationsResponse.notifications
                 DispatchQueue.main.async {
                     self.notificationTable.reloadData()
                 }
                 self.hideActivityIndicator()
-            } catch let error2 {
-                print(error2)
+            } catch _ {
                 self.showAlert(title:"Error", message:"ocurrio un error al procesar la respuesta del servidor")
             }
         }
@@ -110,10 +105,7 @@ class NotificationsTableViewController: UITableViewController {
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            let destination = segue.destination as! PokemonInfoViewController
-            destination.receivedPokemon = pokemonSelected
-    }
+   
     
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -142,10 +134,16 @@ class NotificationsTableViewController: UITableViewController {
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            pokemonSelected = manager.pokemonAtIndex(index: indexPath.row)
-            self.performSegue(withIdentifier: "showNotificationDetail", sender: Self.self)
-        }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.notificationSelected = self.notifications[indexPath.row]
+        self.performSegue(withIdentifier: "showNotificationDetail", sender: Self.self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print(segue.destination)
+        let destination = segue.destination as! NotificationViewController
+        destination.notification = self.notificationSelected
+    }
     
     
 
