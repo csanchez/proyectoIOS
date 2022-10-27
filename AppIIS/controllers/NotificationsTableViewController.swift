@@ -36,11 +36,7 @@ class NotificationsTableViewController: UITableViewController {
             
         }*/
         //indicator.color = UIColor .magentaColor()
-        activityIndicator.frame = CGRectMake(0.0, 0.0, 10.0, 10.0)
-        activityIndicator.center = self.view.center
-        self.view.addSubview(activityIndicator)
-        activityIndicator.bringSubviewToFront(self.view)
-        activityIndicator.startAnimating()
+        setupActivityIndicator()
         loadData()
     }
 
@@ -50,6 +46,14 @@ class NotificationsTableViewController: UITableViewController {
             self.activityIndicator.hidesWhenStopped = true
         }
 
+    }
+    
+    private func setupActivityIndicator(){
+        activityIndicator.frame = CGRectMake(0.0, 0.0, 10.0, 10.0)
+        activityIndicator.center = self.view.center
+        self.view.addSubview(activityIndicator)
+        activityIndicator.bringSubviewToFront(self.view)
+        activityIndicator.startAnimating()
     }
     
     

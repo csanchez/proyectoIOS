@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1800D0FF290B0D2D00845D00 /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800D0FE290B0D2D00845D00 /* SideMenuCell.swift */; };
+		1800D101290B0E0200845D00 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800D100290B0E0200845D00 /* SideMenuViewController.swift */; };
+		1800D103290B126300845D00 /* SideMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800D102290B126300845D00 /* SideMenuModel.swift */; };
 		1801D53F28FF570300651F7A /* TramitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801D53E28FF570300651F7A /* TramitesViewController.swift */; };
 		1801D54128FF570F00651F7A /* SpacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801D54028FF570F00651F7A /* SpacesViewController.swift */; };
 		1801D54328FF647F00651F7A /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801D54228FF647F00651F7A /* NotificationsTableViewController.swift */; };
@@ -15,6 +18,9 @@
 		184091BE29009122007FA886 /* TableViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184091BD29009122007FA886 /* TableViewControllerExtension.swift */; };
 		184091C3290093B3007FA886 /* NotificationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184091C2290093B3007FA886 /* NotificationsResponse.swift */; };
 		184091C529009AD1007FA886 /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184091C429009AD1007FA886 /* URLSessionExtension.swift */; };
+		184C217E2909E2C500C7E44D /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184C217D2909E2C400C7E44D /* ActivityIndicator.swift */; };
+		184C21802909E9FE00C7E44D /* ReservationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184C217F2909E9FE00C7E44D /* ReservationResponse.swift */; };
+		184C21822909EA3300C7E44D /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184C21812909EA3300C7E44D /* Reservation.swift */; };
 		1863544928F8C3A2001D72D3 /* DeviceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1863544828F8C3A2001D72D3 /* DeviceKit */; };
 		1863544C28F8C56C001D72D3 /* ModelName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863544B28F8C56C001D72D3 /* ModelName.swift */; };
 		1866933028F7694A00463A81 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1866932F28F7694900463A81 /* Toast.swift */; };
@@ -57,6 +63,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1800D0FE290B0D2D00845D00 /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
+		1800D100290B0E0200845D00 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		1800D102290B126300845D00 /* SideMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuModel.swift; sourceTree = "<group>"; };
 		1801D53E28FF570300651F7A /* TramitesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramitesViewController.swift; sourceTree = "<group>"; };
 		1801D54028FF570F00651F7A /* SpacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesViewController.swift; sourceTree = "<group>"; };
 		1801D54228FF647F00651F7A /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +74,9 @@
 		184091BD29009122007FA886 /* TableViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerExtension.swift; sourceTree = "<group>"; };
 		184091C2290093B3007FA886 /* NotificationsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsResponse.swift; sourceTree = "<group>"; };
 		184091C429009AD1007FA886 /* URLSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtension.swift; sourceTree = "<group>"; };
+		184C217D2909E2C400C7E44D /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		184C217F2909E9FE00C7E44D /* ReservationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationResponse.swift; sourceTree = "<group>"; };
+		184C21812909EA3300C7E44D /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 		1863544B28F8C56C001D72D3 /* ModelName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelName.swift; sourceTree = "<group>"; };
 		1866932F28F7694900463A81 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		1876360828FDDAEF00C0E046 /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
@@ -122,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				184091C2290093B3007FA886 /* NotificationsResponse.swift */,
+				184C217F2909E9FE00C7E44D /* ReservationResponse.swift */,
 			);
 			path = Reponse;
 			sourceTree = "<group>";
@@ -136,6 +149,7 @@
 				1876361128FDDE2200C0E046 /* PasswordValidator.swift */,
 				1876361328FDE31B00C0E046 /* AppError.swift */,
 				184091C429009AD1007FA886 /* URLSessionExtension.swift */,
+				1800D102290B126300845D00 /* SideMenuModel.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -145,6 +159,7 @@
 			children = (
 				1876360E28FDDCA700C0E046 /* extensions */,
 				1833901C290064CD00EC0C05 /* NotificationCell.swift */,
+				1800D0FE290B0D2D00845D00 /* SideMenuCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -155,6 +170,7 @@
 				1866932F28F7694900463A81 /* Toast.swift */,
 				1876360F28FDDCBA00C0E046 /* UITextFieldValidation.swift */,
 				184091BD29009122007FA886 /* TableViewControllerExtension.swift */,
+				184C217D2909E2C400C7E44D /* ActivityIndicator.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -224,6 +240,7 @@
 				1801D54028FF570F00651F7A /* SpacesViewController.swift */,
 				1801D54228FF647F00651F7A /* NotificationsTableViewController.swift */,
 				18AC6F432901CE1700E9FDEB /* NotificationViewController.swift */,
+				1800D100290B0E0200845D00 /* SideMenuViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -233,6 +250,7 @@
 			children = (
 				184091C12900939F007FA886 /* Reponse */,
 				184091BB29008F29007FA886 /* IisNotification.swift */,
+				184C21812909EA3300C7E44D /* Reservation.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -378,14 +396,19 @@
 				18894B9028F605F400C5EBEB /* StartViewController.swift in Sources */,
 				1876360B28FDDB4E00C0E046 /* RFCValidator.swift in Sources */,
 				1876361228FDDE2200C0E046 /* PasswordValidator.swift in Sources */,
+				1800D101290B0E0200845D00 /* SideMenuViewController.swift in Sources */,
+				184C217E2909E2C500C7E44D /* ActivityIndicator.swift in Sources */,
 				184091BC29008F29007FA886 /* IisNotification.swift in Sources */,
 				1801D54128FF570F00651F7A /* SpacesViewController.swift in Sources */,
+				184C21802909E9FE00C7E44D /* ReservationResponse.swift in Sources */,
 				18AC6F442901CE1800E9FDEB /* NotificationViewController.swift in Sources */,
 				18894B6028F5FDC600C5EBEB /* MainViewController.swift in Sources */,
 				1876361028FDDCBA00C0E046 /* UITextFieldValidation.swift in Sources */,
 				1876361428FDE31B00C0E046 /* AppError.swift in Sources */,
 				184091BE29009122007FA886 /* TableViewControllerExtension.swift in Sources */,
 				184091C529009AD1007FA886 /* URLSessionExtension.swift in Sources */,
+				1800D0FF290B0D2D00845D00 /* SideMenuCell.swift in Sources */,
+				1800D103290B126300845D00 /* SideMenuModel.swift in Sources */,
 				18894B6628F5FDC600C5EBEB /* AppIIS.xcdatamodeld in Sources */,
 				1863544C28F8C56C001D72D3 /* ModelName.swift in Sources */,
 				1833901D290064CD00EC0C05 /* NotificationCell.swift in Sources */,
@@ -394,6 +417,7 @@
 				1876360D28FDDC7E00C0E046 /* ValidationError.swift in Sources */,
 				184091C3290093B3007FA886 /* NotificationsResponse.swift in Sources */,
 				18894B5E28F5FDC600C5EBEB /* SceneDelegate.swift in Sources */,
+				184C21822909EA3300C7E44D /* Reservation.swift in Sources */,
 				1866933028F7694A00463A81 /* Toast.swift in Sources */,
 				1876360928FDDAF000C0E046 /* Validators.swift in Sources */,
 				1801D53F28FF570300651F7A /* TramitesViewController.swift in Sources */,

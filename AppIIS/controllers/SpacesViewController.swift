@@ -11,15 +11,26 @@ class SpacesViewController: UIViewController {
     
     
     @IBOutlet var calendarContentView: UIView!
+    var activityIndicator = UIActivityIndicatorView()
+    var reservations: [Reservation] = []
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupCalendarView()
-
+        setupActivityIndicator()
+        loadData()
 
         // Do any additional setup after loading the view.
+    }
+    
+    private func setupActivityIndicator(){
+        activityIndicator.frame = CGRectMake(0.0, 0.0, 10.0, 10.0)
+        activityIndicator.center = self.view.center
+        self.view.addSubview(activityIndicator)
+        activityIndicator.bringSubviewToFront(self.view)
+        activityIndicator.startAnimating()
     }
     
 
@@ -32,6 +43,14 @@ class SpacesViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    private func hideActivityIndicator() {
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.hidesWhenStopped = true
+        }
+
+    }
     
     
     private func setupCalendarView() {
@@ -68,6 +87,57 @@ class SpacesViewController: UIViewController {
         calendarView.selectionBehavior = selection
 
         }
+    
+    private func loadData(){
+        let url = URL(string: "https://notificaciones.sociales.unam.mx/api/app/reservations/")!
+        var request = URLRequest(url: url)
+        let defaults = UserDefaults.standard
+        let authToken =  defaults.string(forKey: "app_token")
+        
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(authToken!)", forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                if httpResponse.statusCode == 401 {
+                    self.showAlert(title: "No se puede acceder", message: "Tu sesión ha expirado.")
+                    let defaults = UserDefaults.standard
+                    defaults.set(false, forKey: "loggedIn")
+                    self.hideActivityIndicator()
+                    return
+                }
+            }
+            
+            // ensure there is no error for this HTTP response
+            guard error == nil else {
+                self.showAlert(title: "Error", message: "ocurrio un error desconocido")
+                return
+            }
+            
+            // ensure there is data returned from this HTTP response
+            guard let content = data else {
+                self.showAlert(title: "Error", message: "No hay datos en la respuesta")
+                return
+            }
+            
+            do {
+                let reservationsResponse = try JSONDecoder().decode(ReservationResponse.self, from: content)
+                self.reservations = reservationsResponse.reservations
+                print(self.reservations)
+                /*DispatchQueue.main.async {
+                    self.reservations.reloadData()
+                }*/
+                self.hideActivityIndicator()
+            } catch _ {
+                self.showAlert(title:"Error", message:"ocurrio un error al procesar la respuesta del servidor")
+            }
+        }
+
+        task.resume()
+        
+    }
 
 }
 

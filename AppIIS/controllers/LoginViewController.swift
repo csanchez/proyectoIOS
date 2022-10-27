@@ -151,7 +151,7 @@ class LoginViewController: UIViewController {
                     self.hideSpinner()
                     //self.performSegue(withIdentifier: "loginToMainSegue", sender: Self.self)
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
+                    let mainTabBarController = storyboard.instantiateViewController(identifier: "MainController")
                     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
                 }
                 
