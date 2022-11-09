@@ -18,6 +18,9 @@ class NotificationsTableViewController: UITableViewController {
     var notifications: [IisNotification] = []
     var notificationSelected: IisNotification?
     
+    
+    @IBOutlet var sideMenuBtn: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,6 +38,8 @@ class NotificationsTableViewController: UITableViewController {
             }
             
         }*/
+        sideMenuBtn.target = revealViewController()
+        sideMenuBtn.action = #selector(revealViewController()?.revealSideMenu)
         //indicator.color = UIColor .magentaColor()
         setupActivityIndicator()
         loadData()
@@ -148,6 +153,11 @@ class NotificationsTableViewController: UITableViewController {
         let destination = segue.destination as! NotificationViewController
         destination.notification = self.notificationSelected
     }
+    
+    
+    /*@IBAction func revealSideMenu(_ sender: Any) {
+        //self.sideMenuState(expanded: self.isExpanded ? false : true)
+    }*/
     
     
 
