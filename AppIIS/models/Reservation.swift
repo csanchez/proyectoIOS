@@ -12,6 +12,8 @@ class Reservation: Codable { // or Decodable
 
     let startDate:  String
     let endDate:  String
+    let startTime:  String
+    let endTime:  String
     let title: String
     let name:   String
     let createdAt:   String
@@ -45,6 +47,8 @@ class Reservation: Codable { // or Decodable
     enum CodingKeys: String, CodingKey {
         case startDate                  = "start_date"
         case endDate                    = "end_date"
+        case startTime                  = "start_time"
+        case endTime                    = "end_time"
         case title                      = "title"
         case name                       = "name"
         case createdAt                  = "created_at"

@@ -10,6 +10,7 @@ import UIKit
 class ReservationsViewController: UITableViewController {
 
     var reservations: [Reservation] = []
+    var reservationSelected: Reservation?
     
     
     var activityIndicator = UIActivityIndicatorView()
@@ -54,6 +55,17 @@ class ReservationsViewController: UITableViewController {
         cell.makeCircle(reservation.color)
         
         return cell
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.reservationSelected = self.reservations[indexPath.row]
+        self.performSegue(withIdentifier: "ShowReservationDetail", sender: Self.self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! ReservationViewController
+        destination.reservation = self.reservationSelected
     }
     
 
