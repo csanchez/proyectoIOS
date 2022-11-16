@@ -18,7 +18,10 @@ class MainViewController: UIViewController {
     private var sideMenuRevealWidth: CGFloat = 250
     private let paddingForRotation: CGFloat = 150
     // Expand/Collapse the side menu by changing trailing's constant
-    private var sideMenuTrailingConstraint: NSLayoutConstraint!
+    private var sideMenuTrailingConstraint
+    
+    
+    : NSLayoutConstraint!
     
     private var sideMenuShadowView: UIView!
     

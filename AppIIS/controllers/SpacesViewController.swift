@@ -3,11 +3,12 @@
 //  AppIIS
 //
 //  Created by tecnologias on 18/10/22.
-//
+// https://www.youtube.com/watch?v=abbWOYFZd68
+// https://github.com/codeWithCal/CalendarExampleTutorial/tree/main/CalendarExampleTutorial
 
 import UIKit
 
-class SpacesViewController: UIViewController {
+class SpacesViewController: UIViewController { //SpacesID navigation identifier
     
     
     
@@ -30,6 +31,8 @@ class SpacesViewController: UIViewController {
     let months = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre", "Noviembre","Diciembre"]
     
     let years = [2020,2021,2022,2023]
+    
+    let gregorianCalendar = Calendar(identifier: .gregorian)
     
     var pickerData: [[String]] = [[String]]()
     
@@ -91,7 +94,7 @@ class SpacesViewController: UIViewController {
     
     private func setupCalendarView() {
         
-        let gregorianCalendar = Calendar(identifier: .gregorian)
+        
         calendarView.calendar = gregorianCalendar
         //        calendarView.locale = Locale(identifier: "zh_TW")
         calendarView.fontDesign = .rounded
@@ -326,37 +329,39 @@ extension SpacesViewController: UIPickerViewDelegate  {
         var range = 0..<0
         
         
-        
+        var nextDate = Date()
         if (month > self.currenthMontIndex){
-            
+            nextDate = self.gregorianCalendar.date(byAdding: .month, value: 1, to: self.startOfMonth)!
             range = self.currenthMontIndex..<month
             //fomMonth = month
             //toMonth = self.currenthMontIndex
         }else{
             range = month..<self.currenthMontIndex
+            nextDate = self.gregorianCalendar.date(byAdding: .month, value: -1, to: self.startOfMonth)!
             //fomMonth = self.currenthMontIndex
             //toMonth = month
         }
         
         //vamos a iterar en cada mes para evitar el problema del rango
         //primero por añoa y luego por mes
-        var components = DateComponents()
+       /* var components = DateComponents()
         var nextDate = Date()
         for index in range {
             components.day = 1
             components.year = 2022
             components.month = index+1
             nextDate = Calendar.current.date(from: components)!
-            print(nextDate)
-            self.calendarView.availableDateRange =   DateInterval(start: nextDate.startOfMonth, end: nextDate.endOfMonth)
-        }
+            //print(nextDate)
+            //print(nextDate)
+            //self.calendarView.availableDateRange =   DateInterval(start: nextDate.startOfMonth, end: nextDate.endOfMonth)
+        }*/
             
         
-        components.day = 1
+       /* components.day = 1
         components.year = year
         components.month = month+1
         //print(components)
-        nextDate = Calendar.current.date(from: components)!
+        nextDate = Calendar.current.date(from: components)!*/
         
        
         
@@ -366,7 +371,9 @@ extension SpacesViewController: UIPickerViewDelegate  {
         print(self.startOfMonth )
         print(self.endOfMonth )
         
-        self.calendarView.availableDateRange =   DateInterval(start: self.startOfMonth, end: self.endOfMonth)
+        //self.calendarView.availableDateRange =   DateInterval(start: self.startOfMonth, end: self.endOfMonth)
+        //self.calendarView.removeFromSuperview()
+        //self.setupCalendarView()
     }
     
 }
