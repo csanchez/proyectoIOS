@@ -17,19 +17,25 @@ class ReservationViewController: UIViewController {
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var contentView: UIView!
     
+    @IBOutlet var viewDecoration: UIView!
     
     @IBOutlet var titleText: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.barTintColor = UIColor.green
-       // self.view.backgroundColor = UIColor.hexStringToUIColor(hex: reservation!.color)
+        
 
         // Do any additional setup after loading the view.
         
-        self.contentView.layer.cornerRadius=5
-        self.contentView.layer.masksToBounds = true
+        contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
+        viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
+        
+        
+        viewDecoration.dropShadow()
+        contentView.dropShadow()
+        
+        
         
         
         self.dateLabel.text = self.reservation?.startDate

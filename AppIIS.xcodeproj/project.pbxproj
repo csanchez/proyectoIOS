@@ -44,6 +44,12 @@
 		18894B9028F605F400C5EBEB /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18894B8F28F605F400C5EBEB /* StartViewController.swift */; };
 		18894B9228F6060B00C5EBEB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18894B9128F6060B00C5EBEB /* LoginViewController.swift */; };
 		18AC6F442901CE1800E9FDEB /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AC6F432901CE1700E9FDEB /* NotificationViewController.swift */; };
+		B82E70AE292559B500839202 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82E70AD292559B500839202 /* UIColor.swift */; };
+		B82E70B02925677900839202 /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82E70AF2925677900839202 /* ReservationViewController.swift */; };
+		B83249B12926F33400C7B238 /* ReservationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83249B02926F33300C7B238 /* ReservationsViewController.swift */; };
+		B83249B32926FB5100C7B238 /* ReservationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83249B22926FB5100C7B238 /* ReservationCell.swift */; };
+		B83860FF292D5958009B3CDD /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83860FE292D5958009B3CDD /* UIView.swift */; };
+		B87D45F62922CD91009317E6 /* ReservationsTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87D45F52922CD91009317E6 /* ReservationsTabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +110,12 @@
 		18894B8F28F605F400C5EBEB /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		18894B9128F6060B00C5EBEB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		18AC6F432901CE1700E9FDEB /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		B82E70AD292559B500839202 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		B82E70AF2925677900839202 /* ReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewController.swift; sourceTree = "<group>"; };
+		B83249B02926F33300C7B238 /* ReservationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationsViewController.swift; sourceTree = "<group>"; };
+		B83249B22926FB5100C7B238 /* ReservationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationCell.swift; sourceTree = "<group>"; };
+		B83860FE292D5958009B3CDD /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		B87D45F52922CD91009317E6 /* ReservationsTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationsTabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +174,7 @@
 				1876360E28FDDCA700C0E046 /* extensions */,
 				1833901C290064CD00EC0C05 /* NotificationCell.swift */,
 				1800D0FE290B0D2D00845D00 /* SideMenuCell.swift */,
+				B83249B22926FB5100C7B238 /* ReservationCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -174,6 +187,8 @@
 				184091BD29009122007FA886 /* TableViewControllerExtension.swift */,
 				184C217D2909E2C400C7E44D /* ActivityIndicator.swift */,
 				183AB5EB2915B0DD00ABD94F /* Date.swift */,
+				B82E70AD292559B500839202 /* UIColor.swift */,
+				B83860FE292D5958009B3CDD /* UIView.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -244,6 +259,9 @@
 				1801D54228FF647F00651F7A /* NotificationsTableViewController.swift */,
 				18AC6F432901CE1700E9FDEB /* NotificationViewController.swift */,
 				1800D100290B0E0200845D00 /* SideMenuViewController.swift */,
+				B87D45F52922CD91009317E6 /* ReservationsTabBarViewController.swift */,
+				B82E70AF2925677900839202 /* ReservationViewController.swift */,
+				B83249B02926F33300C7B238 /* ReservationsViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -399,6 +417,7 @@
 				183AB5EC2915B0DE00ABD94F /* Date.swift in Sources */,
 				18894B9028F605F400C5EBEB /* StartViewController.swift in Sources */,
 				1876360B28FDDB4E00C0E046 /* RFCValidator.swift in Sources */,
+				B82E70B02925677900839202 /* ReservationViewController.swift in Sources */,
 				1876361228FDDE2200C0E046 /* PasswordValidator.swift in Sources */,
 				1800D101290B0E0200845D00 /* SideMenuViewController.swift in Sources */,
 				184C217E2909E2C500C7E44D /* ActivityIndicator.swift in Sources */,
@@ -410,18 +429,23 @@
 				1876361028FDDCBA00C0E046 /* UITextFieldValidation.swift in Sources */,
 				1876361428FDE31B00C0E046 /* AppError.swift in Sources */,
 				184091BE29009122007FA886 /* TableViewControllerExtension.swift in Sources */,
+				B87D45F62922CD91009317E6 /* ReservationsTabBarViewController.swift in Sources */,
 				184091C529009AD1007FA886 /* URLSessionExtension.swift in Sources */,
 				1800D0FF290B0D2D00845D00 /* SideMenuCell.swift in Sources */,
 				1800D103290B126300845D00 /* SideMenuModel.swift in Sources */,
 				18894B6628F5FDC600C5EBEB /* AppIIS.xcdatamodeld in Sources */,
 				1863544C28F8C56C001D72D3 /* ModelName.swift in Sources */,
 				1833901D290064CD00EC0C05 /* NotificationCell.swift in Sources */,
+				B82E70AE292559B500839202 /* UIColor.swift in Sources */,
 				18894B5C28F5FDC600C5EBEB /* AppDelegate.swift in Sources */,
+				B83249B12926F33400C7B238 /* ReservationsViewController.swift in Sources */,
 				1801D54328FF647F00651F7A /* NotificationsTableViewController.swift in Sources */,
 				1876360D28FDDC7E00C0E046 /* ValidationError.swift in Sources */,
 				184091C3290093B3007FA886 /* NotificationsResponse.swift in Sources */,
 				18894B5E28F5FDC600C5EBEB /* SceneDelegate.swift in Sources */,
 				184C21822909EA3300C7E44D /* Reservation.swift in Sources */,
+				B83860FF292D5958009B3CDD /* UIView.swift in Sources */,
+				B83249B32926FB5100C7B238 /* ReservationCell.swift in Sources */,
 				1866933028F7694A00463A81 /* Toast.swift in Sources */,
 				1876360928FDDAF000C0E046 /* Validators.swift in Sources */,
 				1801D53F28FF570300651F7A /* TramitesViewController.swift in Sources */,
