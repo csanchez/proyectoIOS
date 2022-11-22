@@ -49,7 +49,10 @@
 		B83249B12926F33400C7B238 /* ReservationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83249B02926F33300C7B238 /* ReservationsViewController.swift */; };
 		B83249B32926FB5100C7B238 /* ReservationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83249B22926FB5100C7B238 /* ReservationCell.swift */; };
 		B83860FF292D5958009B3CDD /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83860FE292D5958009B3CDD /* UIView.swift */; };
+		B8386101292D6CF3009B3CDD /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8386100292D6CF3009B3CDD /* CalendarViewController.swift */; };
 		B87D45F62922CD91009317E6 /* ReservationsTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87D45F52922CD91009317E6 /* ReservationsTabBarViewController.swift */; };
+		B8990BF8292D89480035A177 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8990BF7292D89480035A177 /* CalendarCell.swift */; };
+		B8990BFA292D8D590035A177 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8990BF9292D8D590035A177 /* CalendarHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,7 +118,10 @@
 		B83249B02926F33300C7B238 /* ReservationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationsViewController.swift; sourceTree = "<group>"; };
 		B83249B22926FB5100C7B238 /* ReservationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationCell.swift; sourceTree = "<group>"; };
 		B83860FE292D5958009B3CDD /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		B8386100292D6CF3009B3CDD /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		B87D45F52922CD91009317E6 /* ReservationsTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationsTabBarViewController.swift; sourceTree = "<group>"; };
+		B8990BF7292D89480035A177 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		B8990BF9292D8D590035A177 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +170,7 @@
 				1876361328FDE31B00C0E046 /* AppError.swift */,
 				184091C429009AD1007FA886 /* URLSessionExtension.swift */,
 				1800D102290B126300845D00 /* SideMenuModel.swift */,
+				B8990BF9292D8D590035A177 /* CalendarHelper.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -175,6 +182,7 @@
 				1833901C290064CD00EC0C05 /* NotificationCell.swift */,
 				1800D0FE290B0D2D00845D00 /* SideMenuCell.swift */,
 				B83249B22926FB5100C7B238 /* ReservationCell.swift */,
+				B8990BF7292D89480035A177 /* CalendarCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -262,6 +270,7 @@
 				B87D45F52922CD91009317E6 /* ReservationsTabBarViewController.swift */,
 				B82E70AF2925677900839202 /* ReservationViewController.swift */,
 				B83249B02926F33300C7B238 /* ReservationsViewController.swift */,
+				B8386100292D6CF3009B3CDD /* CalendarViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -419,6 +428,8 @@
 				1876360B28FDDB4E00C0E046 /* RFCValidator.swift in Sources */,
 				B82E70B02925677900839202 /* ReservationViewController.swift in Sources */,
 				1876361228FDDE2200C0E046 /* PasswordValidator.swift in Sources */,
+				B8386101292D6CF3009B3CDD /* CalendarViewController.swift in Sources */,
+				B8990BFA292D8D590035A177 /* CalendarHelper.swift in Sources */,
 				1800D101290B0E0200845D00 /* SideMenuViewController.swift in Sources */,
 				184C217E2909E2C500C7E44D /* ActivityIndicator.swift in Sources */,
 				184091BC29008F29007FA886 /* IisNotification.swift in Sources */,
@@ -441,6 +452,7 @@
 				B83249B12926F33400C7B238 /* ReservationsViewController.swift in Sources */,
 				1801D54328FF647F00651F7A /* NotificationsTableViewController.swift in Sources */,
 				1876360D28FDDC7E00C0E046 /* ValidationError.swift in Sources */,
+				B8990BF8292D89480035A177 /* CalendarCell.swift in Sources */,
 				184091C3290093B3007FA886 /* NotificationsResponse.swift in Sources */,
 				18894B5E28F5FDC600C5EBEB /* SceneDelegate.swift in Sources */,
 				184C21822909EA3300C7E44D /* Reservation.swift in Sources */,
