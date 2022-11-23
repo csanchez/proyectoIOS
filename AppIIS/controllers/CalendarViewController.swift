@@ -13,6 +13,9 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet var titleCalendar: UILabel!
     @IBOutlet var calendarCollection: UICollectionView!
     
+    
+    @IBOutlet var viewDecoration: UIView!
+    
     var selectedDate = Date()
     var totalSquares = [String]()
     
@@ -36,17 +39,25 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     @IBAction func previousMonth(_ sender: Any) {
         selectedDate = CalendarHelper().minusMonth(date: selectedDate)
+        self.setCellsView()
         setMonthView()
     }
     
     @IBAction func nextMonth(_ sender: Any) {
         selectedDate = CalendarHelper().plusMonth(date: selectedDate)
+        self.setCellsView()
         setMonthView()
     }
     
     func setCellsView(){
+        print("number of week \(CalendarHelper().numberOfWeeksInMonth( selectedDate)) ")
+        print("width \(calendarCollection.frame.size.width)")
+        print("height \(calendarCollection.frame.size.height)")
         let width = (calendarCollection.frame.size.width - 2) / 8
-        let height = (calendarCollection.frame.size.height - 2) / 8
+        let height = (calendarCollection.frame.size.height - 2) / CGFloat(CalendarHelper().numberOfWeeksInMonth( selectedDate))
+        
+        print("width \(width)")
+        print("height \(height)")
         let flowLayout = calendarCollection.collectionViewLayout as! UICollectionViewFlowLayout
         flowLayout.itemSize = CGSize(width: width, height: height)
     }
@@ -88,4 +99,12 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         return false
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "ShowDaySelectedSegue", sender: Self.self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           let destination = segue.destination as! CalendarDayViewController
+          // destination.reservation = self.reservationSelected
+       }
 }

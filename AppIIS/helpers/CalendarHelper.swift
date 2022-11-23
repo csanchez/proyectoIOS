@@ -22,6 +22,13 @@ class CalendarHelper
         return calendar.date(byAdding: .month, value: -1, to: date)!
     }
     
+    func monthDayString(date: Date) -> String
+        {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "LLLL dd"
+            return dateFormatter.string(from: date)
+        }
+    
     func monthString(date: Date) -> String
     {
         let dateFormatter = DateFormatter()
@@ -58,6 +65,15 @@ class CalendarHelper
     {
         let components = calendar.dateComponents([.weekday], from: date)
         return components.weekday! - 1
+    }
+    
+    func numberOfWeeksInMonth(_ date: Date) -> Int {
+         var calendar = Calendar(identifier: .gregorian)
+         calendar.firstWeekday = 1
+         let weekRange = calendar.range(of: .weekOfMonth,
+                                        in: .month,
+                                        for: date)
+         return weekRange!.count
     }
     
 }
