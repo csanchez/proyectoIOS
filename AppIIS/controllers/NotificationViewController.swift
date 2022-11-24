@@ -18,6 +18,9 @@ class NotificationViewController: UIViewController {
     @IBOutlet var messageLabel: UILabel!
     @IBOutlet var titleLabel: UILabel!
     
+    @IBOutlet var sideMenuBtn: UIBarButtonItem!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +35,9 @@ class NotificationViewController: UIViewController {
         
       //  [self.messageLabel sizeToFit];
         self.messageLabel.numberOfLines = 0;
+        
+        sideMenuBtn.target = revealViewController()
+        sideMenuBtn.action = #selector(revealViewController()?.revealSideMenu)
 
 
         // Do any additional setup after loading the view.

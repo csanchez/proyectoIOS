@@ -211,12 +211,11 @@ class ReservationsViewController: UIViewController, UITableViewDelegate, UITable
                    self.showAlert(title: "Error", message: "No hay datos en la respuesta")
                    return
                }
-               print(content)
                do {
                    let reservationsResponse = try JSONDecoder().decode(ReservationResponse.self, from: content)
-                   print(reservationsResponse)
+                   print("Reservaciones")
                    self.reservations = reservationsResponse.reservations
-                   print(self.reservations)
+                   print(self.reservations[0].startDate)
                    DispatchQueue.main.async {
                     self.reservationsTable.reloadData()
                    }

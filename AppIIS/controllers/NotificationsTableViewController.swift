@@ -7,12 +7,15 @@
 
 import UIKit
 
-class NotificationsTableViewController: UITableViewController {
+class NotificationsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {// UITableViewController {
     
     
     
+    
+    //@IBOutlet var notificationTable: UITableView!
     
     @IBOutlet var notificationTable: UITableView!
+    
     
     var activityIndicator = UIActivityIndicatorView()
     var notifications: [IisNotification] = []
@@ -117,19 +120,17 @@ class NotificationsTableViewController: UITableViewController {
    
     
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        print(self.notifications.count)
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.notifications.count
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "notificationCell", for: indexPath) as! NotificationCell
         cell.initialsLabel?.text = self.notifications[indexPath.row].originInitials
         cell.senderLabel?.text = self.notifications[indexPath.row].sender
@@ -143,13 +144,12 @@ class NotificationsTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.notificationSelected = self.notifications[indexPath.row]
         self.performSegue(withIdentifier: "showNotificationDetail", sender: Self.self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print(segue.destination)
         let destination = segue.destination as! NotificationViewController
         destination.notification = self.notificationSelected
     }
