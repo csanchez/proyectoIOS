@@ -29,7 +29,7 @@ extension UIViewController{
     
     
     
-     func setupActivityIndicator(_ activityIndicator: UIActivityIndicatorView){
+    /*func setupActivityIndicator(_ activityIndicator: UIActivityIndicatorView,_ parent: UIView){
         activityIndicator.frame = CGRectMake(0.0, 0.0, 10.0, 10.0)
         activityIndicator.center = self.view.center
         self.view.addSubview(activityIndicator)
@@ -50,6 +50,6 @@ extension UIViewController{
             activityIndicator.hidesWhenStopped = true
         }
 
-    }
+    }*/
 }
 

@@ -13,7 +13,9 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet var titleCalendar: UILabel!
     @IBOutlet var calendarCollection: UICollectionView!
     @IBOutlet var viewDecoration: UIView!
-    var activityIndicator = UIActivityIndicatorView()
+    
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var loadingView: UIView!
     
     var selectedDate = Date()
     var totalSquares = [String]()
@@ -21,14 +23,30 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         
-        setupActivityIndicator()
+        self.hideSpinner()
+        
         self.setCellsView()
         setMonthView()
         
+        
     }
     
-    private func setupActivityIndicator(){
+    private func showSpinner() {
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
+        loadingView.isHidden = false
+    }
+
+    private func hideSpinner() {
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
+            self.loadingView.isHidden = true
+        }
+        
+    }
+    
+    /*private func setupActivityIndicator(){
         activityIndicator.frame = CGRectMake(0.0, 0.0, 10.0, 10.0)
         activityIndicator.center = self.view.center
         self.view.addSubview(activityIndicator)
@@ -43,7 +61,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
             self.activityIndicator.hidesWhenStopped = true
         }
         
-    }
+    }*/
     
 
     /*
@@ -119,13 +137,13 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           let destination = segue.destination as! CalendarDayViewController
-          // destination.reservation = self.reservationSelected
+           let  destination = segue.destination as! CalendarDayViewController
+          //destination.reservation = self.reservationSelected
     }
     
     
     private func loadData(){
-        
+        showSpinner()
         var components = URLComponents()
         components.scheme = "https"
         components.host = "notificaciones.sociales.unam.mx"
@@ -170,7 +188,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
                     self.showAlert(title: "No se puede acceder", message: "Tu sesión ha expirado.")
                     let defaults = UserDefaults.standard
                     defaults.set(false, forKey: "loggedIn")
-                    self.hideActivityIndicator()
+                    self.hideSpinner()
                     return
                 }
             }
@@ -194,13 +212,14 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
                 /*DispatchQueue.main.async {
                  self.reservations.reloadData()
                  }*/
-                self.hideActivityIndicator()
+                self.hideSpinner()
             } catch _ {
+                self.hideSpinner()
                 self.showAlert(title:"Error", message:"ocurrio un error al procesar la respuesta del servidor")
             }
         }
         
-        // task.resume()
+        task.resume()
         
     }
     

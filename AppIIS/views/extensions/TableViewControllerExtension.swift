@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension NotificationsTableViewController {
+extension NotificationsViewController {
     // MARK: - Table view data source
 
     

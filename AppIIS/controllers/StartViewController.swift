@@ -24,7 +24,7 @@ class StartViewController: UIViewController {
         print("en start")
         
         //UserDefaults.standard.removeObject(forKey: "loggedIn")
-        /*if UserDefaults.standard.string(forKey: "loggedIn") != nil {
+        if UserDefaults.standard.string(forKey: "loggedIn") != nil {
                 // instantiate the main tab bar controller and set it as root view controller
                 // using the storyboard identifier we set earlier
                 //let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
@@ -38,7 +38,7 @@ class StartViewController: UIViewController {
                 let loginNavController = storyboard.instantiateViewController(identifier: "LoginNavigationController")
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginNavController)
                 //window?.rootViewController = loginNavController
-        }*/
+        }
         // Do any additional setup after loading the view.
     }
     

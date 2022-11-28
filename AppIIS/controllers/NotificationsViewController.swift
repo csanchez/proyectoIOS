@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NotificationsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {// UITableViewController {
+class NotificationsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {// UITableViewController {
     
     
     
@@ -17,38 +17,28 @@ class NotificationsTableViewController: UIViewController, UITableViewDelegate, U
     @IBOutlet var notificationTable: UITableView!
     
     
-    var activityIndicator = UIActivityIndicatorView()
+    //var activityIndicator = UIActivityIndicatorView()
     var notifications: [IisNotification] = []
     var notificationSelected: IisNotification?
     
     
     @IBOutlet var sideMenuBtn: UIBarButtonItem!
     
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var loadingView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        
-        /*loadData { result in
-            switch result {
-            case .success(let result): print(result) // This prints my data
-                case .failure(let error): print(error)
-            }
-            
-        }*/
         sideMenuBtn.target = revealViewController()
         sideMenuBtn.action = #selector(revealViewController()?.revealSideMenu)
         //indicator.color = UIColor .magentaColor()
-        setupActivityIndicator()
+        //setupActivityIndicator()
+        self.hideSpinner()
         loadData()
     }
 
-    private func hideActivityIndicator() {
+    /*private func hideActivityIndicator() {
         DispatchQueue.main.async {
             self.activityIndicator.stopAnimating()
             self.activityIndicator.hidesWhenStopped = true
@@ -62,12 +52,28 @@ class NotificationsTableViewController: UIViewController, UITableViewDelegate, U
         self.view.addSubview(activityIndicator)
         activityIndicator.bringSubviewToFront(self.view)
         activityIndicator.startAnimating()
+    }*/
+    
+    private func showSpinner() {
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
+        loadingView.isHidden = false
+    }
+
+    private func hideSpinner() {
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
+            self.loadingView.isHidden = true
+        }
+        
     }
     
     
     //private func loadData(handler: @escaping (Result<[NotificationsResponse],Error>) -> Void){
     //func loadData(handler: @escaping Handler<NotificationsResponse>) {
     private func loadData(){
+        showSpinner()
         let url = URL(string: "https://notificaciones.sociales.unam.mx/api/app/notifications/")!
         var request = URLRequest(url: url)
         let defaults = UserDefaults.standard
@@ -84,7 +90,8 @@ class NotificationsTableViewController: UIViewController, UITableViewDelegate, U
                     self.showAlert(title: "No se puede acceder", message: "Tu sesión ha expirado.")
                     let defaults = UserDefaults.standard
                     defaults.set(false, forKey: "loggedIn")
-                    self.hideActivityIndicator()
+                    //self.hideActivityIndicator()
+                    self.hideSpinner()
                     return
                 }
             }
@@ -107,8 +114,10 @@ class NotificationsTableViewController: UIViewController, UITableViewDelegate, U
                 DispatchQueue.main.async {
                     self.notificationTable.reloadData()
                 }
-                self.hideActivityIndicator()
+                //self.hideActivityIndicator()
+                self.hideSpinner()
             } catch _ {
+                self.hideSpinner()
                 self.showAlert(title:"Error", message:"ocurrio un error al procesar la respuesta del servidor")
             }
         }

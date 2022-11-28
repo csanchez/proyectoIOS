@@ -12,7 +12,9 @@ class ReservationsViewController: UIViewController, UITableViewDelegate, UITable
     var reservations: [Reservation] = []
     var reservationSelected: Reservation?
     
-    var activityIndicator = UIActivityIndicatorView()
+    //var activityIndicator = UIActivityIndicatorView()
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var loadingView: UIView!
     
     
     @IBOutlet var reservationsTable: UITableView!
@@ -27,11 +29,26 @@ class ReservationsViewController: UIViewController, UITableViewDelegate, UITable
             
         viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
         contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
-        setupActivityIndicator()
-
+        //setupActivityIndicator()
+        self.hideSpinner()
         loadData()
 
         // Do any additional setup after loading the view.
+    }
+    
+    private func showSpinner() {
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
+        loadingView.isHidden = false
+    }
+
+    private func hideSpinner() {
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
+            self.loadingView.isHidden = true
+        }
+        
     }
     
 
@@ -128,7 +145,7 @@ class ReservationsViewController: UIViewController, UITableViewDelegate, UITable
        */
        
        
-       private func setupActivityIndicator(){
+      /* private func setupActivityIndicator(){
            activityIndicator.frame = CGRectMake(0.0, 0.0, 10.0, 10.0)
            activityIndicator.center = self.view.center
            self.view.addSubview(activityIndicator)
@@ -143,11 +160,11 @@ class ReservationsViewController: UIViewController, UITableViewDelegate, UITable
                self.activityIndicator.hidesWhenStopped = true
            }
 
-       }
+       }*/
        
        
        private func loadData(){
-           
+           showSpinner()
            var components = URLComponents()
            components.scheme = "https"
            components.host = "notificaciones.sociales.unam.mx"
@@ -194,7 +211,8 @@ class ReservationsViewController: UIViewController, UITableViewDelegate, UITable
                        self.showAlert(title: "No se puede acceder", message: "Tu sesión ha expirado.")
                        let defaults = UserDefaults.standard
                        defaults.set(false, forKey: "loggedIn")
-                       self.hideActivityIndicator()
+                       //self.hideActivityIndicator()
+                       self.hideSpinner()
                        return
                    }
                }
@@ -219,9 +237,11 @@ class ReservationsViewController: UIViewController, UITableViewDelegate, UITable
                    DispatchQueue.main.async {
                     self.reservationsTable.reloadData()
                    }
-                   self.hideActivityIndicator()
+                   self.hideSpinner()
+                   //self.hideActivityIndicator()
                } catch let error {
                    print(error)
+                   self.hideSpinner()
                    self.showAlert(title:"Error", message:"ocurrio un error al procesar la respuesta del servidor")
                }
            }

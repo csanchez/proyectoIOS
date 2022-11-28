@@ -11,8 +11,7 @@
 		1800D101290B0E0200845D00 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800D100290B0E0200845D00 /* SideMenuViewController.swift */; };
 		1800D103290B126300845D00 /* SideMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800D102290B126300845D00 /* SideMenuModel.swift */; };
 		1801D53F28FF570300651F7A /* TramitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801D53E28FF570300651F7A /* TramitesViewController.swift */; };
-		1801D54128FF570F00651F7A /* SpacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801D54028FF570F00651F7A /* SpacesViewController.swift */; };
-		1801D54328FF647F00651F7A /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801D54228FF647F00651F7A /* NotificationsTableViewController.swift */; };
+		1801D54328FF647F00651F7A /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1801D54228FF647F00651F7A /* NotificationsViewController.swift */; };
 		1833901D290064CD00EC0C05 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833901C290064CD00EC0C05 /* NotificationCell.swift */; };
 		183AB5EC2915B0DE00ABD94F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183AB5EB2915B0DD00ABD94F /* Date.swift */; };
 		184091BC29008F29007FA886 /* IisNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184091BB29008F29007FA886 /* IisNotification.swift */; };
@@ -81,8 +80,7 @@
 		1800D100290B0E0200845D00 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		1800D102290B126300845D00 /* SideMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuModel.swift; sourceTree = "<group>"; };
 		1801D53E28FF570300651F7A /* TramitesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramitesViewController.swift; sourceTree = "<group>"; };
-		1801D54028FF570F00651F7A /* SpacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesViewController.swift; sourceTree = "<group>"; };
-		1801D54228FF647F00651F7A /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
+		1801D54228FF647F00651F7A /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		1833901C290064CD00EC0C05 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		183AB5EB2915B0DD00ABD94F /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		184091BB29008F29007FA886 /* IisNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IisNotification.swift; sourceTree = "<group>"; };
@@ -273,8 +271,7 @@
 				18894B8F28F605F400C5EBEB /* StartViewController.swift */,
 				18894B9128F6060B00C5EBEB /* LoginViewController.swift */,
 				1801D53E28FF570300651F7A /* TramitesViewController.swift */,
-				1801D54028FF570F00651F7A /* SpacesViewController.swift */,
-				1801D54228FF647F00651F7A /* NotificationsTableViewController.swift */,
+				1801D54228FF647F00651F7A /* NotificationsViewController.swift */,
 				18AC6F432901CE1700E9FDEB /* NotificationViewController.swift */,
 				1800D100290B0E0200845D00 /* SideMenuViewController.swift */,
 				B87D45F52922CD91009317E6 /* ReservationsTabBarViewController.swift */,
@@ -446,7 +443,6 @@
 				B8098248292EA9F700C6A9F3 /* CalendarDayViewController.swift in Sources */,
 				184C217E2909E2C500C7E44D /* ActivityIndicator.swift in Sources */,
 				184091BC29008F29007FA886 /* IisNotification.swift in Sources */,
-				1801D54128FF570F00651F7A /* SpacesViewController.swift in Sources */,
 				184C21802909E9FE00C7E44D /* ReservationResponse.swift in Sources */,
 				18AC6F442901CE1800E9FDEB /* NotificationViewController.swift in Sources */,
 				18894B6028F5FDC600C5EBEB /* MainViewController.swift in Sources */,
@@ -465,7 +461,7 @@
 				B82E70AE292559B500839202 /* UIColor.swift in Sources */,
 				18894B5C28F5FDC600C5EBEB /* AppDelegate.swift in Sources */,
 				B83249B12926F33400C7B238 /* ReservationsViewController.swift in Sources */,
-				1801D54328FF647F00651F7A /* NotificationsTableViewController.swift in Sources */,
+				1801D54328FF647F00651F7A /* NotificationsViewController.swift in Sources */,
 				1876360D28FDDC7E00C0E046 /* ValidationError.swift in Sources */,
 				B8990BF8292D89480035A177 /* CalendarCell.swift in Sources */,
 				184091C3290093B3007FA886 /* NotificationsResponse.swift in Sources */,
