@@ -17,16 +17,18 @@ class LoginViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var rfcTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet var loadingView: UIView!
+    var activityIndicator = UIActivityIndicatorView()
     
+    @IBOutlet var backgroundGradientView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.rfcTextField.autocapitalizationType = .allCharacters
-        self.hideSpinner()
-        
+        self.setupActivityIndicator(activityIndicator)
+        self.setGradienteBackground(backgroundGradientView)
     }
+    
+    
     
 
     /*
@@ -43,7 +45,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginAction(_ sender: Any) {
         self.loginButton.isEnabled = false
-        self.showSpinner()
+        //self.showSpinner()
+        self.showActivityIndicator(activityIndicator)
         do {
                 
                 
@@ -146,10 +149,9 @@ class LoginViewController: UIViewController {
                 defaults.set(rfc!, forKey: "rfc")
                 defaults.set(userType!, forKey: "user_type")
                 
+                self.hideActivityIndicator(self.activityIndicator)
+                
                 DispatchQueue.main.async {
-                   // self.loginButton.isEnabled = true
-                    self.hideSpinner()
-                    //self.performSegue(withIdentifier: "loginToMainSegue", sender: Self.self)
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let mainTabBarController = storyboard.instantiateViewController(identifier: "MainController")
                     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
@@ -166,7 +168,7 @@ class LoginViewController: UIViewController {
         } catch let validationError as ValidationError {
             showAlert(title: "Error", message: validationError.message)
             self.loginButton.isEnabled = true
-            self.hideSpinner()
+            self.hideActivityIndicator(activityIndicator)
         }
         
         /*catch let appError as AppError {
@@ -180,23 +182,14 @@ class LoginViewController: UIViewController {
         
     }
     
-    private func showSpinner() {
-        activityIndicator.startAnimating()
-        activityIndicator.isHidden = false
-        loadingView.isHidden = false
-    }
-
-    private func hideSpinner() {
-        activityIndicator.stopAnimating()
-        activityIndicator.isHidden = true
-        loadingView.isHidden = true
-    }
+    
     
     private func showAlertAndEnableView(title:String, message:String){
+        self.hideActivityIndicator(activityIndicator)
         DispatchQueue.main.async {
             self.showAlert(title:title, message: message);
             self.loginButton.isEnabled = true
-            self.hideSpinner()
+            
         }
     }
     
