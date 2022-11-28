@@ -231,9 +231,7 @@ class ReservationsViewController: UIViewController, UITableViewDelegate, UITable
                }
                do {
                    let reservationsResponse = try JSONDecoder().decode(ReservationResponse.self, from: content)
-                   print("Reservaciones")
                    self.reservations = reservationsResponse.reservations
-                   print(self.reservations[0].startDate)
                    DispatchQueue.main.async {
                     self.reservationsTable.reloadData()
                    }

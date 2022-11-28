@@ -98,7 +98,7 @@ extension Date {
 
     var endOfMonth: Date {
         return Calendar.current.date(
-            byAdding: DateComponents(month: 1, day: -2),
+            byAdding: DateComponents(month: 1, day: -1),
             to: startOfMonth.militaryTime
         )!
     }

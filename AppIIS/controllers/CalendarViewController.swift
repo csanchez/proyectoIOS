@@ -24,9 +24,12 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideSpinner()
+        loadData()
         
         self.setCellsView()
         setMonthView()
+        
+        
         
         
     }
@@ -77,19 +80,22 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     @IBAction func previousMonth(_ sender: Any) {
         selectedDate = CalendarHelper().minusMonth(date: selectedDate)
+        loadData()
         self.setCellsView()
         setMonthView()
     }
     
     @IBAction func nextMonth(_ sender: Any) {
         selectedDate = CalendarHelper().plusMonth(date: selectedDate)
+        loadData()
         self.setCellsView()
         setMonthView()
     }
     
     func setCellsView(){
         let width = (calendarCollection.frame.size.width - 2) / 8
-        let height = (calendarCollection.frame.size.height - 2) / CGFloat(CalendarHelper().numberOfWeeksInMonth( selectedDate))
+        let height = (calendarCollection.frame.size.height - 2) / 8
+        //CGFloat(CalendarHelper().numberOfWeeksInMonth( selectedDate))
         let flowLayout = calendarCollection.collectionViewLayout as! UICollectionViewFlowLayout
         flowLayout.itemSize = CGSize(width: width, height: height)
     }
@@ -124,6 +130,13 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calCell", for: indexPath) as! CalendarCell
         cell.dayOfMonth.text = totalSquares[indexPath.item]
+        cell.circleImage.isHidden = true
+        
+        if( totalSquares[indexPath.item] != ""){
+            if( hasEvents(totalSquares[indexPath.item])){
+                cell.circleImage.isHidden = false
+            }
+        }
         
         return cell
     }
@@ -137,8 +150,28 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           let  destination = segue.destination as! CalendarDayViewController
+           //let  destination = segue.destination as! CalendarDayViewController
           //destination.reservation = self.reservationSelected
+    }
+    
+    private func hasEvents(_ dayOfMonth: String) -> Bool{
+        print("poniendo fechas dia \(dayOfMonth)")
+        var hasEvents = false
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        
+        for reservation in self.reservations {
+            
+            let date = dateFormatter.date(from: reservation.startDate)!
+            print("\(reservation.reservationId) cheando fecha \(reservation.startDate) fecha decodificada \(date)")
+            if( Int(dayOfMonth) == Calendar.current.dateComponents([.day], from: date).day ){
+                print("SI ES EVENTO DEL DIA ")
+                hasEvents = true
+                break
+            }
+        }
+        return hasEvents
+       
     }
     
     
@@ -149,16 +182,19 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         components.host = "notificaciones.sociales.unam.mx"
         components.path = "/api/app/reservations"
         
+        let defaults = UserDefaults.standard
+        
         components.queryItems = [
             URLQueryItem(name: "start", value: formateDate(date: self.selectedDate.startOfMonth)),
             URLQueryItem(name: "end", value: formateDate(date: self.selectedDate.endOfMonth)),
             URLQueryItem(name: "space", value: "all"),
-            URLQueryItem(name: "user", value: "all"),
+            URLQueryItem(name: "user", value:  defaults.string(forKey: "rfc")),
             URLQueryItem(name: "event", value: "all"),
             URLQueryItem(name: "service", value: "all"),
             URLQueryItem(name: "require_equip", value: "false")
             
         ]
+        
         
         
         //let url = URL(string: "https://notificaciones.sociales.unam.mx/api/app/reservations/")!
@@ -170,7 +206,6 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         let url = URL(string: urlString)
         var request = URLRequest(url: url!)
-        let defaults = UserDefaults.standard
         let authToken =  defaults.string(forKey: "app_token")
         
         request.httpMethod = "GET"
@@ -208,10 +243,13 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
             do {
                 let reservationsResponse = try JSONDecoder().decode(ReservationResponse.self, from: content)
                 self.reservations = reservationsResponse.reservations
-                
-                /*DispatchQueue.main.async {
-                 self.reservations.reloadData()
-                 }*/
+                print("reservaciones")
+                for reservation in self.reservations {
+                    print("\(reservation.reservationId) cheando fecha \(reservation.startDate) ")
+                }
+                DispatchQueue.main.async {
+                    self.calendarCollection.reloadData()
+                 }
                 self.hideSpinner()
             } catch _ {
                 self.hideSpinner()
@@ -229,4 +267,6 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         formatter.calendar = Calendar.current
         return formatter.string(from: date)
     }
+    
+    
 }

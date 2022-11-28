@@ -605,37 +605,26 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xjs-aW-2nW">
-                                                            <rect key="frame" x="10" y="35" width="71" height="2"/>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioo-GG-cRu">
-                                                            <rect key="frame" x="10" y="41" width="71" height="35"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <imageView hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KZ8-mG-a1k">
+                                                            <rect key="frame" x="40.5" y="38.5" width="10" height="9"/>
+                                                            <color key="tintColor" name="IISRed"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="10" id="L0f-Oh-00C"/>
+                                                                <constraint firstAttribute="height" constant="10" id="Y63-Qc-Rst"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="xjs-aW-2nW" firstAttribute="trailing" secondItem="ioo-GG-cRu" secondAttribute="trailing" id="10N-yY-uFs"/>
-                                                        <constraint firstItem="xjs-aW-2nW" firstAttribute="leading" secondItem="ioo-GG-cRu" secondAttribute="leading" id="LcP-cu-oo9"/>
                                                         <constraint firstItem="szn-Xi-1cm" firstAttribute="centerY" secondItem="LEp-tv-feE" secondAttribute="centerY" multiplier="0.5" id="Uhb-l0-m6D"/>
-                                                        <constraint firstItem="xjs-aW-2nW" firstAttribute="top" secondItem="szn-Xi-1cm" secondAttribute="bottom" constant="2" id="Wjn-C8-dxb"/>
-                                                        <constraint firstAttribute="trailing" secondItem="xjs-aW-2nW" secondAttribute="trailing" constant="10" id="cZ1-Xb-a6A"/>
-                                                        <constraint firstAttribute="trailing" secondItem="ioo-GG-cRu" secondAttribute="trailing" constant="10" id="eLE-XD-zyf"/>
-                                                        <constraint firstAttribute="bottom" secondItem="ioo-GG-cRu" secondAttribute="bottom" constant="8" id="inD-RR-EDv"/>
+                                                        <constraint firstItem="KZ8-mG-a1k" firstAttribute="centerX" secondItem="LEp-tv-feE" secondAttribute="centerX" id="a8S-iM-dkc"/>
+                                                        <constraint firstItem="KZ8-mG-a1k" firstAttribute="top" secondItem="szn-Xi-1cm" secondAttribute="bottom" constant="5" id="jET-o7-UYj"/>
                                                         <constraint firstItem="szn-Xi-1cm" firstAttribute="centerX" secondItem="LEp-tv-feE" secondAttribute="centerX" id="n8O-OX-bpL"/>
-                                                        <constraint firstItem="ioo-GG-cRu" firstAttribute="top" secondItem="xjs-aW-2nW" secondAttribute="bottom" constant="4" id="t5L-aw-B8R"/>
-                                                        <constraint firstItem="xjs-aW-2nW" firstAttribute="leading" secondItem="LEp-tv-feE" secondAttribute="leading" constant="10" id="usY-ce-caH"/>
-                                                        <constraint firstItem="ioo-GG-cRu" firstAttribute="leading" secondItem="LEp-tv-feE" secondAttribute="leading" constant="10" id="vmT-iE-Jbn"/>
-                                                        <constraint firstItem="ioo-GG-cRu" firstAttribute="top" secondItem="xjs-aW-2nW" secondAttribute="bottom" constant="4" id="vuW-6D-pPY"/>
-                                                        <constraint firstAttribute="bottom" secondItem="xjs-aW-2nW" secondAttribute="bottom" constant="47" id="waD-Nq-9SS"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
                                                 <size key="customSize" width="91" height="84"/>
                                                 <connections>
+                                                    <outlet property="circleImage" destination="KZ8-mG-a1k" id="O0U-Gy-KVo"/>
                                                     <outlet property="dayOfMonth" destination="szn-Xi-1cm" id="TNH-z2-STp"/>
-                                                    <outlet property="numberOfEventsLabel" destination="ioo-GG-cRu" id="jEu-DA-3PL"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -664,8 +653,8 @@
                                     <constraint firstItem="dFV-4R-mFR" firstAttribute="leading" secondItem="X6W-um-EKW" secondAttribute="trailing" id="rdK-RA-Xqy"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gXb-4O-aEW">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <view hidden="YES" alpha="0.90000000000000002" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gXb-4O-aEW">
+                                <rect key="frame" x="0.0" y="636" width="375" height="31"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="wIN-gK-HUy">
                                         <rect key="frame" x="169" y="315" width="37" height="37"/>
@@ -1442,6 +1431,7 @@
         <image name="arrowshape.turn.up.right.circle.fill" catalog="system" width="128" height="123"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="calendar.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="circle.fill" catalog="system" width="128" height="123"/>
         <image name="clock.circle.fill" catalog="system" width="128" height="123"/>
         <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
         <image name="list.bullet" catalog="system" width="128" height="87"/>
