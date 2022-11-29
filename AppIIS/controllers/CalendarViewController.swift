@@ -20,6 +20,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     var selectedDate = Date()
     var totalSquares = [String]()
     var reservations: [Reservation] = []
+    var indexDaySelected = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +42,11 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
 
     private func hideSpinner() {
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
             self.activityIndicator.stopAnimating()
             self.activityIndicator.isHidden = true
             self.loadingView.isHidden = true
-        }
+        })
         
     }
     
@@ -146,16 +147,25 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "ShowDaySelectedSegue", sender: Self.self)
+        self.indexDaySelected = indexPath.item
+        if( totalSquares[self.indexDaySelected] != ""){
+            self.performSegue(withIdentifier: "ShowDaySelectedSegue", sender: Self.self)
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           //let  destination = segue.destination as! CalendarDayViewController
-          //destination.reservation = self.reservationSelected
+        if( totalSquares[self.indexDaySelected] != ""){
+            let  destination = segue.destination as! CalendarDayViewController
+            destination.reservations = getReservationsByDay(totalSquares[self.indexDaySelected])
+            var newDateCom = Calendar.current.dateComponents([.day,.month, .year], from: selectedDate)
+            newDateCom.day = Int(totalSquares[self.indexDaySelected])
+            destination.selectedDate = Calendar.current.date(from: newDateCom)!
+        }
+        
     }
     
     private func hasEvents(_ dayOfMonth: String) -> Bool{
-        print("poniendo fechas dia \(dayOfMonth)")
         var hasEvents = false
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
@@ -163,15 +173,27 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         for reservation in self.reservations {
             
             let date = dateFormatter.date(from: reservation.startDate)!
-            print("\(reservation.reservationId) cheando fecha \(reservation.startDate) fecha decodificada \(date)")
             if( Int(dayOfMonth) == Calendar.current.dateComponents([.day], from: date).day ){
-                print("SI ES EVENTO DEL DIA ")
                 hasEvents = true
                 break
             }
         }
         return hasEvents
-       
+    }
+    
+    private func getReservationsByDay(_ dayOfMonth: String) -> [Reservation]{
+        var reservations = [Reservation]()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        
+        for reservation in self.reservations {
+            let date = dateFormatter.date(from: reservation.startDate)!
+            if( Int(dayOfMonth) == Calendar.current.dateComponents([.day], from: date).day ){
+                reservations.append(reservation)
+            }
+        }
+        return reservations
     }
     
     
@@ -188,7 +210,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
             URLQueryItem(name: "start", value: formateDate(date: self.selectedDate.startOfMonth)),
             URLQueryItem(name: "end", value: formateDate(date: self.selectedDate.endOfMonth)),
             URLQueryItem(name: "space", value: "all"),
-            URLQueryItem(name: "user", value:  defaults.string(forKey: "rfc")),
+            URLQueryItem(name: "user", value:  "all"),
             URLQueryItem(name: "event", value: "all"),
             URLQueryItem(name: "service", value: "all"),
             URLQueryItem(name: "require_equip", value: "false")
@@ -243,10 +265,6 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
             do {
                 let reservationsResponse = try JSONDecoder().decode(ReservationResponse.self, from: content)
                 self.reservations = reservationsResponse.reservations
-                print("reservaciones")
-                for reservation in self.reservations {
-                    print("\(reservation.reservationId) cheando fecha \(reservation.startDate) ")
-                }
                 DispatchQueue.main.async {
                     self.calendarCollection.reloadData()
                  }

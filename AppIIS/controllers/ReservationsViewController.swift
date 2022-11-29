@@ -30,7 +30,7 @@ class ReservationsViewController: UIViewController, UITableViewDelegate, UITable
         viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
         contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
         //setupActivityIndicator()
-        self.hideSpinner()
+        //self.hideSpinner()
         loadData()
 
         // Do any additional setup after loading the view.
@@ -43,11 +43,12 @@ class ReservationsViewController: UIViewController, UITableViewDelegate, UITable
     }
 
     private func hideSpinner() {
-        DispatchQueue.main.async {
+        //DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
             self.activityIndicator.stopAnimating()
             self.activityIndicator.isHidden = true
             self.loadingView.isHidden = true
-        }
+        })
         
     }
     
