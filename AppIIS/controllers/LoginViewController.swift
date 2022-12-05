@@ -53,7 +53,7 @@ class LoginViewController: UIViewController {
         self.showSpinner()
         do {
                 
-                
+            let defaults = UserDefaults.standard
             let rfc = try self.rfcTextField.validatedText(validationType: ValidatorType.rfc)
             let password = try self.passwordTextField.validatedText(validationType: ValidatorType.password)
             let uuid = UIDevice.current.identifierForVendor!.uuidString
@@ -65,7 +65,7 @@ class LoginViewController: UIViewController {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
 
-            let params = ["user": ["rfc":rfc, "password":password], "device": ["uuid":uuid,"platform":"ios","model":model, "token":"asdasas" ] ] //as Dictionary<String, String>
+            let params = ["user": ["rfc":rfc, "password":password], "device": ["uuid":uuid,"platform":"ios","model":model, "token":defaults.string(forKey: "token") ] ] //as Dictionary<String, String>
 
             guard let postData = try? JSONSerialization.data(withJSONObject: params, options: []) else {
                 return
@@ -142,7 +142,7 @@ class LoginViewController: UIViewController {
                 let rfc =  user?["rfc"]
                 let userType =  user?["user_type"]
                 
-                let defaults = UserDefaults.standard
+                
                 defaults.set(true, forKey: "loggedIn")
                 defaults.set(appToken!, forKey: "app_token")
                 defaults.set(email!, forKey: "email")

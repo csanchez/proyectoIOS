@@ -26,8 +26,8 @@ class SideMenuViewController: UIViewController {
     @IBOutlet var logOutButton: UIButton!
     
     var menu: [SideMenuModel] = [
-            SideMenuModel(icon: UIImage(systemName: "house.fill")!, title: "Notificaciones"),
-            SideMenuModel(icon: UIImage(systemName: "music.note")!, title: "Espacios"),
+            SideMenuModel(icon: UIImage(systemName: "note.text")!, title: "Notificaciones"),
+            SideMenuModel(icon: UIImage(systemName: "calendar")!, title: "Espacios"),
             //SideMenuModel(icon: UIImage(systemName: "film.fill")!, title: "Movies"),
             /*SideMenuModel(icon: UIImage(systemName: "book.fill")!, title: "Books"),
             SideMenuModel(icon: UIImage(systemName: "person.fill")!, title: "Profile"),
@@ -116,7 +116,9 @@ extension SideMenuViewController: UITableViewDataSource {
         // Highlighted color
         let myCustomSelectionColorView = UIView()
         myCustomSelectionColorView.backgroundColor = #colorLiteral(red: 0.6196078431, green: 0.1098039216, blue: 0.2509803922, alpha: 1)
+        myCustomSelectionColorView.alpha = 0.5
         cell.selectedBackgroundView = myCustomSelectionColorView
+        cell.alpha = 0.5
         return cell
     }
 

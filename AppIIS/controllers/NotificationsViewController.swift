@@ -34,7 +34,7 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
         sideMenuBtn.action = #selector(revealViewController()?.revealSideMenu)
         //indicator.color = UIColor .magentaColor()
         //setupActivityIndicator()
-        self.hideSpinner()
+        //self.hideSpinner()
         loadData()
     }
 
@@ -61,11 +61,11 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     }
 
     private func hideSpinner() {
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
             self.activityIndicator.stopAnimating()
             self.activityIndicator.isHidden = true
             self.loadingView.isHidden = true
-        }
+        })
         
     }
     
@@ -160,7 +160,92 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! NotificationViewController
+        
         destination.notification = self.notificationSelected
+        
+        let url = URL(string: "https://notificaciones.sociales.unam.mx/api/app/mark-as-seen")!
+        var request = URLRequest(url: url)
+        let defaults = UserDefaults.standard
+        let authToken =  defaults.string(forKey: "app_token")
+        request.httpMethod = "PUT"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(authToken!)", forHTTPHeaderField: "Authorization")
+
+        let params = ["id": self.notificationSelected?.userNotificationId] //as Dictionary<String, String>
+
+        guard let postData = try? JSONSerialization.data(withJSONObject: params, options: []) else {
+            return
+        }
+        
+
+        request.httpBody = postData
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        
+            // ensure there is no error for this HTTP response
+            guard error == nil else {
+                print ("error: \(error!)")
+                //self.showAlertAndEnableView(title: "Error", message: "ocurrio un error desconocido")
+                return
+            }
+            
+            // ensure there is data returned from this HTTP response
+            guard data != nil else {
+                print("No data")
+                //throw AppError.customError(message: "No hay datos en la respuesta")
+                /*DispatchQueue.main.async {
+                    self.showAlert(title: "Error", message: "No hay datos en la respuesta");
+                    self.loginButton.isEnabled = true
+                }*/
+               // self.showAlertAndEnableView(title: "Error", message: "No hay datos en la respuesta")
+                return
+            }
+            
+            
+            
+            // serialise the data / NSData object into Dictionary [String : Any]
+           /*guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
+                print("Not containing JSON")
+               /* DispatchQueue.main.async {
+                    self.showAlert(title: "Error", message: "ocurrio un error al procesar la respuesta del servidor");
+                    self.loginButton.isEnabled = true
+                }*/
+              // self.showAlertAndEnableView(title:"Error", message:"ocurrio un error al procesar la respuesta del servidor")
+                //throw AppError.invalidJsonResponse
+                return
+            }*/
+            
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                print("status",httpResponse.statusCode)
+                if httpResponse.statusCode == 401 {
+                    /*DispatchQueue.main.async {
+                        self.showAlert(title: "No se puede acceder", message: "Nombre de usuario o contraseña inváida");
+                        self.loginButton.isEnabled = true
+                    }*/
+                    //self.showAlertAndEnableView(title: "No se puede acceder", message: "Nombre de usuario o contraseña inváida")
+                    //throw AppError.invalidUserOrPassword
+                    return
+                }
+                if httpResponse.statusCode == 200 {
+                    self.notificationSelected?.status = "seen"
+                }
+                    
+            }
+            
+            
+            
+            DispatchQueue.main.async {
+                
+                self.hideSpinner()
+            }
+            
+           
+        }
+        
+    
+        task.resume()
+        
     }
     
     

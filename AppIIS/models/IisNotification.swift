@@ -15,7 +15,7 @@ struct IisNotification: Codable { // or Decodable
     let message: String
     let url: String
     let createdAt: String
-    let status: String
+    var status: String
     let notificationType: String
     let originType: String
     let originName: String

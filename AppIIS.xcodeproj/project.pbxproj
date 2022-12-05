@@ -53,9 +53,13 @@
 		B83860FF292D5958009B3CDD /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83860FE292D5958009B3CDD /* UIView.swift */; };
 		B8386101292D6CF3009B3CDD /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8386100292D6CF3009B3CDD /* CalendarViewController.swift */; };
 		B87D45F62922CD91009317E6 /* ReservationsTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87D45F52922CD91009317E6 /* ReservationsTabBarViewController.swift */; };
+		B89144482938060200F0B4CF /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B89144472938060200F0B4CF /* FirebaseAnalytics */; };
+		B891444A2938060200F0B4CF /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = B89144492938060200F0B4CF /* FirebaseMessaging */; };
+		B891444C2938075100F0B4CF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B891444B2938075000F0B4CF /* GoogleService-Info.plist */; };
 		B8990BF8292D89480035A177 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8990BF7292D89480035A177 /* CalendarCell.swift */; };
 		B8990BFA292D8D590035A177 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8990BF9292D8D590035A177 /* CalendarHelper.swift */; };
 		B8B68DD4293015DC002FB7A6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B68DD3293015DC002FB7A6 /* LaunchViewController.swift */; };
+		B8BD302B2939558E00947E16 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD302A2939558E00947E16 /* PushNotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +122,7 @@
 		B8098247292EA9F700C6A9F3 /* CalendarDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayViewController.swift; sourceTree = "<group>"; };
 		B80C4412292EBA5E00F86D11 /* HourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourCell.swift; sourceTree = "<group>"; };
 		B814147929352EAB0013FDF9 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		B82782712936CE0F00F18010 /* AppIIS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppIIS.entitlements; sourceTree = "<group>"; };
 		B82E70AD292559B500839202 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		B82E70AF2925677900839202 /* ReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewController.swift; sourceTree = "<group>"; };
 		B83249B02926F33300C7B238 /* ReservationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationsViewController.swift; sourceTree = "<group>"; };
@@ -125,9 +130,11 @@
 		B83860FE292D5958009B3CDD /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B8386100292D6CF3009B3CDD /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		B87D45F52922CD91009317E6 /* ReservationsTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationsTabBarViewController.swift; sourceTree = "<group>"; };
+		B891444B2938075000F0B4CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B8990BF7292D89480035A177 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		B8990BF9292D8D590035A177 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		B8B68DD3293015DC002FB7A6 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		B8BD302A2939558E00947E16 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +142,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B891444A2938060200F0B4CF /* FirebaseMessaging in Frameworks */,
+				B89144482938060200F0B4CF /* FirebaseAnalytics in Frameworks */,
 				1863544928F8C3A2001D72D3 /* DeviceKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,6 +186,7 @@
 				184091C429009AD1007FA886 /* URLSessionExtension.swift */,
 				1800D102290B126300845D00 /* SideMenuModel.swift */,
 				B8990BF9292D8D590035A177 /* CalendarHelper.swift */,
+				B8BD302A2939558E00947E16 /* PushNotificationManager.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -232,6 +242,7 @@
 		18894B5A28F5FDC600C5EBEB /* AppIIS */ = {
 			isa = PBXGroup;
 			children = (
+				B82782712936CE0F00F18010 /* AppIIS.entitlements */,
 				1863544A28F8C554001D72D3 /* helpers */,
 				1866932E28F7692500463A81 /* views */,
 				18894B9328F6131300C5EBEB /* models */,
@@ -242,6 +253,7 @@
 				18894B6728F5FDE400C5EBEB /* Assets.xcassets */,
 				18894B6928F5FDE400C5EBEB /* LaunchScreen.storyboard */,
 				18894B6C28F5FDE400C5EBEB /* Info.plist */,
+				B891444B2938075000F0B4CF /* GoogleService-Info.plist */,
 				18894B6428F5FDC600C5EBEB /* AppIIS.xcdatamodeld */,
 			);
 			path = AppIIS;
@@ -312,6 +324,8 @@
 			name = AppIIS;
 			packageProductDependencies = (
 				1863544828F8C3A2001D72D3 /* DeviceKit */,
+				B89144472938060200F0B4CF /* FirebaseAnalytics */,
+				B89144492938060200F0B4CF /* FirebaseMessaging */,
 			);
 			productName = AppIIS;
 			productReference = 18894B5828F5FDC600C5EBEB /* AppIIS.app */;
@@ -387,6 +401,7 @@
 			mainGroup = 18894B4F28F5FDC500C5EBEB;
 			packageReferences = (
 				1863544728F8C3A2001D72D3 /* XCRemoteSwiftPackageReference "DeviceKit" */,
+				B89144462938060200F0B4CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 18894B5928F5FDC600C5EBEB /* Products */;
 			projectDirPath = "";
@@ -405,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18894B6B28F5FDE400C5EBEB /* LaunchScreen.storyboard in Resources */,
+				B891444C2938075100F0B4CF /* GoogleService-Info.plist in Resources */,
 				18894B6828F5FDE400C5EBEB /* Assets.xcassets in Resources */,
 				18894B6328F5FDC600C5EBEB /* Main.storyboard in Resources */,
 			);
@@ -455,6 +471,7 @@
 				1800D0FF290B0D2D00845D00 /* SideMenuCell.swift in Sources */,
 				1800D103290B126300845D00 /* SideMenuModel.swift in Sources */,
 				B814147A29352EAB0013FDF9 /* UIViewController.swift in Sources */,
+				B8BD302B2939558E00947E16 /* PushNotificationManager.swift in Sources */,
 				18894B6628F5FDC600C5EBEB /* AppIIS.xcdatamodeld in Sources */,
 				1863544C28F8C56C001D72D3 /* ModelName.swift in Sources */,
 				1833901D290064CD00EC0C05 /* NotificationCell.swift in Sources */,
@@ -649,6 +666,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AppIIS/AppIIS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5MT98BUGMR;
@@ -664,7 +682,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.iis.sociales.AppIIS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iis.app.AppIIS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -680,6 +698,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AppIIS/AppIIS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5MT98BUGMR;
@@ -695,7 +714,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.iis.sociales.AppIIS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iis.app.AppIIS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -832,6 +851,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		B89144462938060200F0B4CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -839,6 +866,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1863544728F8C3A2001D72D3 /* XCRemoteSwiftPackageReference "DeviceKit" */;
 			productName = DeviceKit;
+		};
+		B89144472938060200F0B4CF /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B89144462938060200F0B4CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		B89144492938060200F0B4CF /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B89144462938060200F0B4CF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 

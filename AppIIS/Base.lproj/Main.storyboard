@@ -759,7 +759,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
                                                             <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="40" id="80E-OO-5az"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="80E-OO-5az"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
                                                             <nil key="textColor"/>
@@ -770,6 +770,7 @@
                                                         <constraint firstItem="vm0-bS-hdb" firstAttribute="leading" secondItem="KfO-zD-dVl" secondAttribute="leading" id="7Sl-fP-Vgh"/>
                                                         <constraint firstAttribute="bottom" secondItem="vm0-bS-hdb" secondAttribute="bottom" id="8Dq-K8-N0t"/>
                                                         <constraint firstItem="vm0-bS-hdb" firstAttribute="top" secondItem="KfO-zD-dVl" secondAttribute="top" id="DLJ-tg-4U5"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vm0-bS-hdb" secondAttribute="trailing" constant="20" symbolic="YES" id="gBl-c8-KDH"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
@@ -961,10 +962,10 @@
                                     <constraint firstItem="cVc-2Q-ARo" firstAttribute="leading" secondItem="K2M-cT-xdL" secondAttribute="leading" id="ox6-3N-R0s"/>
                                 </constraints>
                             </view>
-                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qi0-Ka-W53">
+                            <view hidden="YES" alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qi0-Ka-W53">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="jUR-qJ-fiC">
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="jUR-qJ-fiC">
                                         <rect key="frame" x="169" y="288" width="37" height="37"/>
                                         <color key="color" name="IISRed"/>
                                     </activityIndicatorView>
@@ -1397,8 +1398,8 @@
                             <view hidden="YES" alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4A6-Wa-5AP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <subviews>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="qlY-Ar-cAO">
-                                        <rect key="frame" x="177" y="311" width="20" height="20"/>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="qlY-Ar-cAO">
+                                        <rect key="frame" x="169" y="290.5" width="37" height="37"/>
                                         <color key="color" name="IISRed"/>
                                     </activityIndicatorView>
                                 </subviews>
