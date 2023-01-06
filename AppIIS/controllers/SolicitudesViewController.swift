@@ -2,27 +2,27 @@
 //  TramitesViewController.swift
 //  AppIIS
 //
-//  Created by Tecnologias iis on 05/01/23.
+//  Created by tecnologias on 18/10/22.
 //
 
 import UIKit
 
-class TramitesViewController: UIViewController {
-
+class SolicitudesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     var activityIndicator = UIActivityIndicatorView()
     
-    @IBOutlet var tramitesTable: UITableView!
+    @IBOutlet var solicitudesTable: UITableView!
     
-    @IBOutlet var noTramitesLabel: UILabel!
+    @IBOutlet var noSolicitudesLabel: UILabel!
     
-    var tramites: [Tramite] = []
-    var tramiteSelected: Tramite?
+    var solicitudes: [Solicitud] = []
+    var solicitudSelected: Solicitud?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.noTramitesLabel.isHidden = true
+        self.noSolicitudesLabel.isHidden = true
         setupActivityIndicator()
-        //loadData()
+        loadData()
 
         // Do any additional setup after loading the view.
     }
@@ -68,7 +68,7 @@ class TramitesViewController: UIViewController {
     
     private func loadData(){
         showActivityIndicator()
-        let url = URL(string: "https://notificaciones.sociales.unam.mx/api/app/tramites/")!
+        let url = URL(string: "https://notificaciones.sociales.unam.mx/api/app/tramites_users/")!
         
         var request = URLRequest(url: url)
         let defaults = UserDefaults.standard
@@ -104,16 +104,16 @@ class TramitesViewController: UIViewController {
             }
             
             do {
-                let tramitesResponse = try JSONDecoder().decode(TramitesResponse.self, from: content)
-                self.tramites = tramitesResponse.tramites
+                let solicitudesResponse = try JSONDecoder().decode(SolicitudesResponse.self, from: content)
+                self.solicitudes = solicitudesResponse.solicitudes
                 DispatchQueue.main.async {
-                    self.tramitesTable.reloadData()
-                    if(self.tramites.isEmpty){
-                        self.noTramitesLabel.isHidden = false
-                        self.tramitesTable.isHidden = true
+                    self.solicitudesTable.reloadData()
+                    if(self.solicitudes.isEmpty){
+                        self.noSolicitudesLabel.isHidden = false
+                        self.solicitudesTable.isHidden = true
                     }else{
-                        self.noTramitesLabel.isHidden = true
-                        self.tramitesTable.isHidden = false
+                        self.noSolicitudesLabel.isHidden = true
+                        self.solicitudesTable.isHidden = false
                     }
                 }
                 //self.hideActivityIndicator()
@@ -138,7 +138,7 @@ class TramitesViewController: UIViewController {
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return self.tramites.count
+       return self.solicitudes.count
    }
 
    
@@ -149,7 +149,7 @@ class TramitesViewController: UIViewController {
    }
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       self.tramiteSelected = self.tramites[indexPath.row]
+       self.solicitudSelected = self.solicitudes[indexPath.row]
        self.performSegue(withIdentifier: "showNotificationDetail", sender: Self.self)
    }
 

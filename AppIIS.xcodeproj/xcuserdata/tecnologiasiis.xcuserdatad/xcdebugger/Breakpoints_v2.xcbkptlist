@@ -68,5 +68,53 @@
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2BBB3B3C-D9AF-4E18-9FA6-A737D8B3E3B1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppIIS/models/Step.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "Step"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "2BBB3B3C-D9AF-4E18-9FA6-A737D8B3E3B1 - a92e208a449ef195"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppIIS.Step.deinit"
+                  moduleName = "AppIIS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tecnologiasiis/XcodeProjects/iosappstory/AppIIS/models/Step.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "2BBB3B3C-D9AF-4E18-9FA6-A737D8B3E3B1 - 3b6e428086c65f26"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppIIS.Step.__deallocating_deinit"
+                  moduleName = "AppIIS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tecnologiasiis/XcodeProjects/iosappstory/AppIIS/models/Step.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

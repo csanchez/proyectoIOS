@@ -28,7 +28,7 @@ class SideMenuViewController: UIViewController {
     var menu: [SideMenuModel] = [
             SideMenuModel(icon: UIImage(systemName: "note.text")!, title: "Notificaciones"),
             SideMenuModel(icon: UIImage(systemName: "calendar")!, title: "Espacios"),
-            //SideMenuModel(icon: UIImage(systemName: "film.fill")!, title: "Movies"),
+            SideMenuModel(icon: UIImage(systemName: "film.fill")!, title: "Tramites"),
             /*SideMenuModel(icon: UIImage(systemName: "book.fill")!, title: "Books"),
             SideMenuModel(icon: UIImage(systemName: "person.fill")!, title: "Profile"),
             SideMenuModel(icon: UIImage(systemName: "slider.horizontal.3")!, title: "Settings"),
@@ -97,7 +97,7 @@ class SideMenuViewController: UIViewController {
 
 extension SideMenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        return 45
         
     }
 }
@@ -127,8 +127,8 @@ extension SideMenuViewController: UITableViewDataSource {
         self.delegate?.selectedCell(indexPath.row)
         
         // Remove highlighted color when you press the 'Profile' and 'Like us on facebook' cell
-        if indexPath.row == 4 || indexPath.row == 6 {
+        /*if indexPath.row == 4 || indexPath.row == 6 {
             tableView.deselectRow(at: indexPath, animated: true)
-        }
+        }*/
     }
 }

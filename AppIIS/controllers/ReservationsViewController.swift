@@ -235,6 +235,14 @@ class ReservationsViewController: UIViewController, UITableViewDelegate, UITable
                    self.reservations = reservationsResponse.reservations
                    DispatchQueue.main.async {
                     self.reservationsTable.reloadData()
+                       
+                   /*    if(self.notifications.isEmpty){
+                           self.noNotificacionesLabel.isHidden = false
+                           self.reservationsTable.isHidden = true
+                       }else{
+                           self.noNotificacionesLabel.isHidden = true
+                           self.reservationsTable.isHidden = false
+                       }*/
                    }
                    self.hideSpinner()
                    //self.hideActivityIndicator()

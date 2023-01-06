@@ -108,11 +108,10 @@ extension MainViewController: SideMenuViewControllerDelegate {
             let notificationsVC = storyboard.instantiateViewController(withIdentifier: "NotificationsID") as? NotificationsTableViewController
             present(notificationsVC!, animated: true, completion: nil)*/
             self.showViewController(viewController: UINavigationController.self, storyboardId: "NotificationsID")
-       case 1:
-            /*let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-            let spacesVC = storyboard.instantiateViewController(withIdentifier: "SpacesID") as? SpacesViewController
-            present(spacesVC!, animated: true, completion: nil)*/
+        case 1:
             self.showViewController(viewController: UINavigationController.self, storyboardId: "SpacesID")
+        case 2:
+             self.showViewController(viewController: UINavigationController.self, storyboardId: "TramitesID")
         /*case 6:
             // Like us on facebook
             let safariVC = SFSafariViewController(url: URL(string: "https://www.facebook.com/johncodeos")!)

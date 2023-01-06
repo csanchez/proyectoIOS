@@ -16,6 +16,7 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet var notificationTable: UITableView!
     
+    @IBOutlet var noNotificacionesLabel: UILabel!
     
     //var activityIndicator = UIActivityIndicatorView()
     var notifications: [IisNotification] = []
@@ -29,7 +30,7 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.noNotificacionesLabel.isHidden = true
         sideMenuBtn.target = revealViewController()
         sideMenuBtn.action = #selector(revealViewController()?.revealSideMenu)
         //indicator.color = UIColor .magentaColor()
@@ -113,6 +114,13 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
                 self.notifications = notificationsResponse.notifications
                 DispatchQueue.main.async {
                     self.notificationTable.reloadData()
+                    if(self.notifications.isEmpty){
+                        self.noNotificacionesLabel.isHidden = false
+                        self.notificationTable.isHidden = true
+                    }else{
+                        self.noNotificacionesLabel.isHidden = true
+                        self.notificationTable.isHidden = false
+                    }
                 }
                 //self.hideActivityIndicator()
                 self.hideSpinner()
