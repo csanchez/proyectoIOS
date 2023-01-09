@@ -18,28 +18,26 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet var noNotificacionesLabel: UILabel!
     
-    //var activityIndicator = UIActivityIndicatorView()
+    var activityIndicator = UIActivityIndicatorView()
     var notifications: [IisNotification] = []
     var notificationSelected: IisNotification?
     
     
     @IBOutlet var sideMenuBtn: UIBarButtonItem!
     
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet var loadingView: UIView!
+    //@IBOutlet var activityIndicator: UIActivityIndicatorView!
+    //@IBOutlet var loadingView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.noNotificacionesLabel.isHidden = true
         sideMenuBtn.target = revealViewController()
         sideMenuBtn.action = #selector(revealViewController()?.revealSideMenu)
-        //indicator.color = UIColor .magentaColor()
-        //setupActivityIndicator()
-        //self.hideSpinner()
+        setupActivityIndicator()
         loadData()
     }
 
-    /*private func hideActivityIndicator() {
+    private func hideActivityIndicator() {
         DispatchQueue.main.async {
             self.activityIndicator.stopAnimating()
             self.activityIndicator.hidesWhenStopped = true
@@ -53,9 +51,16 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
         self.view.addSubview(activityIndicator)
         activityIndicator.bringSubviewToFront(self.view)
         activityIndicator.startAnimating()
-    }*/
+    }
     
-    private func showSpinner() {
+    private func showActivityIndicator() {
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+        }
+
+    }
+    
+    /*private func showSpinner() {
         activityIndicator.startAnimating()
         activityIndicator.isHidden = false
         loadingView.isHidden = false
@@ -68,13 +73,13 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
             self.loadingView.isHidden = true
         })
         
-    }
+    }*/
     
     
     //private func loadData(handler: @escaping (Result<[NotificationsResponse],Error>) -> Void){
     //func loadData(handler: @escaping Handler<NotificationsResponse>) {
     private func loadData(){
-        showSpinner()
+        showActivityIndicator()
         let url = URL(string: "https://notificaciones.sociales.unam.mx/api/app/notifications/")!
         var request = URLRequest(url: url)
         let defaults = UserDefaults.standard
@@ -92,7 +97,7 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
                     let defaults = UserDefaults.standard
                     defaults.set(false, forKey: "loggedIn")
                     //self.hideActivityIndicator()
-                    self.hideSpinner()
+                    self.hideActivityIndicator()
                     return
                 }
             }
@@ -123,9 +128,9 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
                     }
                 }
                 //self.hideActivityIndicator()
-                self.hideSpinner()
+                self.hideActivityIndicator()
             } catch _ {
-                self.hideSpinner()
+                self.hideActivityIndicator()
                 self.showAlert(title:"Error", message:"ocurrio un error al procesar la respuesta del servidor")
             }
         }
@@ -243,10 +248,7 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
             
             
             
-            DispatchQueue.main.async {
-                
-                self.hideSpinner()
-            }
+            self.hideActivityIndicator()
             
            
         }

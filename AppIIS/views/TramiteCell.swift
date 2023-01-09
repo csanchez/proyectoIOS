@@ -8,7 +8,10 @@
 import UIKit
 
 class TramiteCell: UITableViewCell {
-
+    
+    
+    @IBOutlet var tramiteNameLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

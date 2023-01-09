@@ -9,7 +9,7 @@ import Foundation
 
 class TramiteData: Codable {
     
-    let name:  Int
+    let name:  String
     let label:  String
     let value:  String
     

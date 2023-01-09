@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TramitesViewController: UIViewController {
+class TramitesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var activityIndicator = UIActivityIndicatorView()
     
@@ -22,7 +22,7 @@ class TramitesViewController: UIViewController {
         super.viewDidLoad()
         self.noTramitesLabel.isHidden = true
         setupActivityIndicator()
-        //loadData()
+        loadData()
 
         // Do any additional setup after loading the view.
     }
@@ -44,7 +44,7 @@ class TramitesViewController: UIViewController {
     
     private func setupActivityIndicator(){
          activityIndicator.frame = CGRectMake(0.0, 0.0, 10.0, 10.0)
-         activityIndicator.center = self.view.center
+          activityIndicator.center = self.view.center
          self.view.addSubview(activityIndicator)
         
          //activityIndicator.bringSubviewToFront(self.view)
@@ -105,6 +105,7 @@ class TramitesViewController: UIViewController {
             
             do {
                 let tramitesResponse = try JSONDecoder().decode(TramitesResponse.self, from: content)
+                print(tramitesResponse.tramites[0].name )
                 self.tramites = tramitesResponse.tramites
                 DispatchQueue.main.async {
                     self.tramitesTable.reloadData()
@@ -112,6 +113,7 @@ class TramitesViewController: UIViewController {
                         self.noTramitesLabel.isHidden = false
                         self.tramitesTable.isHidden = true
                     }else{
+                        print("contr amites")
                         self.noTramitesLabel.isHidden = true
                         self.tramitesTable.isHidden = false
                     }
@@ -143,14 +145,15 @@ class TramitesViewController: UIViewController {
 
    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       let cell = tableView.dequeueReusableCell(withIdentifier: "solicitudCell", for: indexPath) as! SolicitudCell
-          
-       return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tramiteCell", for: indexPath) as! TramiteCell
+        let tramite = self.tramites[indexPath.row]
+        cell.tramiteNameLabel?.text =  tramite.name
+        return cell
    }
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       self.tramiteSelected = self.tramites[indexPath.row]
-       self.performSegue(withIdentifier: "showNotificationDetail", sender: Self.self)
+       //self.tramiteSelected = self.tramites[indexPath.row]
+       //self.performSegue(withIdentifier: "showNotificationDetail", sender: Self.self)
    }
 
 }
