@@ -62,6 +62,8 @@
 		B891444C2938075100F0B4CF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B891444B2938075000F0B4CF /* GoogleService-Info.plist */; };
 		B8990BF8292D89480035A177 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8990BF7292D89480035A177 /* CalendarCell.swift */; };
 		B8990BFA292D8D590035A177 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8990BF9292D8D590035A177 /* CalendarHelper.swift */; };
+		B8A6CCC4296DF8210067A497 /* TramiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A6CCC3296DF8210067A497 /* TramiteViewController.swift */; };
+		B8A6CCC6296E1C2F0067A497 /* SolicitudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A6CCC5296E1C2D0067A497 /* SolicitudViewController.swift */; };
 		B8B68DD4293015DC002FB7A6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B68DD3293015DC002FB7A6 /* LaunchViewController.swift */; };
 		B8BD302B2939558E00947E16 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD302A2939558E00947E16 /* PushNotificationManager.swift */; };
 		B8D7344F293EACAF004A1C6E /* TramiteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7344E293EACAF004A1C6E /* TramiteCell.swift */; };
@@ -149,6 +151,8 @@
 		B891444B2938075000F0B4CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B8990BF7292D89480035A177 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		B8990BF9292D8D590035A177 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
+		B8A6CCC3296DF8210067A497 /* TramiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramiteViewController.swift; sourceTree = "<group>"; };
+		B8A6CCC5296E1C2D0067A497 /* SolicitudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolicitudViewController.swift; sourceTree = "<group>"; };
 		B8B68DD3293015DC002FB7A6 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		B8BD302A2939558E00947E16 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		B8D7344E293EACAF004A1C6E /* TramiteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramiteCell.swift; sourceTree = "<group>"; };
@@ -322,6 +326,8 @@
 				B8B68DD3293015DC002FB7A6 /* LaunchViewController.swift */,
 				B8DA5F27293FCD9400A10887 /* TramitesTabBarViewController.swift */,
 				B85A5BF7296750C0005AE08A /* TramitesViewController.swift */,
+				B8A6CCC3296DF8210067A497 /* TramiteViewController.swift */,
+				B8A6CCC5296E1C2D0067A497 /* SolicitudViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -485,6 +491,7 @@
 			files = (
 				18894B9228F6060B00C5EBEB /* LoginViewController.swift in Sources */,
 				B8D73457293EB465004A1C6E /* Condition.swift in Sources */,
+				B8A6CCC6296E1C2F0067A497 /* SolicitudViewController.swift in Sources */,
 				183AB5EC2915B0DE00ABD94F /* Date.swift in Sources */,
 				18894B9028F605F400C5EBEB /* StartViewController.swift in Sources */,
 				1876360B28FDDB4E00C0E046 /* RFCValidator.swift in Sources */,
@@ -510,6 +517,7 @@
 				B8B68DD4293015DC002FB7A6 /* LaunchViewController.swift in Sources */,
 				B87D45F62922CD91009317E6 /* ReservationsTabBarViewController.swift in Sources */,
 				184091C529009AD1007FA886 /* URLSessionExtension.swift in Sources */,
+				B8A6CCC4296DF8210067A497 /* TramiteViewController.swift in Sources */,
 				1800D0FF290B0D2D00845D00 /* SideMenuCell.swift in Sources */,
 				B8D7345B293EB6B7004A1C6E /* Department.swift in Sources */,
 				1800D103290B126300845D00 /* SideMenuModel.swift in Sources */,
