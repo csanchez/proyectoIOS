@@ -15,9 +15,9 @@ class Solicitud: Codable {
     let tramiteName:  String
     let tipoTramite:  String
     let status:  String
-    let tramiteUserId:  String
+    let tramiteUserId: Int
     let startedAt:  String
-    let currentStep:  Step
+   // let currentStep:  Step
     let totalSteps:  Int
     let currentStepNumber:  Int
     let progress:  Int
@@ -32,7 +32,7 @@ class Solicitud: Codable {
         case status = "status"
         case tramiteUserId = "tramiteUserId"
         case startedAt = "startedAt"
-        case currentStep       = "current_tramite_step_user"
+        //case currentStep       = "current_tramite_step_user"
         case totalSteps = "totalSteps"
         case currentStepNumber = "currentStep"
         case progress = "progress"

@@ -105,6 +105,7 @@ class SolicitudesViewController: UIViewController, UITableViewDelegate, UITableV
             
             do {
                 let solicitudesResponse = try JSONDecoder().decode(SolicitudesResponse.self, from: content)
+                print(solicitudesResponse.solicitudes[0].tramiteName)
                 self.solicitudes = solicitudesResponse.solicitudes
                 DispatchQueue.main.async {
                     self.solicitudesTable.reloadData()
@@ -144,13 +145,21 @@ class SolicitudesViewController: UIViewController, UITableViewDelegate, UITableV
    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        let cell = tableView.dequeueReusableCell(withIdentifier: "solicitudCell", for: indexPath) as! SolicitudCell
-          
+        let solicitud = self.solicitudes[indexPath.row]
+        cell.tramiteNameLabel?.text =  solicitud.tramiteName
+       // cell.departmentNameLabel?.text = solicitud.departments[0].name
+        //cell.makeCircle(tramite.departments[0].color)
        return cell
    }
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        self.solicitudSelected = self.solicitudes[indexPath.row]
-       self.performSegue(withIdentifier: "showNotificationDetail", sender: Self.self)
+       self.performSegue(withIdentifier: "showSolicitudDetail", sender: Self.self)
    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          let destination = segue.destination as! SolicitudViewController
+        destination.solicitud = self.solicitudSelected
+       }
 
 }

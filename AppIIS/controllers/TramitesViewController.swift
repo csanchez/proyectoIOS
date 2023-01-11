@@ -147,7 +147,7 @@ class TramitesViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tramiteCell", for: indexPath) as! TramiteCell
         let tramite = self.tramites[indexPath.row]
-        print(tramite.departments[0].name)
+        
         cell.tramiteNameLabel?.text =  tramite.name
         cell.departmentNameLabel?.text = tramite.departments[0].name
         cell.makeCircle(tramite.departments[0].color)
