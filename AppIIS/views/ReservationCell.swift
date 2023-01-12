@@ -19,8 +19,9 @@ class ReservationCell: UITableViewCell {
     @IBOutlet var colorCircleView: UIView!
     
     public func makeCircle(_ colorHex:String){
-           self.colorCircleView.layer.cornerRadius = 13
-           self.colorCircleView.layer.masksToBounds = true
+           //self.colorCircleView.layer.cornerRadius = 13
+           //self.colorCircleView.layer.masksToBounds = true
+        self.colorCircleView.makeCircleView(13)
            self.colorCircleView.backgroundColor = UIColor.hexStringToUIColor(hex: colorHex)
        }
    }

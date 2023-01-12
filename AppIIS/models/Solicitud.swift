@@ -22,7 +22,10 @@ class Solicitud: Codable {
     let currentStepNumber:  Int
     let progress:  Int
     //let data:  String
-    //let departments:  String
+    let departments: String
+    let departmentInitial: String
+    let departmentColor: String
+    let tramiteUserNumber: String
     
     enum CodingKeys: String, CodingKey {
         case tramiteId = "tramiteId"
@@ -36,6 +39,10 @@ class Solicitud: Codable {
         case totalSteps = "totalSteps"
         case currentStepNumber = "currentStep"
         case progress = "progress"
+        case departments = "departments"
+        case tramiteUserNumber = "tramiteUserNumber"
+        case departmentInitial = "departmentInitial"
+        case departmentColor = "departmentColor"
         
         
         

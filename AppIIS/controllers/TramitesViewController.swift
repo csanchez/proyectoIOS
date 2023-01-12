@@ -147,9 +147,16 @@ class TramitesViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tramiteCell", for: indexPath) as! TramiteCell
         let tramite = self.tramites[indexPath.row]
-        
+        print(tramite.departments[0].initials)
         cell.tramiteNameLabel?.text =  tramite.name
-        cell.departmentNameLabel?.text = tramite.departments[0].name
+        cell.departmentNameLabel?.text = tramite.departments[0].initials
+        
+        let departmentsNames = tramite.departments.map { (department) -> String in
+            return department.name
+        }
+        let departmentsNamesJoined = departmentsNames.joined(separator: ", ")
+        
+        cell.departmentsListLabel?.text = departmentsNamesJoined
         cell.makeCircle(tramite.departments[0].color)
         return cell
    }

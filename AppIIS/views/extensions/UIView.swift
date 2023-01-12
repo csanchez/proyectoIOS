@@ -22,6 +22,13 @@ extension UIView {
             self.layer.shadowColor = UIColor.gray.cgColor
             self.layer.shadowOffset = CGSize(width: 1, height: 1)
             self.layer.shadowOpacity = 1
-        }
+    }
+    
+    func makeCircleView(_ radius: CGFloat){
+        
+        self.layer.cornerRadius = radius
+        self.layer.masksToBounds = true
+        
+    }
 
 }

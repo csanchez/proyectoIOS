@@ -11,10 +11,12 @@ class Department: Codable{
     let name:  String
     let departmentType:  String
     let color: String
+    let initials: String
     
     enum CodingKeys: String, CodingKey {
         case name                  = "name"
         case departmentType                    = "department_type"
         case color                    = "color"
+        case initials                    = "initials"
     }
 }

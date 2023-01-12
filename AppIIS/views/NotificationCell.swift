@@ -22,9 +22,9 @@ class NotificationCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        initialsView.layer.cornerRadius = 15
-        initialsView.layer.masksToBounds = true
-        
+        //initialsView.layer.cornerRadius = 15
+        //initialsView.layer.masksToBounds = true
+        initialsView.makeCircleView(15)
         initialsLabel.text = "ST"
         //initialsLabel.backgroundColor = UIColor.red
         initialsLabel.isEnabled = true

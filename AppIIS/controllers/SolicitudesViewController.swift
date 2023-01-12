@@ -147,8 +147,11 @@ class SolicitudesViewController: UIViewController, UITableViewDelegate, UITableV
        let cell = tableView.dequeueReusableCell(withIdentifier: "solicitudCell", for: indexPath) as! SolicitudCell
         let solicitud = self.solicitudes[indexPath.row]
         cell.tramiteNameLabel?.text =  solicitud.tramiteName
-       // cell.departmentNameLabel?.text = solicitud.departments[0].name
-        //cell.makeCircle(tramite.departments[0].color)
+        
+        
+        cell.numberOfSolicitudLabel?.text = "Solicitud #\(solicitud.tramiteUserNumber)"
+        cell.departmentNameLabel?.text = solicitud.departmentInitial
+        cell.makeCircle(solicitud.departmentColor)
        return cell
    }
    
