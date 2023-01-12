@@ -24,8 +24,9 @@ class NotificationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.initialsView.layer.cornerRadius = 50
-        self.initialsView.layer.masksToBounds = true
+        //self.initialsView.layer.cornerRadius = 50
+        //self.initialsView.layer.masksToBounds = true
+        self.initialsView.makeCircleView(50)
         
         self.senderLabel.text = self.notification?.sender
         self.dateLabel.text = self.notification?.createdAt

@@ -301,7 +301,7 @@
             </objects>
             <point key="canvasLocation" x="1045.5999999999999" y="662.51874062968523"/>
         </scene>
-        <!--Notification View Controller-->
+        <!--Notificación-->
         <scene sceneID="BUU-W8-7GF">
             <objects>
                 <viewController id="DKM-Ve-MeR" customClass="NotificationViewController" customModule="AppIIS" customModuleProvider="target" sceneMemberID="viewController">
@@ -448,7 +448,7 @@
                             <constraint firstItem="PsZ-f1-Eav" firstAttribute="leading" secondItem="Ng4-4U-hVb" secondAttribute="leading" id="zW1-96-wv1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="xnD-ZJ-aV3">
+                    <navigationItem key="navigationItem" title="Notificación" id="xnD-ZJ-aV3">
                         <barButtonItem key="rightBarButtonItem" image="line.3.horizontal" catalog="system" id="ekd-jc-1xY">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
@@ -681,7 +681,7 @@
             </objects>
             <point key="canvasLocation" x="6246" y="1827"/>
         </scene>
-        <!--Calendar Day View Controller-->
+        <!--Fecha seleccionada-->
         <scene sceneID="LYX-4X-ahF">
             <objects>
                 <viewController id="7Se-hK-OJ3" customClass="CalendarDayViewController" customModule="AppIIS" customModuleProvider="target" sceneMemberID="viewController">
@@ -795,7 +795,7 @@
                             <constraint firstItem="tcV-nx-pRR" firstAttribute="top" secondItem="lE5-5G-bdW" secondAttribute="top" id="vD0-a1-ovp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="tTr-0K-cxr"/>
+                    <navigationItem key="navigationItem" title="Fecha seleccionada" id="tTr-0K-cxr"/>
                     <connections>
                         <outlet property="hourTableView" destination="RHE-C9-swd" id="84A-Tv-cWQ"/>
                         <outlet property="selectedDayLabel" destination="xks-Z5-8wK" id="mvD-c1-utJ"/>
@@ -1132,7 +1132,7 @@
             </objects>
             <point key="canvasLocation" x="6245.6000000000004" y="237.93103448275863"/>
         </scene>
-        <!--Tramite View Controller-->
+        <!--Trámite-->
         <scene sceneID="2Mt-eZ-7wa">
             <objects>
                 <viewController id="QaY-H1-htt" customClass="TramiteViewController" customModule="AppIIS" customModuleProvider="target" sceneMemberID="viewController">
@@ -1252,7 +1252,7 @@
                             <constraint firstItem="uTy-a1-ILh" firstAttribute="top" secondItem="IsS-8P-suf" secondAttribute="bottom" id="yyl-P0-dBL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="PsJ-5r-eeS"/>
+                    <navigationItem key="navigationItem" title="Trámite" id="PsJ-5r-eeS"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="YLy-kP-xTa" id="vZa-dg-MDd"/>
                         <outlet property="instructionsLabel" destination="aat-ua-Ish" id="73o-Lk-xdY"/>
@@ -1263,7 +1263,7 @@
             </objects>
             <point key="canvasLocation" x="7288.8000000000002" y="237.93103448275863"/>
         </scene>
-        <!--Reservation View Controller-->
+        <!--Reservación-->
         <scene sceneID="nXT-Vi-5Gx">
             <objects>
                 <viewController id="4aB-oc-7Ib" customClass="ReservationViewController" customModule="AppIIS" customModuleProvider="target" sceneMemberID="viewController">
@@ -1432,7 +1432,7 @@
                             <constraint firstItem="m6P-sv-j5b" firstAttribute="leading" secondItem="Inx-Zy-pE7" secondAttribute="leading" constant="15" id="zNP-bZ-pPD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="xfX-qB-30I"/>
+                    <navigationItem key="navigationItem" title="Reservación" id="xfX-qB-30I"/>
                     <connections>
                         <outlet property="contentView" destination="m6P-sv-j5b" id="xHk-Ho-2gx"/>
                         <outlet property="dateLabel" destination="I91-OC-uP9" id="pPE-Is-urE"/>
@@ -1870,7 +1870,7 @@
             </objects>
             <point key="canvasLocation" x="4927.1999999999998" y="1025.9370314842579"/>
         </scene>
-        <!--Solicitud View Controller-->
+        <!--Avance de la solicitud-->
         <scene sceneID="wST-Vc-DPs">
             <objects>
                 <viewController id="odn-jp-k47" customClass="SolicitudViewController" customModule="AppIIS" customModuleProvider="target" sceneMemberID="viewController">
@@ -1906,20 +1906,66 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKY-cK-2I5">
                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="700"/>
                                                 <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJo-gN-WhD">
+                                                        <rect key="frame" x="0.0" y="5" width="335" height="18"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" systemColor="systemGray2Color"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDo-Yr-r1p">
-                                                        <rect key="frame" x="0.0" y="5" width="335" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="47" width="335" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igR-xw-G0r">
+                                                        <rect key="frame" x="0.0" y="26" width="335" height="18"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Etapa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elH-Oj-Q7z">
+                                                        <rect key="frame" x="0.0" y="101" width="335" height="14.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pXG-mk-une">
+                                                        <rect key="frame" x="117.5" y="120.5" width="100" height="100"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3Z-Cg-0mT">
+                                                                <rect key="frame" x="29" y="39.5" width="42" height="21"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="7ID-L4-KmM"/>
+                                                            <constraint firstItem="J3Z-Cg-0mT" firstAttribute="centerY" secondItem="pXG-mk-une" secondAttribute="centerY" id="8gY-ku-lOh"/>
+                                                            <constraint firstAttribute="width" constant="100" id="cxk-R0-oXe"/>
+                                                            <constraint firstItem="J3Z-Cg-0mT" firstAttribute="centerX" secondItem="pXG-mk-une" secondAttribute="centerX" id="wrn-7K-vXm"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="igR-xw-G0r" secondAttribute="trailing" id="1w9-5R-1ns"/>
                                                     <constraint firstItem="MDo-Yr-r1p" firstAttribute="leading" secondItem="FKY-cK-2I5" secondAttribute="leading" id="4WC-WB-Cnu"/>
-                                                    <constraint firstItem="MDo-Yr-r1p" firstAttribute="top" secondItem="FKY-cK-2I5" secondAttribute="top" constant="5" id="8sO-JU-Xue"/>
-                                                    <constraint firstAttribute="bottom" secondItem="MDo-Yr-r1p" secondAttribute="bottom" constant="674.5" id="FSZ-dF-nUn"/>
+                                                    <constraint firstItem="igR-xw-G0r" firstAttribute="top" secondItem="dJo-gN-WhD" secondAttribute="bottom" constant="3" id="4fQ-JM-kmQ"/>
+                                                    <constraint firstItem="pXG-mk-une" firstAttribute="top" secondItem="elH-Oj-Q7z" secondAttribute="bottom" constant="5" id="CaO-wY-95p"/>
+                                                    <constraint firstItem="igR-xw-G0r" firstAttribute="leading" secondItem="FKY-cK-2I5" secondAttribute="leading" id="EWC-MT-ece"/>
+                                                    <constraint firstItem="elH-Oj-Q7z" firstAttribute="leading" secondItem="FKY-cK-2I5" secondAttribute="leading" id="FHd-Y2-I0G"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dJo-gN-WhD" secondAttribute="trailing" id="PRB-wF-JPa"/>
+                                                    <constraint firstItem="dJo-gN-WhD" firstAttribute="leading" secondItem="FKY-cK-2I5" secondAttribute="leading" id="Raz-Wy-8ye"/>
                                                     <constraint firstAttribute="trailing" secondItem="MDo-Yr-r1p" secondAttribute="trailing" id="SKQ-ol-mOh"/>
                                                     <constraint firstAttribute="height" constant="700" id="flc-me-ABn"/>
+                                                    <constraint firstItem="dJo-gN-WhD" firstAttribute="top" secondItem="FKY-cK-2I5" secondAttribute="top" constant="5" id="i5X-gL-5gr"/>
+                                                    <constraint firstItem="pXG-mk-une" firstAttribute="centerX" secondItem="FKY-cK-2I5" secondAttribute="centerX" id="jfZ-3y-fV0"/>
+                                                    <constraint firstItem="elH-Oj-Q7z" firstAttribute="top" secondItem="MDo-Yr-r1p" secondAttribute="bottom" constant="30" id="kNL-28-K7K"/>
+                                                    <constraint firstItem="MDo-Yr-r1p" firstAttribute="top" secondItem="igR-xw-G0r" secondAttribute="bottom" constant="3" id="lLV-CP-e7v"/>
+                                                    <constraint firstAttribute="trailing" secondItem="elH-Oj-Q7z" secondAttribute="trailing" id="mmT-lj-c8N"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -1955,9 +2001,13 @@
                             <constraint firstItem="dAG-Io-0AY" firstAttribute="trailing" secondItem="VGp-Ee-Ty6" secondAttribute="trailing" constant="15" id="tkA-11-rLn"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="F1i-yp-yNs"/>
+                    <navigationItem key="navigationItem" title="Avance de la solicitud" id="F1i-yp-yNs"/>
                     <connections>
+                        <outlet property="departmentNameLabel" destination="dJo-gN-WhD" id="bDD-0J-zTu"/>
+                        <outlet property="initialsView" destination="pXG-mk-une" id="B7H-G5-ePL"/>
                         <outlet property="nameLabel" destination="MDo-Yr-r1p" id="foW-Tv-t9Q"/>
+                        <outlet property="numberOfSolicitudLabel" destination="igR-xw-G0r" id="lGt-op-MfF"/>
+                        <outlet property="stepNumberLabel" destination="J3Z-Cg-0mT" id="yB5-EP-7ZR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyd-Be-iei" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2007,6 +2057,9 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemMintColor">
             <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

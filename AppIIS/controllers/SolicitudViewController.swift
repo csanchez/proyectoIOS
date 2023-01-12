@@ -13,13 +13,21 @@ class SolicitudViewController: UIViewController {
     
     
     @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var numberOfSolicitudLabel: UILabel!
+    @IBOutlet var departmentNameLabel: UILabel!
+    @IBOutlet var initialsView: UIView!
+    @IBOutlet var stepNumberLabel: UILabel!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //print( self.solicitud?.tramiteName)
         self.nameLabel.text = self.solicitud?.tramiteName
-
+        self.numberOfSolicitudLabel.text = "Solicitud #\(solicitud?.tramiteUserNumber ?? "" )"
+        self.departmentNameLabel.text = solicitud?.departments
+        
+        self.stepNumberLabel.text = "\(solicitud?.currentStepNumber ?? 0 )"
+        self.initialsView.makeCircleView(50)
         // Do any additional setup after loading the view.
     }
     
