@@ -65,6 +65,7 @@
 		B8A6CCC4296DF8210067A497 /* TramiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A6CCC3296DF8210067A497 /* TramiteViewController.swift */; };
 		B8A6CCC6296E1C2F0067A497 /* SolicitudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A6CCC5296E1C2D0067A497 /* SolicitudViewController.swift */; };
 		B8B68DD4293015DC002FB7A6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B68DD3293015DC002FB7A6 /* LaunchViewController.swift */; };
+		B8BD13E629720EA300F47769 /* DataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD13E529720EA300F47769 /* DataCell.swift */; };
 		B8BD302B2939558E00947E16 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD302A2939558E00947E16 /* PushNotificationManager.swift */; };
 		B8D7344F293EACAF004A1C6E /* TramiteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7344E293EACAF004A1C6E /* TramiteCell.swift */; };
 		B8D73451293EACDC004A1C6E /* Tramite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D73450293EACDC004A1C6E /* Tramite.swift */; };
@@ -154,6 +155,7 @@
 		B8A6CCC3296DF8210067A497 /* TramiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramiteViewController.swift; sourceTree = "<group>"; };
 		B8A6CCC5296E1C2D0067A497 /* SolicitudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolicitudViewController.swift; sourceTree = "<group>"; };
 		B8B68DD3293015DC002FB7A6 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		B8BD13E529720EA300F47769 /* DataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCell.swift; sourceTree = "<group>"; };
 		B8BD302A2939558E00947E16 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		B8D7344E293EACAF004A1C6E /* TramiteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramiteCell.swift; sourceTree = "<group>"; };
 		B8D73450293EACDC004A1C6E /* Tramite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tramite.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				B80C4412292EBA5E00F86D11 /* HourCell.swift */,
 				B8D7344E293EACAF004A1C6E /* TramiteCell.swift */,
 				B86E48AB293FBFD500E523CC /* SolicitudCell.swift */,
+				B8BD13E529720EA300F47769 /* DataCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				B85A5BF8296750C0005AE08A /* TramitesViewController.swift in Sources */,
 				1863544C28F8C56C001D72D3 /* ModelName.swift in Sources */,
 				1833901D290064CD00EC0C05 /* NotificationCell.swift in Sources */,
+				B8BD13E629720EA300F47769 /* DataCell.swift in Sources */,
 				B86E48AC293FBFD500E523CC /* SolicitudCell.swift in Sources */,
 				B82E70AE292559B500839202 /* UIColor.swift in Sources */,
 				18894B5C28F5FDC600C5EBEB /* AppDelegate.swift in Sources */,

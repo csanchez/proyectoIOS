@@ -1948,6 +1948,40 @@
                                                             <constraint firstItem="J3Z-Cg-0mT" firstAttribute="centerX" secondItem="pXG-mk-une" secondAttribute="centerX" id="wrn-7K-vXm"/>
                                                         </constraints>
                                                     </view>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="16b-gx-TGG">
+                                                        <rect key="frame" x="0.0" y="225.5" width="335" height="233.5"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <prototypes>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dataCell" id="VTT-m5-ijq" customClass="DataCell" customModule="AppIIS" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="50" width="335" height="43.5"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VTT-m5-ijq" id="F7k-B4-V8I">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0SR-X6-net">
+                                                                            <rect key="frame" x="5" y="5" width="325" height="12"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="trailing" secondItem="0SR-X6-net" secondAttribute="trailing" constant="5" id="AOO-Wg-lVU"/>
+                                                                        <constraint firstItem="0SR-X6-net" firstAttribute="top" secondItem="F7k-B4-V8I" secondAttribute="top" constant="5" id="OFb-Ea-4kF"/>
+                                                                        <constraint firstItem="0SR-X6-net" firstAttribute="leading" secondItem="F7k-B4-V8I" secondAttribute="leading" constant="5" id="VYb-dD-eO3"/>
+                                                                    </constraints>
+                                                                </tableViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="nameLabel" destination="0SR-X6-net" id="G4k-qu-f2u"/>
+                                                                </connections>
+                                                            </tableViewCell>
+                                                        </prototypes>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="odn-jp-k47" id="6x8-cY-Mfq"/>
+                                                            <outlet property="delegate" destination="odn-jp-k47" id="i8t-3k-p3p"/>
+                                                        </connections>
+                                                    </tableView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -1959,13 +1993,17 @@
                                                     <constraint firstItem="elH-Oj-Q7z" firstAttribute="leading" secondItem="FKY-cK-2I5" secondAttribute="leading" id="FHd-Y2-I0G"/>
                                                     <constraint firstAttribute="trailing" secondItem="dJo-gN-WhD" secondAttribute="trailing" id="PRB-wF-JPa"/>
                                                     <constraint firstItem="dJo-gN-WhD" firstAttribute="leading" secondItem="FKY-cK-2I5" secondAttribute="leading" id="Raz-Wy-8ye"/>
+                                                    <constraint firstItem="16b-gx-TGG" firstAttribute="top" secondItem="pXG-mk-une" secondAttribute="bottom" constant="5" id="Rqm-dp-fSh"/>
                                                     <constraint firstAttribute="trailing" secondItem="MDo-Yr-r1p" secondAttribute="trailing" id="SKQ-ol-mOh"/>
-                                                    <constraint firstAttribute="height" constant="700" id="flc-me-ABn"/>
+                                                    <constraint firstAttribute="height" constant="700" id="Zme-OP-yXq"/>
+                                                    <constraint firstAttribute="bottom" secondItem="16b-gx-TGG" secondAttribute="bottom" constant="241" id="cME-ez-fvO"/>
+                                                    <constraint firstAttribute="trailing" secondItem="16b-gx-TGG" secondAttribute="trailing" id="gPg-tW-lbu"/>
                                                     <constraint firstItem="dJo-gN-WhD" firstAttribute="top" secondItem="FKY-cK-2I5" secondAttribute="top" constant="5" id="i5X-gL-5gr"/>
                                                     <constraint firstItem="pXG-mk-une" firstAttribute="centerX" secondItem="FKY-cK-2I5" secondAttribute="centerX" id="jfZ-3y-fV0"/>
                                                     <constraint firstItem="elH-Oj-Q7z" firstAttribute="top" secondItem="MDo-Yr-r1p" secondAttribute="bottom" constant="30" id="kNL-28-K7K"/>
                                                     <constraint firstItem="MDo-Yr-r1p" firstAttribute="top" secondItem="igR-xw-G0r" secondAttribute="bottom" constant="3" id="lLV-CP-e7v"/>
                                                     <constraint firstAttribute="trailing" secondItem="elH-Oj-Q7z" secondAttribute="trailing" id="mmT-lj-c8N"/>
+                                                    <constraint firstItem="16b-gx-TGG" firstAttribute="leading" secondItem="FKY-cK-2I5" secondAttribute="leading" id="vHb-As-zbn"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -2003,6 +2041,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Avance de la solicitud" id="F1i-yp-yNs"/>
                     <connections>
+                        <outlet property="dataTable" destination="16b-gx-TGG" id="t7C-SA-ZYm"/>
                         <outlet property="departmentNameLabel" destination="dJo-gN-WhD" id="bDD-0J-zTu"/>
                         <outlet property="initialsView" destination="pXG-mk-une" id="B7H-G5-ePL"/>
                         <outlet property="nameLabel" destination="MDo-Yr-r1p" id="foW-Tv-t9Q"/>

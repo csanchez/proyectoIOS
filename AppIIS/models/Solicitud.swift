@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Solicitud: Codable {
+class Solicitud: Codable,CustomStringConvertible {
     
     
     let tramiteId:  Int
@@ -47,6 +47,9 @@ class Solicitud: Codable {
         
         
     }
+    
+    public var description: String { return "Solicitud: \(tramiteId) \(status) \(currentStepNumber) \(departments) \(tramiteUserNumber) " }
+    
 }
 
     
