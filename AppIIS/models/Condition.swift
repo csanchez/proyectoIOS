@@ -11,8 +11,8 @@ class Condition:Codable{
     let conditionType:  String
     let instruction:  String
     let completed:  Bool
-    let completedAt:  String
-    let value:  String
+    let completedAt:  String?
+    let value:  String?
     let iisRole:  String
     
     enum CodingKeys: String, CodingKey {

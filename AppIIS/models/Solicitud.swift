@@ -14,12 +14,13 @@ class Solicitud: Codable,CustomStringConvertible {
     let tramiteSlug:  String
     let tramiteName:  String
     let tipoTramite:  String
-    let status:  String
+    let status:  Int
+    let statusName:  String
     let tramiteUserId: Int
     let startedAt:  String
-   // let currentStep:  Step
-    let totalSteps:  Int
-    let currentStepNumber:  Int
+    let currentStep:  Step
+    let totalSteps:  String
+    let currentStepNumber:  String
     let progress:  Int
     //let data:  String
     let departments: String
@@ -33,9 +34,10 @@ class Solicitud: Codable,CustomStringConvertible {
         case tramiteName = "tramiteName"
         case tipoTramite = "tipoTramite"
         case status = "status"
+        case statusName = "statusName"
         case tramiteUserId = "tramiteUserId"
         case startedAt = "startedAt"
-        //case currentStep       = "current_tramite_step_user"
+        case currentStep       = "current_tramite_step_user"
         case totalSteps = "totalSteps"
         case currentStepNumber = "currentStep"
         case progress = "progress"
