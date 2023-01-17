@@ -12,14 +12,19 @@ class TramitesViewController: UIViewController, UITableViewDelegate, UITableView
     var activityIndicator = UIActivityIndicatorView()
     
     @IBOutlet var tramitesTable: UITableView!
-    
     @IBOutlet var noTramitesLabel: UILabel!
+    @IBOutlet var viewDecoration: UIView!
+    @IBOutlet var contentView: UIView!
+    
     
     var tramites: [Tramite] = []
     var tramiteSelected: Tramite?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
+        contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
+        
         self.noTramitesLabel.isHidden = true
         setupActivityIndicator()
         loadData()

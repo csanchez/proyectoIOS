@@ -14,8 +14,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet var calendarCollection: UICollectionView!
     @IBOutlet var viewDecoration: UIView!
     
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet var loadingView: UIView!
+    var activityIndicator = UIActivityIndicatorView()
     
     var selectedDate = Date()
     var totalSquares = [String]()
@@ -24,7 +23,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideSpinner()
+        setupActivityIndicator()
         loadData()
         
         self.setCellsView()
@@ -35,37 +34,29 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         
     }
     
-    private func showSpinner() {
-        activityIndicator.startAnimating()
-        activityIndicator.isHidden = false
-        loadingView.isHidden = false
-    }
-
-    private func hideSpinner() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-            self.activityIndicator.stopAnimating()
-            self.activityIndicator.isHidden = true
-            self.loadingView.isHidden = true
-        })
+    private func setupActivityIndicator(){
+         activityIndicator.frame = CGRectMake(0.0, 0.0, 10.0, 10.0)
+         activityIndicator.center = self.view.center
+         self.view.addSubview(activityIndicator)
         
-    }
+         //activityIndicator.bringSubviewToFront(self.view)
+         
+     }
+     
+     
+     private func hideActivityIndicator() {
+         DispatchQueue.main.async {
+             self.activityIndicator.stopAnimating()
+             self.activityIndicator.hidesWhenStopped = true
+         }
+     }
     
-    /*private func setupActivityIndicator(){
-        activityIndicator.frame = CGRectMake(0.0, 0.0, 10.0, 10.0)
-        activityIndicator.center = self.view.center
-        self.view.addSubview(activityIndicator)
-        activityIndicator.bringSubviewToFront(self.view)
-        activityIndicator.startAnimating()
-    }
-    
-    
-    private func hideActivityIndicator() {
+    private func showActivityIndicator() {
         DispatchQueue.main.async {
-            self.activityIndicator.stopAnimating()
-            self.activityIndicator.hidesWhenStopped = true
+            self.activityIndicator.startAnimating()
         }
-        
-    }*/
+
+    }
     
 
     /*
@@ -198,7 +189,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     
     private func loadData(){
-        showSpinner()
+        showActivityIndicator()
         var components = URLComponents()
         components.scheme = "https"
         components.host = "notificaciones.sociales.unam.mx"
@@ -245,7 +236,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
                     self.showAlert(title: "No se puede acceder", message: "Tu sesión ha expirado.")
                     let defaults = UserDefaults.standard
                     defaults.set(false, forKey: "loggedIn")
-                    self.hideSpinner()
+                    self.hideActivityIndicator()
                     return
                 }
             }
@@ -268,9 +259,9 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
                 DispatchQueue.main.async {
                     self.calendarCollection.reloadData()
                  }
-                self.hideSpinner()
+                self.hideActivityIndicator()
             } catch _ {
-                self.hideSpinner()
+                self.hideActivityIndicator()
                 self.showAlert(title:"Error", message:"ocurrio un error al procesar la respuesta del servidor")
             }
         }

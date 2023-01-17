@@ -454,6 +454,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="contentView" destination="Ejt-JI-OeZ" id="5oh-5X-saV"/>
                         <outlet property="dateLabel" destination="Ak5-Nj-MsM" id="Pqs-BP-6wd"/>
                         <outlet property="initialsLabel" destination="4Zg-tf-MxT" id="CC1-xN-rK4"/>
                         <outlet property="initialsView" destination="78H-L2-fVv" id="ysl-YG-gbI"/>
@@ -461,6 +462,7 @@
                         <outlet property="senderLabel" destination="au1-7A-zp0" id="aPZ-2A-2hb"/>
                         <outlet property="sideMenuBtn" destination="ekd-jc-1xY" id="HaM-jU-yVM"/>
                         <outlet property="titleLabel" destination="lGD-5Z-4wH" id="Ke3-sk-1bV"/>
+                        <outlet property="viewDecoration" destination="IHj-UA-tkv" id="GEd-Ng-tsP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PgI-cD-ig4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -637,41 +639,22 @@
                                     <constraint firstItem="dFV-4R-mFR" firstAttribute="leading" secondItem="X6W-um-EKW" secondAttribute="trailing" id="rdK-RA-Xqy"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gXb-4O-aEW">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="wIN-gK-HUy">
-                                        <rect key="frame" x="169" y="315" width="37" height="37"/>
-                                    </activityIndicatorView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="wIN-gK-HUy" firstAttribute="centerY" secondItem="gXb-4O-aEW" secondAttribute="centerY" id="8Ua-D0-R0P"/>
-                                    <constraint firstItem="wIN-gK-HUy" firstAttribute="centerX" secondItem="gXb-4O-aEW" secondAttribute="centerX" id="Nmy-6T-bdv"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6bl-ef-Vfg"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="avh-lI-Zry" firstAttribute="top" secondItem="Xmv-aC-g8N" secondAttribute="top" id="0Q2-EN-jlH"/>
                             <constraint firstItem="qg7-rK-thn" firstAttribute="bottom" secondItem="6bl-ef-Vfg" secondAttribute="bottom" constant="50" id="AcF-YM-BSy"/>
-                            <constraint firstItem="gXb-4O-aEW" firstAttribute="trailing" secondItem="6bl-ef-Vfg" secondAttribute="trailing" id="V8S-wK-NjW"/>
                             <constraint firstItem="6bl-ef-Vfg" firstAttribute="trailing" secondItem="qg7-rK-thn" secondAttribute="trailing" constant="15" id="Y3Q-IQ-7gQ"/>
                             <constraint firstItem="avh-lI-Zry" firstAttribute="leading" secondItem="6bl-ef-Vfg" secondAttribute="leading" id="o14-Ei-xiF"/>
                             <constraint firstItem="qg7-rK-thn" firstAttribute="top" secondItem="88j-6c-bgT" secondAttribute="bottom" id="qJy-BL-cfC"/>
-                            <constraint firstAttribute="bottom" secondItem="gXb-4O-aEW" secondAttribute="bottom" id="qQ1-gG-nqK"/>
                             <constraint firstItem="avh-lI-Zry" firstAttribute="trailing" secondItem="6bl-ef-Vfg" secondAttribute="trailing" id="vVu-Bj-m1m"/>
-                            <constraint firstItem="gXb-4O-aEW" firstAttribute="top" secondItem="Xmv-aC-g8N" secondAttribute="top" id="wdX-bv-Ib0"/>
-                            <constraint firstItem="gXb-4O-aEW" firstAttribute="leading" secondItem="6bl-ef-Vfg" secondAttribute="leading" id="xuI-Pv-6Wp"/>
                             <constraint firstItem="qg7-rK-thn" firstAttribute="leading" secondItem="6bl-ef-Vfg" secondAttribute="leading" constant="15" id="zJC-bM-JLm"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Calendarioewerw" image="calendar" catalog="system" id="ztw-Y4-qTy"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="wIN-gK-HUy" id="PIz-ol-kYW"/>
                         <outlet property="calendarCollection" destination="Hen-zq-9Uw" id="zgT-Pe-GSl"/>
-                        <outlet property="loadingView" destination="gXb-4O-aEW" id="gNO-MB-aLU"/>
                         <outlet property="titleCalendar" destination="X6W-um-EKW" id="HBW-Xg-M1C"/>
                         <outlet property="viewDecoration" destination="88j-6c-bgT" id="OI6-0g-NwR"/>
                         <segue destination="7Se-hK-OJ3" kind="show" identifier="ShowDaySelectedSegue" id="BKU-sZ-gMG"/>
@@ -972,9 +955,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="contentView" destination="K2M-cT-xdL" id="Wwy-Es-lea"/>
                         <outlet property="noNotificacionesLabel" destination="VAM-dn-NSY" id="bt0-O2-Cwq"/>
                         <outlet property="notificationTable" destination="cVc-2Q-ARo" id="dM5-Ar-lu1"/>
                         <outlet property="sideMenuBtn" destination="nZj-YU-kb1" id="qfo-lE-nJm"/>
+                        <outlet property="viewDecoration" destination="Yxg-oT-L4W" id="9H0-AA-TX7"/>
                         <segue destination="DKM-Ve-MeR" kind="show" identifier="showNotificationDetail" id="ud0-f2-7Fv"/>
                     </connections>
                 </viewController>
@@ -1109,7 +1094,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dZu-uK-8v9"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="7jC-z4-o51" firstAttribute="top" secondItem="ATC-X4-JAL" secondAttribute="top" id="499-n7-TfN"/>
                             <constraint firstItem="dZu-uK-8v9" firstAttribute="trailing" secondItem="d6T-qi-Gwn" secondAttribute="trailing" constant="15" id="IhZ-dg-3Kf"/>
@@ -1123,8 +1108,10 @@
                     <tabBarItem key="tabBarItem" title="Trámites" image="doc.badge.plus" catalog="system" id="fIo-Vt-GVK"/>
                     <navigationItem key="navigationItem" id="qxH-Hf-OuJ"/>
                     <connections>
+                        <outlet property="contentView" destination="d6T-qi-Gwn" id="azm-MR-NyU"/>
                         <outlet property="noTramitesLabel" destination="Iy2-Bt-EaT" id="UbM-Sj-stM"/>
                         <outlet property="tramitesTable" destination="blz-je-U4p" id="QYA-bS-bfN"/>
+                        <outlet property="viewDecoration" destination="XCd-sE-2GU" id="ANO-Dm-RMQ"/>
                         <segue destination="QaY-H1-htt" kind="show" identifier="showTramiteDetail" id="eEo-6A-bx2"/>
                     </connections>
                 </viewController>
@@ -1241,7 +1228,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="saK-VG-t7x"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="uTy-a1-ILh" firstAttribute="leading" secondItem="saK-VG-t7x" secondAttribute="leading" constant="15" id="3yt-jy-SuC"/>
                             <constraint firstItem="RvQ-vO-KnB" firstAttribute="trailing" secondItem="saK-VG-t7x" secondAttribute="trailing" id="C0y-W9-8sB"/>
@@ -1254,9 +1241,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Trámite" id="PsJ-5r-eeS"/>
                     <connections>
+                        <outlet property="contentView" destination="uTy-a1-ILh" id="NHb-ZJ-4lX"/>
                         <outlet property="descriptionLabel" destination="YLy-kP-xTa" id="vZa-dg-MDd"/>
                         <outlet property="instructionsLabel" destination="aat-ua-Ish" id="73o-Lk-xdY"/>
                         <outlet property="nameLabel" destination="nuq-zr-0oj" id="jrg-sX-O14"/>
+                        <outlet property="viewDecoration" destination="IsS-8P-suf" id="etS-kQ-hEu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i7b-zL-Hl0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1293,7 +1282,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m6P-sv-j5b">
                                 <rect key="frame" x="15" y="100" width="345" height="517"/>
                                 <userGuides>
-                                    <userLayoutGuide affinity="minY"/>
+                                    <userLayoutGuide location="-2" affinity="minY"/>
                                 </userGuides>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U8B-6u-2Em">
@@ -1629,45 +1618,25 @@
                                     <constraint firstItem="vab-m6-tdP" firstAttribute="leading" secondItem="vrY-ec-RTn" secondAttribute="leading" id="jbo-kr-GDn"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4A6-Wa-5AP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
-                                <subviews>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="qlY-Ar-cAO">
-                                        <rect key="frame" x="169" y="290.5" width="37" height="37"/>
-                                        <color key="color" name="IISRed"/>
-                                    </activityIndicatorView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="qlY-Ar-cAO" firstAttribute="centerY" secondItem="4A6-Wa-5AP" secondAttribute="centerY" id="Sg8-ZV-fsu"/>
-                                    <constraint firstItem="qlY-Ar-cAO" firstAttribute="centerX" secondItem="4A6-Wa-5AP" secondAttribute="centerX" id="V9Y-e2-Y4R"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AFL-kT-qe6"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="37U-jq-aRL" firstAttribute="top" secondItem="N7B-UB-lSf" secondAttribute="top" id="5Cf-Cb-GaE"/>
                             <constraint firstItem="37U-jq-aRL" firstAttribute="leading" secondItem="AFL-kT-qe6" secondAttribute="leading" id="6uM-bv-v3I"/>
-                            <constraint firstItem="4A6-Wa-5AP" firstAttribute="top" secondItem="N7B-UB-lSf" secondAttribute="top" id="DZh-Zj-grp"/>
                             <constraint firstItem="AFL-kT-qe6" firstAttribute="bottom" secondItem="vrY-ec-RTn" secondAttribute="bottom" id="Ews-5t-Prz"/>
-                            <constraint firstItem="4A6-Wa-5AP" firstAttribute="bottom" secondItem="AFL-kT-qe6" secondAttribute="bottom" id="O5r-ab-dJV"/>
                             <constraint firstItem="vrY-ec-RTn" firstAttribute="top" secondItem="37U-jq-aRL" secondAttribute="bottom" id="Phw-5y-dxR"/>
-                            <constraint firstItem="4A6-Wa-5AP" firstAttribute="leading" secondItem="AFL-kT-qe6" secondAttribute="leading" id="bt2-bL-BLH"/>
                             <constraint firstItem="AFL-kT-qe6" firstAttribute="trailing" secondItem="vrY-ec-RTn" secondAttribute="trailing" constant="15" id="f6S-8j-OIy"/>
                             <constraint firstItem="vrY-ec-RTn" firstAttribute="leading" secondItem="AFL-kT-qe6" secondAttribute="leading" constant="15" id="hMd-e7-AjY"/>
-                            <constraint firstItem="4A6-Wa-5AP" firstAttribute="trailing" secondItem="AFL-kT-qe6" secondAttribute="trailing" id="oic-uG-go9"/>
                             <constraint firstItem="37U-jq-aRL" firstAttribute="trailing" secondItem="AFL-kT-qe6" secondAttribute="trailing" id="rGT-ry-Pir"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Mis eventos" image="list.bullet" catalog="system" id="Sx2-5a-Txv"/>
                     <navigationItem key="navigationItem" title="Reservaciones" id="UEZ-78-Jsc"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="qlY-Ar-cAO" id="kuN-bD-ixy"/>
                         <outlet property="contentView" destination="vrY-ec-RTn" id="BUL-gq-PzH"/>
-                        <outlet property="loadingView" destination="4A6-Wa-5AP" id="Jky-wP-iqI"/>
                         <outlet property="reservationsTable" destination="vab-m6-tdP" id="oxt-rL-uyf"/>
-                        <outlet property="viewDecoration" destination="e4M-Me-CqR" id="Sjr-L9-rrU"/>
+                        <outlet property="viewDecoration" destination="e4M-Me-CqR" id="Z73-U0-Oig"/>
                         <segue destination="4aB-oc-7Ib" kind="show" identifier="ShowReservationDetail" id="2mu-AP-sSw"/>
                     </connections>
                 </viewController>
@@ -1844,7 +1813,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zay-7k-ry9"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="UrL-Kd-Xy7" firstAttribute="top" secondItem="gHL-CY-iuc" secondAttribute="bottom" id="GTU-Pn-HTJ"/>
                             <constraint firstItem="gHL-CY-iuc" firstAttribute="leading" secondItem="zay-7k-ry9" secondAttribute="leading" id="L2I-9X-5W5"/>
@@ -1857,8 +1826,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Mis solicitudes" image="doc" catalog="system" id="Ckx-go-xJw"/>
                     <connections>
+                        <outlet property="contentView" destination="UrL-Kd-Xy7" id="hx9-JE-xjw"/>
                         <outlet property="noSolicitudesLabel" destination="o5d-dt-9qW" id="2Ia-M7-qqS"/>
                         <outlet property="solicitudesTable" destination="Q62-YQ-6xL" id="IY7-Rb-7DF"/>
+                        <outlet property="viewDecotations" destination="hfI-5s-m86" id="ps6-wd-neD"/>
                         <segue destination="odn-jp-k47" kind="show" identifier="showSolicitudDetail" id="Cf7-PT-PfQ"/>
                     </connections>
                 </viewController>
@@ -2066,7 +2037,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dAG-Io-0AY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="Hns-mX-GF4" firstAttribute="top" secondItem="Zsd-no-Qu6" secondAttribute="top" id="37b-jT-Qam"/>
                             <constraint firstItem="VGp-Ee-Ty6" firstAttribute="top" secondItem="Hns-mX-GF4" secondAttribute="bottom" id="8AV-Py-uG6"/>
@@ -2079,6 +2050,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Avance de la solicitud" id="F1i-yp-yNs"/>
                     <connections>
+                        <outlet property="contentView" destination="VGp-Ee-Ty6" id="2bn-c4-2wQ"/>
                         <outlet property="dataTable" destination="16b-gx-TGG" id="t7C-SA-ZYm"/>
                         <outlet property="departmentNameLabel" destination="dJo-gN-WhD" id="bDD-0J-zTu"/>
                         <outlet property="initialsView" destination="pXG-mk-une" id="fta-Fr-l7y"/>
@@ -2088,6 +2060,7 @@
                         <outlet property="stepDescription" destination="Mop-CJ-wZu" id="mI3-gK-18c"/>
                         <outlet property="stepName" destination="elH-Oj-Q7z" id="t2v-IM-1IU"/>
                         <outlet property="stepNumberLabel" destination="F3D-0M-qcS" id="6aN-9g-PvV"/>
+                        <outlet property="viewDecotations" destination="BPm-dx-STC" id="AK6-qu-h55"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyd-Be-iei" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

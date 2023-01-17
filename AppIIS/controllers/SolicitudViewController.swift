@@ -27,8 +27,17 @@ class SolicitudViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet var stepDescription: UILabel!
     
+    
+    
+    @IBOutlet var contentView: UIView!
+    @IBOutlet var viewDecotations: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewDecotations.roundCorners([.topLeft, .topRight], radius: 5)
+        contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
+        
         //print( self.solicitud?.tramiteName)
         self.nameLabel.text = self.solicitud?.tramiteName
         self.numberOfSolicitudLabel.text = "Solicitud #\(solicitud?.tramiteUserNumber ?? "" )"

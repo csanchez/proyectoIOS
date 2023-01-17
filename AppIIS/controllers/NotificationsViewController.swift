@@ -24,12 +24,17 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     
     
     @IBOutlet var sideMenuBtn: UIBarButtonItem!
+    @IBOutlet var viewDecoration: UIView!
+    @IBOutlet var contentView: UIView!
     
     //@IBOutlet var activityIndicator: UIActivityIndicatorView!
     //@IBOutlet var loadingView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
+        contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
+        
         self.noNotificacionesLabel.isHidden = true
         sideMenuBtn.target = revealViewController()
         sideMenuBtn.action = #selector(revealViewController()?.revealSideMenu)

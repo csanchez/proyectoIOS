@@ -15,9 +15,14 @@ class TramiteViewController: UIViewController {
     @IBOutlet var nameLabel: UILabel!
     
     @IBOutlet var instructionsLabel: UILabel!
+    @IBOutlet var viewDecoration: UIView!
+    @IBOutlet var contentView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
+        contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
         
         
         self.nameLabel.text = self.tramite?.name

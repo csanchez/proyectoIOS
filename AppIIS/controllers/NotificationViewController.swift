@@ -19,10 +19,14 @@ class NotificationViewController: UIViewController {
     @IBOutlet var titleLabel: UILabel!
     
     @IBOutlet var sideMenuBtn: UIBarButtonItem!
+    @IBOutlet var viewDecoration: UIView!
+    @IBOutlet var contentView: UIView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
+        contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
         
         //self.initialsView.layer.cornerRadius = 50
         //self.initialsView.layer.masksToBounds = true

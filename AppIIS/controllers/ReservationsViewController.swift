@@ -13,15 +13,13 @@ class ReservationsViewController: UIViewController, UITableViewDelegate, UITable
     var reservationSelected: Reservation?
     
     //var activityIndicator = UIActivityIndicatorView()
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet var loadingView: UIView!
+    var activityIndicator = UIActivityIndicatorView()
     
     
     @IBOutlet var reservationsTable: UITableView!
     
     
     @IBOutlet var viewDecoration: UIView!
-    
     @IBOutlet var contentView: UIView!
     
     override func viewDidLoad() {
@@ -29,27 +27,31 @@ class ReservationsViewController: UIViewController, UITableViewDelegate, UITable
             
         viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
         contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
-        //setupActivityIndicator()
-        //self.hideSpinner()
+        setupActivityIndicator()
         loadData()
 
         // Do any additional setup after loading the view.
     }
     
-    private func showSpinner() {
-        activityIndicator.startAnimating()
-        activityIndicator.isHidden = false
-        loadingView.isHidden = false
-    }
+    private func setupActivityIndicator(){
+         activityIndicator.frame = CGRectMake(0.0, 0.0, 10.0, 10.0)
+         activityIndicator.center = self.view.center
+         self.view.addSubview(activityIndicator)   
+     }
+     
+     
+     private func hideActivityIndicator() {
+         DispatchQueue.main.async {
+             self.activityIndicator.stopAnimating()
+             self.activityIndicator.hidesWhenStopped = true
+         }
+     }
+    
+    private func showActivityIndicator() {
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+        }
 
-    private func hideSpinner() {
-        //DispatchQueue.main.async {
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-            self.activityIndicator.stopAnimating()
-            self.activityIndicator.isHidden = true
-            self.loadingView.isHidden = true
-        })
-        
     }
     
 
@@ -165,7 +167,7 @@ class ReservationsViewController: UIViewController, UITableViewDelegate, UITable
        
        
        private func loadData(){
-           showSpinner()
+           showActivityIndicator()
            var components = URLComponents()
            components.scheme = "https"
            components.host = "notificaciones.sociales.unam.mx"
@@ -212,8 +214,7 @@ class ReservationsViewController: UIViewController, UITableViewDelegate, UITable
                        self.showAlert(title: "No se puede acceder", message: "Tu sesión ha expirado.")
                        let defaults = UserDefaults.standard
                        defaults.set(false, forKey: "loggedIn")
-                       //self.hideActivityIndicator()
-                       self.hideSpinner()
+                       self.hideActivityIndicator()
                        return
                    }
                }
@@ -244,11 +245,11 @@ class ReservationsViewController: UIViewController, UITableViewDelegate, UITable
                            self.reservationsTable.isHidden = false
                        }*/
                    }
-                   self.hideSpinner()
+                   self.hideActivityIndicator()
                    //self.hideActivityIndicator()
                } catch let error {
                    print(error)
-                   self.hideSpinner()
+                   self.hideActivityIndicator()
                    self.showAlert(title:"Error", message:"ocurrio un error al procesar la respuesta del servidor")
                }
            }

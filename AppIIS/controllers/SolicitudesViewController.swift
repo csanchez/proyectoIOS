@@ -12,14 +12,19 @@ class SolicitudesViewController: UIViewController, UITableViewDelegate, UITableV
     var activityIndicator = UIActivityIndicatorView()
     
     @IBOutlet var solicitudesTable: UITableView!
-    
     @IBOutlet var noSolicitudesLabel: UILabel!
+    
+    @IBOutlet var viewDecotations: UIView!
+    @IBOutlet var contentView: UIView!
     
     var solicitudes: [Solicitud] = []
     var solicitudSelected: Solicitud?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewDecotations.roundCorners([.topLeft, .topRight], radius: 5)
+        contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
+        
         self.noSolicitudesLabel.isHidden = true
         setupActivityIndicator()
         loadData()
