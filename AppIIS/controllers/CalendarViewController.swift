@@ -12,7 +12,10 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     @IBOutlet var titleCalendar: UILabel!
     @IBOutlet var calendarCollection: UICollectionView!
-    @IBOutlet var viewDecoration: UIView!
+    //@IBOutlet var viewDecoration: UIView!
+    
+    @IBOutlet var viewDecotations: UIView!
+    @IBOutlet var contentView: UIView!
     
     var activityIndicator = UIActivityIndicatorView()
     
@@ -23,6 +26,8 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewDecotations.roundCorners([.topLeft, .topRight], radius: 5)
+        contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
         setupActivityIndicator()
         loadData()
         

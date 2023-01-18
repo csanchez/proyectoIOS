@@ -28,7 +28,8 @@ class CalendarDayViewController: UIViewController, UITableViewDelegate, UITableV
     var spaces: [String] = [String]()
     
     
-    
+    @IBOutlet var viewDecotations: UIView!
+    @IBOutlet var contentView: UIView!
     
 
     
@@ -43,10 +44,12 @@ class CalendarDayViewController: UIViewController, UITableViewDelegate, UITableV
         spaces = ["all","aula_1", "aula_2","sala_D","sala_E","sala_F","sala_H","lab_computo","auditorio","anexo", "auditorio_y_anexo","vc_computo","terraza","direccion","biblioteca", "aula_virtual_1", "aula_virtual_2"]
         
         super.viewDidLoad()
+        viewDecotations.roundCorners([.topLeft, .topRight], radius: 5)
+        contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
         initTime()
         //setDayView()
         
-        var dateFormatter = DateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM dd YYY"
         
         selectedDayLabel.text = dateFormatter.string(from: selectedDate)

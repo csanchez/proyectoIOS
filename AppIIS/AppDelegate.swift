@@ -28,10 +28,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         FirebaseApp.configure()
-        let pushManager = PushNotificationManager()
-        pushManager.registerForPushNotifications()
+        //let pushManager = PushNotificationManager()
+        //pushManager.registerForPushNotifications()
         
         
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+            // For iOS 10 data message (sent via FCM)
+            Messaging.messaging().delegate = self
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(settings)
+        }
+        UIApplication.shared.registerForRemoteNotifications()
+        updateFirestorePushTokenIfNeeded()
         
         return true
     }
@@ -108,6 +124,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    func updateFirestorePushTokenIfNeeded() {
+        print("messaging didReceiveRegistrationToken")
+        if let token = Messaging.messaging().fcmToken {
+            print("token \(token)")
+           // let usersRef = Firestore.firestore().collection("users_table").document(userID)
+           // usersRef.setData(["fcmToken": token], merge: true)
+            let defaults = UserDefaults.standard
+            defaults.set(token, forKey: "token")
+            print(token)
+        }
+    }
 
 }
 
@@ -116,12 +144,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print("application didRegisterForRemoteNotificationsWithDeviceToken")
         print(deviceToken)
         Messaging.messaging().apnsToken = deviceToken
         
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("application didFailToRegisterForRemoteNotificationsWithError")
         print(error)
     }
     
@@ -131,10 +161,28 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
         
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("userNotificationCenter didReceive")
+        print(response)
         completionHandler()
     }
     
     
+}
+
+extension AppDelegate:MessagingDelegate {
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        print("Firebase registration token: \(String(describing: fcmToken))")
+        let dataDict: [String: String] = ["token": fcmToken ?? ""]
+          NotificationCenter.default.post(
+            name: Notification.Name("FCMToken"),
+            object: nil,
+            userInfo: dataDict
+          )
+
+        
+        updateFirestorePushTokenIfNeeded()
+    }
 }
 
 
