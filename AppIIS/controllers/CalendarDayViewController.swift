@@ -21,22 +21,13 @@ class CalendarDayViewController: UIViewController, UITableViewDelegate, UITableV
     var reservations = [Reservation]()
     var reservationsFiltered = [Reservation]()
     
-    
     var hours = [String]()
     
     var pickerData: [String] = [String]()
     var spaces: [String] = [String]()
     
-    
     @IBOutlet var viewDecotations: UIView!
     @IBOutlet var contentView: UIView!
-    
-
-    
-    
-    
-    
-    
     
     override func viewDidLoad() {
         
@@ -47,26 +38,14 @@ class CalendarDayViewController: UIViewController, UITableViewDelegate, UITableV
         viewDecotations.roundCorners([.topLeft, .topRight], radius: 5)
         contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
         initTime()
-        //setDayView()
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM dd YYY"
-        
         selectedDayLabel.text = dateFormatter.string(from: selectedDate)
         reservationsFiltered = reservations
         drawReservations()
-        
-        
-       
-        
-        
-        
-        
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-           // This method is triggered whenever the user makes a change to the picker selection.
-           // The parameter named row and component represents what was selected.
         eraseTableViewLabels()
         filterReservations(space:spaces[row])
         drawReservations()
