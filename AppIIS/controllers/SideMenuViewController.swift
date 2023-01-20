@@ -21,7 +21,7 @@ class SideMenuViewController: UIViewController {
     
     @IBOutlet var profileImage: UIImageView!
     //var defaultHighlightedCell: Int = 0
-    @IBOutlet var profileName: UILabel!
+    //@IBOutlet var profileName: UILabel!
     
     @IBOutlet var logOutButton: UIButton!
     
@@ -48,11 +48,11 @@ class SideMenuViewController: UIViewController {
         self.sideMenuTableView.separatorStyle = .none
         
         
-        profileImage.layer.cornerRadius = 40
-        profileImage.layer.masksToBounds = true
-        profileName.text = "\(UserDefaults.standard.string(forKey: "first_name")!) \(UserDefaults.standard.string(forKey: "last_name")!)"
+        //profileImage.layer.cornerRadius = 40
+        //profileImage.layer.masksToBounds = true
+        //profileName.text = "\(UserDefaults.standard.string(forKey: "first_name")!) \(UserDefaults.standard.string(forKey: "last_name")!)"
         let url = URL(string: UserDefaults.standard.string(forKey: "picture_url")!)!
-            downloadImage(from: url)
+           // downloadImage(from: url)
         // Do any additional setup after loading the view.
     }
     
