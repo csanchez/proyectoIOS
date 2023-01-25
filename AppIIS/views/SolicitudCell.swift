@@ -34,7 +34,7 @@ class SolicitudCell: UITableViewCell {
     public func makeCircle(_ colorHex:String){
            //self.colorCircleView.layer.cornerRadius = 5
            //self.colorCircleView.layer.masksToBounds = true
-        self.colorCircleView.makeCircleView(15)
+        self.colorCircleView.makeCircleView(20)
            self.colorCircleView.backgroundColor = UIColor.hexStringToUIColor(hex: colorHex)
     }
     
