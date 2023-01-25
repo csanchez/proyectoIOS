@@ -47,6 +47,7 @@ class SolicitudViewController: UIViewController, UITableViewDelegate, UITableVie
         self.statusLabel.layer.masksToBounds = true
         self.statusLabel.layer.cornerRadius = 5
         self.statusLabel.textColor = .white
+        navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
         
         switch solicitud?.status {
         case 0:

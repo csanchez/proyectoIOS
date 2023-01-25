@@ -24,6 +24,7 @@ class TramitesViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
         contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
+        navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
         
         self.noTramitesLabel.isHidden = true
         setupActivityIndicator()

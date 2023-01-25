@@ -42,6 +42,8 @@ class CalendarDayViewController: UIViewController, UITableViewDelegate, UITableV
         dateFormatter.dateFormat = "MMMM dd YYY"
         selectedDayLabel.text = dateFormatter.string(from: selectedDate)
         reservationsFiltered = reservations
+        
+        navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
         drawReservations()
     }
     

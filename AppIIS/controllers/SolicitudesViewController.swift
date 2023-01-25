@@ -27,6 +27,7 @@ class SolicitudesViewController: UIViewController, UITableViewDelegate, UITableV
         
         self.noSolicitudesLabel.isHidden = true
         setupActivityIndicator()
+        navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
         loadData()
 
         // Do any additional setup after loading the view.

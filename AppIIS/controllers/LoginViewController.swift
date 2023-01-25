@@ -3,14 +3,14 @@
 //  AppIIS
 //
 //  Created by tecnologias on 11/10/22.
-//
+// https://fluffy.es/move-view-when-keyboard-is-shown/
 
 import UIKit
 import DeviceKit
 
 
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate{
     
     
     
@@ -23,11 +23,22 @@ class LoginViewController: UIViewController {
     
     @IBOutlet var backgroundGradientView: UIView!
     
-    override func viewDidLoad() {
+    var viewHeight = 0.0
+    
+   override func viewDidLoad() {
         super.viewDidLoad()
-        self.rfcTextField.autocapitalizationType = .allCharacters
-        self.setGradienteBackground(backgroundGradientView)
-        self.hideSpinner()
+       self.hideSpinner()
+       self.rfcTextField.autocapitalizationType = .allCharacters
+       //self.setGradienteBackground(backgroundGradientView)
+       
+       self.rfcTextField.delegate = self
+       
+       viewHeight = backgroundGradientView.frame.size.height
+       
+       NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+       
+       NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+       
         
     }
     
@@ -36,15 +47,48 @@ class LoginViewController: UIViewController {
     
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == rfcTextField {
+            rfcTextField.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+        } else{
+           print("click done pass")
+        }
+       // return textField.resignFirstResponder()
+        return true
     }
-    */
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+           // if keyboard size is not available for some reason, dont do anything
+           return
+        }
+      
+      // move the root view up by the distance of keyboard height
+      //self.view.frame.origin.y = 0 - keyboardSize.height
+        print("alturas")
+        print(viewHeight)
+        print(keyboardSize.height)
+        print(viewHeight - keyboardSize.height)
+        
+        self.view.frame.size.height = (viewHeight - keyboardSize.height)
+    }
+    
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+      // move back the root view origin to zero
+     // self.view.frame.origin.y = 0
+        self.view.frame.size.height = viewHeight
+    }
+    
+    
     
     
     
@@ -81,10 +125,7 @@ class LoginViewController: UIViewController {
                 guard error == nil else {
                     print ("error: \(error!)")
                     //throw AppError.customError(message: "Ocurrio un error indesperado")
-                    /*DispatchQueue.main.async {
-                        //self.showAlert(title: "Error", message: "ocurrio un error desconocido");
-                        
-                    }*/
+                   
                     self.showAlertAndEnableView(title: "Error", message: "ocurrio un error desconocido")
                     return
                 }
@@ -93,10 +134,7 @@ class LoginViewController: UIViewController {
                 guard let content = data else {
                     print("No data")
                     //throw AppError.customError(message: "No hay datos en la respuesta")
-                    /*DispatchQueue.main.async {
-                        self.showAlert(title: "Error", message: "No hay datos en la respuesta");
-                        self.loginButton.isEnabled = true
-                    }*/
+                    
                     self.showAlertAndEnableView(title: "Error", message: "No hay datos en la respuesta")
                     return
                 }
@@ -106,10 +144,7 @@ class LoginViewController: UIViewController {
                 // serialise the data / NSData object into Dictionary [String : Any]
                guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
                     print("Not containing JSON")
-                   /* DispatchQueue.main.async {
-                        self.showAlert(title: "Error", message: "ocurrio un error al procesar la respuesta del servidor");
-                        self.loginButton.isEnabled = true
-                    }*/
+                   
                    self.showAlertAndEnableView(title:"Error", message:"ocurrio un error al procesar la respuesta del servidor")
                     //throw AppError.invalidJsonResponse
                     return
@@ -120,10 +155,7 @@ class LoginViewController: UIViewController {
                     print(httpResponse)
                     print("status",httpResponse.statusCode)
                     if httpResponse.statusCode == 401 {
-                        /*DispatchQueue.main.async {
-                            self.showAlert(title: "No se puede acceder", message: "Nombre de usuario o contraseña inváida");
-                            self.loginButton.isEnabled = true
-                        }*/
+                        
                         self.showAlertAndEnableView(title: "No se puede acceder", message: "Nombre de usuario o contraseña inváida")
                         //throw AppError.invalidUserOrPassword
                         return
@@ -176,10 +208,6 @@ class LoginViewController: UIViewController {
             self.hideSpinner()
         }
         
-        /*catch let appError as AppError {
-            showAlert(title: "Error", message: appError.description)
-            self.loginButton.isEnabled = true
-        }*/
         catch {
             print("other error")
         }

@@ -39,6 +39,10 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
         sideMenuBtn.target = revealViewController()
         sideMenuBtn.action = #selector(revealViewController()?.revealSideMenu)
         setupActivityIndicator()
+        
+        navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
+        
+        
         loadData()
     }
 

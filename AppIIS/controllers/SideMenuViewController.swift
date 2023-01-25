@@ -51,7 +51,7 @@ class SideMenuViewController: UIViewController {
         //profileImage.layer.cornerRadius = 40
         //profileImage.layer.masksToBounds = true
         //profileName.text = "\(UserDefaults.standard.string(forKey: "first_name")!) \(UserDefaults.standard.string(forKey: "last_name")!)"
-        let url = URL(string: UserDefaults.standard.string(forKey: "picture_url")!)!
+        //let url = URL(string: UserDefaults.standard.string(forKey: "picture_url")!)!
            // downloadImage(from: url)
         // Do any additional setup after loading the view.
     }

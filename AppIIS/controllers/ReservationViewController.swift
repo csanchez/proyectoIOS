@@ -35,7 +35,7 @@ class ReservationViewController: UIViewController {
         viewDecoration.dropShadow()
         contentView.dropShadow()
         
-        
+        navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
         
         
         self.dateLabel.text = self.reservation?.startDate

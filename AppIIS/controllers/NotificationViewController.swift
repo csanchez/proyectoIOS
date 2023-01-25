@@ -43,7 +43,8 @@ class NotificationViewController: UIViewController {
         
         sideMenuBtn.target = revealViewController()
         sideMenuBtn.action = #selector(revealViewController()?.revealSideMenu)
-
+        
+        navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
 
         // Do any additional setup after loading the view.
     }

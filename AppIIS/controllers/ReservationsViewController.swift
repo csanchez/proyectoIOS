@@ -28,6 +28,7 @@ class ReservationsViewController: UIViewController, UITableViewDelegate, UITable
         viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
         contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
         setupActivityIndicator()
+        navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
         loadData()
 
         // Do any additional setup after loading the view.

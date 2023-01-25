@@ -30,7 +30,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
         setupActivityIndicator()
         loadData()
-        
+        navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
         self.setCellsView()
         setMonthView()
         

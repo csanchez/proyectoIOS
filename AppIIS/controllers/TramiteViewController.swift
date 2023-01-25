@@ -23,6 +23,7 @@ class TramiteViewController: UIViewController {
         
         viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
         contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
+        navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
         
         
         self.nameLabel.text = self.tramite?.name
