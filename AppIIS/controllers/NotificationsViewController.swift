@@ -32,14 +32,14 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
-        contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
+        //viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
+        //contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
         
         self.noNotificacionesLabel.isHidden = true
         setBarButtonFucntionality(sideMenuBtn)
         setupActivityIndicator()
         
-        navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
+       // navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
         
         
         loadData()

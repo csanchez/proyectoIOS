@@ -16,18 +16,20 @@ class SolicitudesViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet var viewDecotations: UIView!
     @IBOutlet var contentView: UIView!
+    @IBOutlet var sideMenuBtn: UIBarButtonItem!
     
     var solicitudes: [Solicitud] = []
     var solicitudSelected: Solicitud?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewDecotations.roundCorners([.topLeft, .topRight], radius: 5)
-        contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
+        setBarButtonFucntionality(sideMenuBtn)
+        //viewDecotations.roundCorners([.topLeft, .topRight], radius: 5)
+        //contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
         
         self.noSolicitudesLabel.isHidden = true
         setupActivityIndicator()
-        navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
+        //navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
         loadData()
 
         // Do any additional setup after loading the view.

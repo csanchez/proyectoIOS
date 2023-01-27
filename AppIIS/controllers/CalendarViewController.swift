@@ -28,11 +28,12 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         setBarButtonFucntionality(sideMenuBtn)
-        viewDecotations.roundCorners([.topLeft, .topRight], radius: 5)
-        contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
+        //viewDecotations.roundCorners([.topLeft, .topRight], radius: 5)
+        //contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
         setupActivityIndicator()
+        
         loadData()
-        navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
+        //navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
         self.setCellsView()
         setMonthView()
         

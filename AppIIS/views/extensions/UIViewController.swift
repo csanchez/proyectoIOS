@@ -57,5 +57,9 @@ extension UIViewController{
         sideMenuBtn.target = revealViewController()
         sideMenuBtn.action = #selector(revealViewController()?.revealSideMenu)
     }
+    
+    func customFunc(){
+        
+    }
 }
 

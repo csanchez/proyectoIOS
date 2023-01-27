@@ -682,7 +682,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Calendarioewerw" image="calendar" catalog="system" id="ztw-Y4-qTy"/>
                     <navigationItem key="navigationItem" title="Calendario" id="FvN-Yz-xZ4">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="ZRX-bS-Lvu"/>
+                        <barButtonItem key="rightBarButtonItem" title="Menú" id="ZRX-bS-Lvu"/>
                     </navigationItem>
                     <connections>
                         <outlet property="calendarCollection" destination="Hen-zq-9Uw" id="zgT-Pe-GSl"/>
@@ -829,7 +829,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Fecha seleccionada" id="tTr-0K-cxr">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="ZKi-jy-bCj"/>
+                        <barButtonItem key="rightBarButtonItem" title="Menú" id="ZKi-jy-bCj"/>
                     </navigationItem>
                     <connections>
                         <outlet property="contentView" destination="aRC-eg-EL6" id="HL1-gv-L7B"/>
@@ -1196,13 +1196,13 @@
                             <constraint firstItem="7jC-z4-o51" firstAttribute="trailing" secondItem="dZu-uK-8v9" secondAttribute="trailing" id="xxo-3n-C75"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Trámites" image="doc.badge.plus" catalog="system" id="fIo-Vt-GVK">
-                        <color key="badgeColor" name="IISRed"/>
-                    </tabBarItem>
-                    <navigationItem key="navigationItem" id="qxH-Hf-OuJ"/>
+                    <navigationItem key="navigationItem" title="Trámites" id="qxH-Hf-OuJ">
+                        <barButtonItem key="rightBarButtonItem" title="Menú" id="XGo-I5-pCc"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="contentView" destination="d6T-qi-Gwn" id="azm-MR-NyU"/>
                         <outlet property="noTramitesLabel" destination="Iy2-Bt-EaT" id="UbM-Sj-stM"/>
+                        <outlet property="sideMenuBtn" destination="XGo-I5-pCc" id="0jq-sq-Req"/>
                         <outlet property="tramitesTable" destination="blz-je-U4p" id="QYA-bS-bfN"/>
                         <outlet property="viewDecoration" destination="XCd-sE-2GU" id="ANO-Dm-RMQ"/>
                         <segue destination="QaY-H1-htt" kind="show" identifier="showTramiteDetail" id="eEo-6A-bx2"/>
@@ -1210,7 +1210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TxE-Rf-qwQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4925" y="236"/>
+            <point key="canvasLocation" x="5831.884057971015" y="235.59782608695653"/>
         </scene>
         <!--Trámite-->
         <scene sceneID="2Mt-eZ-7wa">
@@ -1350,18 +1350,21 @@
                             <constraint firstItem="uTy-a1-ILh" firstAttribute="top" secondItem="IsS-8P-suf" secondAttribute="bottom" id="yyl-P0-dBL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Trámite" id="PsJ-5r-eeS"/>
+                    <navigationItem key="navigationItem" title="Trámite" id="PsJ-5r-eeS">
+                        <barButtonItem key="rightBarButtonItem" title="Menú" id="C7f-Sl-Dz5"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="contentView" destination="uTy-a1-ILh" id="NHb-ZJ-4lX"/>
                         <outlet property="descriptionLabel" destination="YLy-kP-xTa" id="vZa-dg-MDd"/>
                         <outlet property="instructionsLabel" destination="aat-ua-Ish" id="73o-Lk-xdY"/>
                         <outlet property="nameLabel" destination="nuq-zr-0oj" id="jrg-sX-O14"/>
+                        <outlet property="sideMenuBtn" destination="C7f-Sl-Dz5" id="yLp-6B-m5z"/>
                         <outlet property="viewDecoration" destination="IsS-8P-suf" id="etS-kQ-hEu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i7b-zL-Hl0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6245" y="236"/>
+            <point key="canvasLocation" x="7152.1739130434789" y="235.59782608695653"/>
         </scene>
         <!--Reservación-->
         <scene sceneID="nXT-Vi-5Gx">
@@ -1589,6 +1592,11 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="barTintColor">
+                            <color key="value" name="IISRed"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="dXw-GP-g5M" kind="relationship" relationship="rootViewController" id="OUC-nf-YMV"/>
                     </connections>
@@ -1608,6 +1616,11 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="barTintColor">
+                            <color key="value" name="IISRed"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="Hew-Ux-NCm" kind="relationship" relationship="rootViewController" id="30d-2i-H0c"/>
                     </connections>
@@ -1789,7 +1802,7 @@
         <!--Item-->
         <scene sceneID="bVl-O5-Pd0">
             <objects>
-                <navigationController storyboardIdentifier="TramitesID" automaticallyAdjustsScrollViewInsets="NO" id="fNQ-zc-IA6" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TramitesPersonalesID" automaticallyAdjustsScrollViewInsets="NO" id="fNQ-zc-IA6" customClass="TramitesPersonalesNavigationController" customModule="AppIIS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="JJl-BT-17S"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="g1v-ob-1DV">
@@ -1797,15 +1810,20 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="barTintColor">
+                            <color key="value" name="IISRed"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="BlM-5b-KmC" kind="relationship" relationship="rootViewController" id="PW6-JH-Mo4"/>
+                        <segue destination="BlM-5b-KmC" kind="relationship" relationship="rootViewController" id="URg-R4-q2U"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgZ-Ff-oB6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3741" y="237"/>
         </scene>
-        <!--Solicitudes View Controller-->
+        <!--Mis Solicitudes-->
         <scene sceneID="aPh-K5-zAD">
             <objects>
                 <viewController id="PXb-z2-yAF" customClass="SolicitudesViewController" customModule="AppIIS" customModuleProvider="target" sceneMemberID="viewController">
@@ -1963,10 +1981,13 @@
                             <constraint firstItem="xEi-9q-Ddy" firstAttribute="height" secondItem="xDU-1I-BHQ" secondAttribute="height" multiplier="0.07" id="sY7-e4-vKM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="zYG-eB-cEj"/>
+                    <navigationItem key="navigationItem" title="Mis Solicitudes" id="zYG-eB-cEj">
+                        <barButtonItem key="rightBarButtonItem" title="Menú" id="D68-JL-ZlA"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="contentView" destination="UrL-Kd-Xy7" id="hx9-JE-xjw"/>
                         <outlet property="noSolicitudesLabel" destination="o5d-dt-9qW" id="2Ia-M7-qqS"/>
+                        <outlet property="sideMenuBtn" destination="D68-JL-ZlA" id="9PH-bh-26k"/>
                         <outlet property="solicitudesTable" destination="Q62-YQ-6xL" id="IY7-Rb-7DF"/>
                         <outlet property="viewDecotations" destination="hfI-5s-m86" id="ps6-wd-neD"/>
                         <segue destination="odn-jp-k47" kind="show" identifier="showSolicitudDetail" id="Cf7-PT-PfQ"/>
@@ -2203,7 +2224,9 @@
                             <constraint firstItem="xKT-8e-fY2" firstAttribute="height" secondItem="Zsd-no-Qu6" secondAttribute="height" multiplier="0.07" id="uq6-9D-X2f"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Avance de la solicitud" id="F1i-yp-yNs"/>
+                    <navigationItem key="navigationItem" title="Avance de la solicitud" id="F1i-yp-yNs">
+                        <barButtonItem key="rightBarButtonItem" title="Menú" id="NrU-UF-j9W"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="contentView" destination="VGp-Ee-Ty6" id="2bn-c4-2wQ"/>
                         <outlet property="dataTable" destination="16b-gx-TGG" id="t7C-SA-ZYm"/>
@@ -2211,6 +2234,7 @@
                         <outlet property="initialsView" destination="pXG-mk-une" id="fta-Fr-l7y"/>
                         <outlet property="nameLabel" destination="MDo-Yr-r1p" id="foW-Tv-t9Q"/>
                         <outlet property="numberOfSolicitudLabel" destination="igR-xw-G0r" id="lGt-op-MfF"/>
+                        <outlet property="sideMenuBtn" destination="NrU-UF-j9W" id="Khs-Wt-ht6"/>
                         <outlet property="statusLabel" destination="uAf-NX-Asm" id="fkl-UC-hjN"/>
                         <outlet property="stepDescription" destination="Mop-CJ-wZu" id="mI3-gK-18c"/>
                         <outlet property="stepName" destination="elH-Oj-Q7z" id="t2v-IM-1IU"/>
@@ -2358,6 +2382,11 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="barTintColor">
+                            <color key="value" name="IISRed"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="Jtt-dc-naP" kind="relationship" relationship="rootViewController" id="2ZR-Nf-6l6"/>
                     </connections>
@@ -2377,6 +2406,11 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="barTintColor">
+                            <color key="value" name="IISRed"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="PXb-z2-yAF" kind="relationship" relationship="rootViewController" id="ku2-43-qTs"/>
                     </connections>
@@ -2385,7 +2419,37 @@
             </objects>
             <point key="canvasLocation" x="3741" y="1854"/>
         </scene>
+        <!--Trámites-->
+        <scene sceneID="jbG-Pr-Pdi">
+            <objects>
+                <navigationController storyboardIdentifier="TramitesInstitucionalesID" automaticallyAdjustsScrollViewInsets="NO" id="bl1-bg-0QI" customClass="TramitesInstitucionalesNavigationController" customModule="AppIIS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Trámites" image="doc.badge.plus" catalog="system" id="fIo-Vt-GVK">
+                        <color key="badgeColor" name="IISRed"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="wqa-6Z-lB4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DNB-ZG-HsH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="barTintColor">
+                            <color key="value" name="IISRed"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="BlM-5b-KmC" kind="relationship" relationship="rootViewController" id="7cz-P9-05c"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Lo-88-tVH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3741" y="1024"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="7cz-P9-05c"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="alert" width="128" height="128"/>
         <image name="arrowshape.turn.up.left.circle.fill" catalog="system" width="128" height="123"/>

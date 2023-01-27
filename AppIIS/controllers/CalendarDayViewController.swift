@@ -37,15 +37,15 @@ class CalendarDayViewController: UIViewController, UITableViewDelegate, UITableV
         
         super.viewDidLoad()
         setBarButtonFucntionality(sideMenuBtn)
-        viewDecotations.roundCorners([.topLeft, .topRight], radius: 5)
-        contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
+        //viewDecotations.roundCorners([.topLeft, .topRight], radius: 5)
+        //contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
         initTime()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM dd YYY"
         selectedDayLabel.text = dateFormatter.string(from: selectedDate)
         reservationsFiltered = reservations
         
-        navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
+        //navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
         drawReservations()
     }
     

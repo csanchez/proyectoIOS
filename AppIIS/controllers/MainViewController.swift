@@ -75,6 +75,19 @@ class MainViewController: UIViewController {
         
         // Default Main View Controller
         showViewController(viewController: UINavigationController.self, storyboardId: "NotificationsID")
+        
+        
+       NotificationCenter.default.addObserver(self, selector: #selector(sendTipoTramiteSelected(_:)), name: NSNotification.Name("tipoTramiteSend"), object: nil)
+    }
+    
+    
+    @objc func sendTipoTramiteSelected(_ notification: Notification) {
+        if let dict =  notification.userInfo as NSDictionary? {
+            if let tipoTramite =  dict["tipoTramite"] as? String {
+                NotificationCenter.default.post(name: NSNotification.Name("tipoTramite"),object: nil,userInfo: ["tipoTramite": tipoTramite])
+            }
+        }
+        
     }
     
     
@@ -114,11 +127,13 @@ extension MainViewController: SideMenuViewControllerDelegate {
         case 5:
             self.showViewController(viewController: UINavigationController.self, storyboardId: "MisSolicitudesID")
         case 6:
-            NotificationCenter.default.post(name: NSNotification.Name("tipoTramite"),object: nil,userInfo: ["tipo_tramite": "personal"])
-            self.showViewController(viewController: UINavigationController.self, storyboardId: "TramitesID")
+            self.showViewController(viewController: UINavigationController.self, storyboardId: "TramitesPersonalesID")
+         //   NotificationCenter.default.post(name: NSNotification.Name("tipoTramiteSend"),object: nil,userInfo: ["tipoTramite": "personal"])
+            break
         case 7:
-            NotificationCenter.default.post(name: NSNotification.Name("tipoTramite"),object: nil,userInfo: ["tipo_tramite": "institucional"])
-            self.showViewController(viewController: UINavigationController.self, storyboardId: "TramitesID")
+            self.showViewController(viewController: UINavigationController.self, storyboardId: "TramitesInstitucionalesID")
+         //   NotificationCenter.default.post(name: NSNotification.Name("tipoTramiteSend"),object: nil,userInfo: ["tipoTramite": "institucional"])
+            break
         default:
             break
         }
@@ -135,7 +150,10 @@ extension MainViewController: SideMenuViewControllerDelegate {
             }
         }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
         let vc = storyboard.instantiateViewController(withIdentifier: storyboardId) as! T
+            
+        
         vc.view.tag = 99
         view.insertSubview(vc.view, at: self.revealSideMenuOnTop ? 0 : 1)
         addChild(vc)
@@ -156,6 +174,8 @@ extension MainViewController: SideMenuViewControllerDelegate {
                 vc.view.addSubview(self.sideMenuShadowView)
             }
         }
+        
+        vc.customFunc()
         vc.didMove(toParent: self)
     }
 

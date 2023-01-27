@@ -65,6 +65,9 @@
 		B8A6CCC4296DF8210067A497 /* TramiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A6CCC3296DF8210067A497 /* TramiteViewController.swift */; };
 		B8A6CCC6296E1C2F0067A497 /* SolicitudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A6CCC5296E1C2D0067A497 /* SolicitudViewController.swift */; };
 		B8B68DD4293015DC002FB7A6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B68DD3293015DC002FB7A6 /* LaunchViewController.swift */; };
+		B8BAD01629844A0F0063B22F /* TramitesPersonalesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BAD01529844A0F0063B22F /* TramitesPersonalesNavigationController.swift */; };
+		B8BAD01829844DA70063B22F /* TramitesInstitucionalesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BAD01729844DA70063B22F /* TramitesInstitucionalesNavigationController.swift */; };
+		B8BAD01C298456BF0063B22F /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BAD01B298456BF0063B22F /* UINavigationController.swift */; };
 		B8BD13E629720EA300F47769 /* DataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD13E529720EA300F47769 /* DataCell.swift */; };
 		B8BD302B2939558E00947E16 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD302A2939558E00947E16 /* PushNotificationManager.swift */; };
 		B8D7344F293EACAF004A1C6E /* TramiteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7344E293EACAF004A1C6E /* TramiteCell.swift */; };
@@ -155,6 +158,9 @@
 		B8A6CCC3296DF8210067A497 /* TramiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramiteViewController.swift; sourceTree = "<group>"; };
 		B8A6CCC5296E1C2D0067A497 /* SolicitudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolicitudViewController.swift; sourceTree = "<group>"; };
 		B8B68DD3293015DC002FB7A6 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		B8BAD01529844A0F0063B22F /* TramitesPersonalesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramitesPersonalesNavigationController.swift; sourceTree = "<group>"; };
+		B8BAD01729844DA70063B22F /* TramitesInstitucionalesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramitesInstitucionalesNavigationController.swift; sourceTree = "<group>"; };
+		B8BAD01B298456BF0063B22F /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		B8BD13E529720EA300F47769 /* DataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCell.swift; sourceTree = "<group>"; };
 		B8BD302A2939558E00947E16 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		B8D7344E293EACAF004A1C6E /* TramiteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramiteCell.swift; sourceTree = "<group>"; };
@@ -250,6 +256,7 @@
 				B82E70AD292559B500839202 /* UIColor.swift */,
 				B83860FE292D5958009B3CDD /* UIView.swift */,
 				B814147929352EAB0013FDF9 /* UIViewController.swift */,
+				B8BAD01B298456BF0063B22F /* UINavigationController.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -331,6 +338,8 @@
 				B85A5BF7296750C0005AE08A /* TramitesViewController.swift */,
 				B8A6CCC3296DF8210067A497 /* TramiteViewController.swift */,
 				B8A6CCC5296E1C2D0067A497 /* SolicitudViewController.swift */,
+				B8BAD01529844A0F0063B22F /* TramitesPersonalesNavigationController.swift */,
+				B8BAD01729844DA70063B22F /* TramitesInstitucionalesNavigationController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -504,6 +513,7 @@
 				B8386101292D6CF3009B3CDD /* CalendarViewController.swift in Sources */,
 				B8D73459293EB6A6004A1C6E /* TramiteData.swift in Sources */,
 				B8990BFA292D8D590035A177 /* CalendarHelper.swift in Sources */,
+				B8BAD01C298456BF0063B22F /* UINavigationController.swift in Sources */,
 				1800D101290B0E0200845D00 /* SideMenuViewController.swift in Sources */,
 				B8D73453293EB25B004A1C6E /* Solicitud.swift in Sources */,
 				B8098248292EA9F700C6A9F3 /* CalendarDayViewController.swift in Sources */,
@@ -519,6 +529,7 @@
 				184091BE29009122007FA886 /* TableViewControllerExtension.swift in Sources */,
 				B8B68DD4293015DC002FB7A6 /* LaunchViewController.swift in Sources */,
 				B87D45F62922CD91009317E6 /* ReservationsTabBarViewController.swift in Sources */,
+				B8BAD01829844DA70063B22F /* TramitesInstitucionalesNavigationController.swift in Sources */,
 				184091C529009AD1007FA886 /* URLSessionExtension.swift in Sources */,
 				B8A6CCC4296DF8210067A497 /* TramiteViewController.swift in Sources */,
 				1800D0FF290B0D2D00845D00 /* SideMenuCell.swift in Sources */,
@@ -532,6 +543,7 @@
 				1863544C28F8C56C001D72D3 /* ModelName.swift in Sources */,
 				1833901D290064CD00EC0C05 /* NotificationCell.swift in Sources */,
 				B8BD13E629720EA300F47769 /* DataCell.swift in Sources */,
+				B8BAD01629844A0F0063B22F /* TramitesPersonalesNavigationController.swift in Sources */,
 				B86E48AC293FBFD500E523CC /* SolicitudCell.swift in Sources */,
 				B82E70AE292559B500839202 /* UIColor.swift in Sources */,
 				18894B5C28F5FDC600C5EBEB /* AppDelegate.swift in Sources */,

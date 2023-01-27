@@ -28,14 +28,14 @@ class ReservationViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
-        viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
+       // contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
+        //viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
         
         
         viewDecoration.dropShadow()
         contentView.dropShadow()
         
-        navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
+        //navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
         
         
         self.dateLabel.text = self.reservation?.startDate

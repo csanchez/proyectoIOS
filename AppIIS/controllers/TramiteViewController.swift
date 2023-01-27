@@ -17,13 +17,16 @@ class TramiteViewController: UIViewController {
     @IBOutlet var instructionsLabel: UILabel!
     @IBOutlet var viewDecoration: UIView!
     @IBOutlet var contentView: UIView!
+    @IBOutlet var sideMenuBtn: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
-        contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
-        navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
+        //viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
+        //contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
+       
+        
+        setBarButtonFucntionality(sideMenuBtn)
         
         
         self.nameLabel.text = self.tramite?.name

@@ -31,12 +31,13 @@ class SolicitudViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet var contentView: UIView!
     @IBOutlet var viewDecotations: UIView!
+    @IBOutlet var sideMenuBtn: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewDecotations.roundCorners([.topLeft, .topRight], radius: 5)
-        contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
+        setBarButtonFucntionality(sideMenuBtn)
+        //viewDecotations.roundCorners([.topLeft, .topRight], radius: 5)
+        //contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
         
         //print( self.solicitud?.tramiteName)
         self.nameLabel.text = self.solicitud?.tramiteName
@@ -47,7 +48,7 @@ class SolicitudViewController: UIViewController, UITableViewDelegate, UITableVie
         self.statusLabel.layer.masksToBounds = true
         self.statusLabel.layer.cornerRadius = 5
         self.statusLabel.textColor = .white
-        navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
+        
         
         switch solicitud?.status {
         case 0:

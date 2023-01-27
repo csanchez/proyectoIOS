@@ -15,30 +15,37 @@ class TramitesViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet var noTramitesLabel: UILabel!
     @IBOutlet var viewDecoration: UIView!
     @IBOutlet var contentView: UIView!
+    @IBOutlet var sideMenuBtn: UIBarButtonItem!
     
     
     var tramites: [Tramite] = []
     var tramiteSelected: Tramite?
+    
+    var tipoTramite = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         
-        viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
-        contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
-        navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
+        //viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
+        //contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
         
         self.noTramitesLabel.isHidden = true
         setupActivityIndicator()
+        setBarButtonFucntionality(sideMenuBtn)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(loadDataFromNotificationCenter(_:)), name: NSNotification.Name("tipo-tramite"), object: nil)
+       
+       //NotificationCenter.default.addObserver(self, selector: #selector(loadDataFromNotificationCenter(_:)), name: NSNotification.Name("tipoTramite"), object: nil)
         
-        
-        //loadData()
+        loadData()
 
         
     }
+    
+    
+    
     
 
     /*
@@ -80,9 +87,8 @@ class TramitesViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @objc func loadDataFromNotificationCenter(_ notification: Notification) {
-        print("loadDataFromNotificationCenter")
+        print("loadDataFromNotificationCenter TramitesViewController")
         if let dict =  notification.userInfo as NSDictionary? {
-            print(dict)
             if let tipoTramite =  dict["tipoTramite"] as? String {
                print(tipoTramite)
             }
@@ -90,17 +96,59 @@ class TramitesViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
-    private func loadData(_ tipoTramite: String){
+    
+    public func setTipoTramite(tipoTramite: String){
+        print(tipoTramite)
+        self.tipoTramite = tipoTramite
+    }
+    
+    private func loadData(){
         showActivityIndicator()
-        let url = URL(string: "https://notificaciones.sociales.unam.mx/api/app/tramites/")!
         
-        var request = URLRequest(url: url)
+        
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "notificaciones.sociales.unam.mx"
+        components.path = "/api/app/tramites/"
+        
         let defaults = UserDefaults.standard
+        
+        
+        
+        
+        components.queryItems = [
+            URLQueryItem(name: "tipoTramite", value: tipoTramite),
+            
+        ]
+        
+        
+        guard let urlString = components.string else {
+            return
+        }
+        
+        let url = URL(string: urlString)
+        var request = URLRequest(url: url!)
+        
         let authToken =  defaults.string(forKey: "app_token")
         
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer \(authToken!)", forHTTPHeaderField: "Authorization")
+        
+        
+        
+        /*
+         let url = URL(string: "https://notificaciones.sociales.unam.mx/api/app/tramites/")!
+        
+        var request = URLRequest(url: url)
+        
+        
+        
+        let authToken =  defaults.string(forKey: "app_token")
+        
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(authToken!)", forHTTPHeaderField: "Authorization")*/
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             

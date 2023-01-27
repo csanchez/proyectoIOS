@@ -25,10 +25,10 @@ class ReservationsViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
             
-        viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
-        contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
+        //viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
+        //contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
         setupActivityIndicator()
-        navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
+        //navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
         setBarButtonFucntionality(sideMenuBtn)
         loadData()
 
@@ -189,8 +189,6 @@ class ReservationsViewController: UIViewController, UITableViewDelegate, UITable
            ]
            
            
-           //let url = URL(string: "https://notificaciones.sociales.unam.mx/api/app/reservations/")!
-           // let url = URL(string: components.string ?? "https://notificaciones.sociales.unam.mx/api/app/reservations/")
            
            guard let urlString = components.string else {
                return

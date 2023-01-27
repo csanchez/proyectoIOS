@@ -25,8 +25,8 @@ class NotificationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
-        contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
+        //viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
+        //contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
         
         //self.initialsView.layer.cornerRadius = 50
         //self.initialsView.layer.masksToBounds = true
@@ -43,7 +43,7 @@ class NotificationViewController: UIViewController {
         
         setBarButtonFucntionality(sideMenuBtn)
         
-        navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
+        //navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
 
         // Do any additional setup after loading the view.
     }
