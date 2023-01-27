@@ -11,4 +11,6 @@ import UIKit
 struct SideMenuModel {
     var icon: UIImage
     var title: String
+    var isSelectable: Bool
+    var showIcon: Bool
 }

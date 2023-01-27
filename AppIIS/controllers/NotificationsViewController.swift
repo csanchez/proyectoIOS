@@ -36,8 +36,7 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
         contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
         
         self.noNotificacionesLabel.isHidden = true
-        sideMenuBtn.target = revealViewController()
-        sideMenuBtn.action = #selector(revealViewController()?.revealSideMenu)
+        setBarButtonFucntionality(sideMenuBtn)
         setupActivityIndicator()
         
         navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")

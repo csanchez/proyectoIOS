@@ -51,5 +51,11 @@ extension UIViewController{
         }
 
     }*/
+    
+    
+    func setBarButtonFucntionality(_ sideMenuBtn : UIBarButtonItem){
+        sideMenuBtn.target = revealViewController()
+        sideMenuBtn.action = #selector(revealViewController()?.revealSideMenu)
+    }
 }
 

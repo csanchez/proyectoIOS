@@ -18,12 +18,12 @@ class ReservationViewController: UIViewController {
     @IBOutlet var contentView: UIView!
     
     @IBOutlet var viewDecoration: UIView!
-    
+    @IBOutlet var sideMenuBtn: UIBarButtonItem!
     @IBOutlet var titleText: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setBarButtonFucntionality(sideMenuBtn)
         
 
         // Do any additional setup after loading the view.

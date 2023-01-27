@@ -41,8 +41,7 @@ class NotificationViewController: UIViewController {
       //  [self.messageLabel sizeToFit];
         self.messageLabel.numberOfLines = 0;
         
-        sideMenuBtn.target = revealViewController()
-        sideMenuBtn.action = #selector(revealViewController()?.revealSideMenu)
+        setBarButtonFucntionality(sideMenuBtn)
         
         navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
 

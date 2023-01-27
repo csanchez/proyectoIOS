@@ -22,15 +22,22 @@ class TramitesViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
         contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
         navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
         
         self.noTramitesLabel.isHidden = true
         setupActivityIndicator()
-        loadData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(loadDataFromNotificationCenter(_:)), name: NSNotification.Name("tipo-tramite"), object: nil)
+        
+        
+        //loadData()
 
-        // Do any additional setup after loading the view.
+        
     }
     
 
@@ -72,7 +79,18 @@ class TramitesViewController: UIViewController, UITableViewDelegate, UITableView
 
     }
     
-    private func loadData(){
+    @objc func loadDataFromNotificationCenter(_ notification: Notification) {
+        print("loadDataFromNotificationCenter")
+        if let dict =  notification.userInfo as NSDictionary? {
+            print(dict)
+            if let tipoTramite =  dict["tipoTramite"] as? String {
+               print(tipoTramite)
+            }
+        }
+        
+    }
+    
+    private func loadData(_ tipoTramite: String){
         showActivityIndicator()
         let url = URL(string: "https://notificaciones.sociales.unam.mx/api/app/tramites/")!
         

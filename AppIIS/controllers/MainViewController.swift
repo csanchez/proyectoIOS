@@ -18,10 +18,7 @@ class MainViewController: UIViewController {
     private var sideMenuRevealWidth: CGFloat = 250
     private let paddingForRotation: CGFloat = 150
     // Expand/Collapse the side menu by changing trailing's constant
-    private var sideMenuTrailingConstraint
-    
-    
-    : NSLayoutConstraint!
+    private var sideMenuTrailingConstraint: NSLayoutConstraint!
     
     private var sideMenuShadowView: UIView!
     
@@ -108,14 +105,20 @@ extension MainViewController: SideMenuViewControllerDelegate {
             let notificationsVC = storyboard.instantiateViewController(withIdentifier: "NotificationsID") as? NotificationsTableViewController
             present(notificationsVC!, animated: true, completion: nil)*/
             self.showViewController(viewController: UINavigationController.self, storyboardId: "NotificationsID")
-        case 1:
-            self.showViewController(viewController: UINavigationController.self, storyboardId: "SpacesID")
         case 2:
-             self.showViewController(viewController: UINavigationController.self, storyboardId: "TramitesID")
-        /*case 6:
-            // Like us on facebook
-            let safariVC = SFSafariViewController(url: URL(string: "https://www.facebook.com/johncodeos")!)
-            present(safariVC, animated: true)*/
+            self.showViewController(viewController: UINavigationController.self, storyboardId: "ReservacionesID")
+        case 3:
+            self.showViewController(viewController: UINavigationController.self, storyboardId: "SpacesID")
+        
+        
+        case 5:
+            self.showViewController(viewController: UINavigationController.self, storyboardId: "MisSolicitudesID")
+        case 6:
+            NotificationCenter.default.post(name: NSNotification.Name("tipoTramite"),object: nil,userInfo: ["tipo_tramite": "personal"])
+            self.showViewController(viewController: UINavigationController.self, storyboardId: "TramitesID")
+        case 7:
+            NotificationCenter.default.post(name: NSNotification.Name("tipoTramite"),object: nil,userInfo: ["tipo_tramite": "institucional"])
+            self.showViewController(viewController: UINavigationController.self, storyboardId: "TramitesID")
         default:
             break
         }

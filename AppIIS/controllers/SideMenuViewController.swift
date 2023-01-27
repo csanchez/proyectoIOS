@@ -26,13 +26,19 @@ class SideMenuViewController: UIViewController {
     @IBOutlet var logOutButton: UIButton!
     
     var menu: [SideMenuModel] = [
-            SideMenuModel(icon: UIImage(systemName: "note.text")!, title: "Notificaciones"),
-            SideMenuModel(icon: UIImage(systemName: "calendar")!, title: "Espacios"),
-            SideMenuModel(icon: UIImage(systemName: "film.fill")!, title: "Tramites"),
-            /*SideMenuModel(icon: UIImage(systemName: "book.fill")!, title: "Books"),
-            SideMenuModel(icon: UIImage(systemName: "person.fill")!, title: "Profile"),
-            SideMenuModel(icon: UIImage(systemName: "slider.horizontal.3")!, title: "Settings"),
-            SideMenuModel(icon: UIImage(systemName: "hand.thumbsup.fill")!, title: "Like us on facebook")*/
+            SideMenuModel(icon: UIImage(systemName: "note.text")!, title: "Notificaciones", isSelectable: true, showIcon: true),
+            
+            SideMenuModel(icon: UIImage(systemName: "calendar")!, title: "Espacios", isSelectable: false, showIcon: true),
+            SideMenuModel(icon: UIImage(systemName: "calendar")!, title: "Mis reservaciones", isSelectable: true, showIcon: false),
+            SideMenuModel(icon: UIImage(systemName: "calendar")!, title: "Calendario", isSelectable: true, showIcon: false),
+            
+            SideMenuModel(icon: UIImage(systemName: "film.fill")!, title: "Tramites", isSelectable: false, showIcon: true),
+            
+            
+            SideMenuModel(icon: UIImage(systemName: "film.fill")!, title: "Mis solicitudes", isSelectable: true, showIcon: false),
+            SideMenuModel(icon: UIImage(systemName: "film.fill")!, title: "Trámites personales", isSelectable: true, showIcon: false),
+            SideMenuModel(icon: UIImage(systemName: "film.fill")!, title: "Trámites institucionales", isSelectable: true, showIcon: false),
+            
         ]
 
     
@@ -97,7 +103,8 @@ class SideMenuViewController: UIViewController {
 
 extension SideMenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 45
+        return 35
+        
         
     }
 }
@@ -109,22 +116,45 @@ extension SideMenuViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SideMenuCell.identifier, for: indexPath) as? SideMenuCell else { fatalError("xib doesn't exist") }
-
-        cell.menuIcon.image = self.menu[indexPath.row].icon
-        cell.menuLabel.text = self.menu[indexPath.row].title
-
-        // Highlighted color
+       
         let myCustomSelectionColorView = UIView()
-        myCustomSelectionColorView.backgroundColor = #colorLiteral(red: 0.6196078431, green: 0.1098039216, blue: 0.2509803922, alpha: 1)
-        myCustomSelectionColorView.alpha = 0.5
+        
+        
+        
+        
+        
+        
+        if (self.menu[indexPath.row].isSelectable){
+            myCustomSelectionColorView.alpha = 0.5
+            myCustomSelectionColorView.backgroundColor =  UIColor(named: "IISRed")
+            cell.alpha = 0.5
+        }else{
+            myCustomSelectionColorView.alpha = 0
+            myCustomSelectionColorView.backgroundColor =  UIColor(named: "IISBlack")
+            cell.alpha = 0
+            cell.menuLabel.textColor =  .systemGray3
+        }
+        
+        
+        
+        if (self.menu[indexPath.row].showIcon){
+            cell.menuIcon.image = self.menu[indexPath.row].icon
+            
+        }
+        
+        cell.menuLabel.text = self.menu[indexPath.row].title
         cell.selectedBackgroundView = myCustomSelectionColorView
-        cell.alpha = 0.5
+        // Highlighted color
+        
+        
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        self.delegate?.selectedCell(indexPath.row)
+        if (self.menu[indexPath.row].isSelectable){
+            self.delegate?.selectedCell(indexPath.row)
+        }
+        //
         
         // Remove highlighted color when you press the 'Profile' and 'Like us on facebook' cell
         /*if indexPath.row == 4 || indexPath.row == 6 {

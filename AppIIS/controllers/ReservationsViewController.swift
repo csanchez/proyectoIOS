@@ -17,7 +17,7 @@ class ReservationsViewController: UIViewController, UITableViewDelegate, UITable
     
     
     @IBOutlet var reservationsTable: UITableView!
-    
+    @IBOutlet var sideMenuBtn: UIBarButtonItem!
     
     @IBOutlet var viewDecoration: UIView!
     @IBOutlet var contentView: UIView!
@@ -29,6 +29,7 @@ class ReservationsViewController: UIViewController, UITableViewDelegate, UITable
         contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
         setupActivityIndicator()
         navigationController?.navigationBar.barTintColor = UIColor(named: "IISRed")
+        setBarButtonFucntionality(sideMenuBtn)
         loadData()
 
         // Do any additional setup after loading the view.

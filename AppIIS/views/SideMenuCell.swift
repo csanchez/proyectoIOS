@@ -14,6 +14,8 @@ class SideMenuCell: UITableViewCell {
     class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
     
     
+  
+    
     @IBOutlet var menuLabel: UILabel!
     
     @IBOutlet var menuIcon: UIImageView!

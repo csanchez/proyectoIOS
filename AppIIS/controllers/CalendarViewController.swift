@@ -16,6 +16,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     @IBOutlet var viewDecotations: UIView!
     @IBOutlet var contentView: UIView!
+    @IBOutlet var sideMenuBtn: UIBarButtonItem!
     
     var activityIndicator = UIActivityIndicatorView()
     
@@ -26,6 +27,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBarButtonFucntionality(sideMenuBtn)
         viewDecotations.roundCorners([.topLeft, .topRight], radius: 5)
         contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
         setupActivityIndicator()

@@ -17,6 +17,7 @@ class CalendarDayViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet var hourTableView: UITableView!
     @IBOutlet var selectedDayLabel: UILabel!
+    @IBOutlet var sideMenuBtn: UIBarButtonItem!
     var selectedDate = Date()
     var reservations = [Reservation]()
     var reservationsFiltered = [Reservation]()
@@ -35,6 +36,7 @@ class CalendarDayViewController: UIViewController, UITableViewDelegate, UITableV
         spaces = ["all","aula_1", "aula_2","sala_D","sala_E","sala_F","sala_H","lab_computo","auditorio","anexo", "auditorio_y_anexo","vc_computo","terraza","direccion","biblioteca", "aula_virtual_1", "aula_virtual_2"]
         
         super.viewDidLoad()
+        setBarButtonFucntionality(sideMenuBtn)
         viewDecotations.roundCorners([.topLeft, .topRight], radius: 5)
         contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
         initTime()

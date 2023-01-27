@@ -12,7 +12,7 @@ class SolicitudCell: UITableViewCell {
     @IBOutlet var tramiteNameLabel: UILabel!
     @IBOutlet var departmentNameLabel: UILabel!
     
-    
+
     @IBOutlet var numberOfSolicitudLabel: UILabel!
     
     @IBOutlet var statusLabel: UILabel!
