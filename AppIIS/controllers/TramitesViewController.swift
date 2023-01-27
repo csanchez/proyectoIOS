@@ -27,7 +27,11 @@ class TramitesViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        if(tipoTramite == "personal"){
+            self.title = "Trámites personales"
+        }else{
+            self.title = "Trámites institucionales"
+        }
         
         //viewDecoration.roundCorners([.topLeft, .topRight], radius: 5)
         //contentView.roundCorners([.bottomLeft, .bottomRight], radius: 5)
@@ -241,6 +245,6 @@ class TramitesViewController: UIViewController, UITableViewDelegate, UITableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
           let destination = segue.destination as! TramiteViewController
         destination.tramite = self.tramiteSelected
-       }
+    }
 
 }

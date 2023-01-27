@@ -9,9 +9,9 @@ import Foundation
 
 class TramiteData: Codable {
     
-    let name:  String
-    let label:  String
-    let value:  String
+    var name:  String
+    var label:  String
+    var value:  String
     
 }
 

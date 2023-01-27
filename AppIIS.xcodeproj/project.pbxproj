@@ -68,7 +68,9 @@
 		B8BAD01629844A0F0063B22F /* TramitesPersonalesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BAD01529844A0F0063B22F /* TramitesPersonalesNavigationController.swift */; };
 		B8BAD01829844DA70063B22F /* TramitesInstitucionalesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BAD01729844DA70063B22F /* TramitesInstitucionalesNavigationController.swift */; };
 		B8BAD01C298456BF0063B22F /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BAD01B298456BF0063B22F /* UINavigationController.swift */; };
-		B8BD13E629720EA300F47769 /* DataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD13E529720EA300F47769 /* DataCell.swift */; };
+		B8BAD01E2984653D0063B22F /* NuevaSolicitudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BAD01D2984653D0063B22F /* NuevaSolicitudViewController.swift */; };
+		B8BAD0202984696C0063B22F /* NewSolicitudDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BAD01F2984696C0063B22F /* NewSolicitudDataCell.swift */; };
+		B8BD13E629720EA300F47769 /* SolicitudDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD13E529720EA300F47769 /* SolicitudDataCell.swift */; };
 		B8BD302B2939558E00947E16 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD302A2939558E00947E16 /* PushNotificationManager.swift */; };
 		B8D7344F293EACAF004A1C6E /* TramiteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D7344E293EACAF004A1C6E /* TramiteCell.swift */; };
 		B8D73451293EACDC004A1C6E /* Tramite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D73450293EACDC004A1C6E /* Tramite.swift */; };
@@ -161,7 +163,9 @@
 		B8BAD01529844A0F0063B22F /* TramitesPersonalesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramitesPersonalesNavigationController.swift; sourceTree = "<group>"; };
 		B8BAD01729844DA70063B22F /* TramitesInstitucionalesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramitesInstitucionalesNavigationController.swift; sourceTree = "<group>"; };
 		B8BAD01B298456BF0063B22F /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
-		B8BD13E529720EA300F47769 /* DataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCell.swift; sourceTree = "<group>"; };
+		B8BAD01D2984653D0063B22F /* NuevaSolicitudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NuevaSolicitudViewController.swift; sourceTree = "<group>"; };
+		B8BAD01F2984696C0063B22F /* NewSolicitudDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSolicitudDataCell.swift; sourceTree = "<group>"; };
+		B8BD13E529720EA300F47769 /* SolicitudDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolicitudDataCell.swift; sourceTree = "<group>"; };
 		B8BD302A2939558E00947E16 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		B8D7344E293EACAF004A1C6E /* TramiteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramiteCell.swift; sourceTree = "<group>"; };
 		B8D73450293EACDC004A1C6E /* Tramite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tramite.swift; sourceTree = "<group>"; };
@@ -240,7 +244,8 @@
 				B80C4412292EBA5E00F86D11 /* HourCell.swift */,
 				B8D7344E293EACAF004A1C6E /* TramiteCell.swift */,
 				B86E48AB293FBFD500E523CC /* SolicitudCell.swift */,
-				B8BD13E529720EA300F47769 /* DataCell.swift */,
+				B8BD13E529720EA300F47769 /* SolicitudDataCell.swift */,
+				B8BAD01F2984696C0063B22F /* NewSolicitudDataCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 				B8A6CCC5296E1C2D0067A497 /* SolicitudViewController.swift */,
 				B8BAD01529844A0F0063B22F /* TramitesPersonalesNavigationController.swift */,
 				B8BAD01729844DA70063B22F /* TramitesInstitucionalesNavigationController.swift */,
+				B8BAD01D2984653D0063B22F /* NuevaSolicitudViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -503,6 +509,7 @@
 			files = (
 				18894B9228F6060B00C5EBEB /* LoginViewController.swift in Sources */,
 				B8D73457293EB465004A1C6E /* Condition.swift in Sources */,
+				B8BAD0202984696C0063B22F /* NewSolicitudDataCell.swift in Sources */,
 				B8A6CCC6296E1C2F0067A497 /* SolicitudViewController.swift in Sources */,
 				183AB5EC2915B0DE00ABD94F /* Date.swift in Sources */,
 				18894B9028F605F400C5EBEB /* StartViewController.swift in Sources */,
@@ -518,6 +525,7 @@
 				B8D73453293EB25B004A1C6E /* Solicitud.swift in Sources */,
 				B8098248292EA9F700C6A9F3 /* CalendarDayViewController.swift in Sources */,
 				184C217E2909E2C500C7E44D /* ActivityIndicator.swift in Sources */,
+				B8BAD01E2984653D0063B22F /* NuevaSolicitudViewController.swift in Sources */,
 				184091BC29008F29007FA886 /* IisNotification.swift in Sources */,
 				184C21802909E9FE00C7E44D /* ReservationResponse.swift in Sources */,
 				18AC6F442901CE1800E9FDEB /* NotificationViewController.swift in Sources */,
@@ -542,7 +550,7 @@
 				B85A5BF8296750C0005AE08A /* TramitesViewController.swift in Sources */,
 				1863544C28F8C56C001D72D3 /* ModelName.swift in Sources */,
 				1833901D290064CD00EC0C05 /* NotificationCell.swift in Sources */,
-				B8BD13E629720EA300F47769 /* DataCell.swift in Sources */,
+				B8BD13E629720EA300F47769 /* SolicitudDataCell.swift in Sources */,
 				B8BAD01629844A0F0063B22F /* TramitesPersonalesNavigationController.swift in Sources */,
 				B86E48AC293FBFD500E523CC /* SolicitudCell.swift in Sources */,
 				B82E70AE292559B500839202 /* UIColor.swift in Sources */,

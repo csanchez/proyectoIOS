@@ -19,6 +19,9 @@ class TramiteViewController: UIViewController {
     @IBOutlet var contentView: UIView!
     @IBOutlet var sideMenuBtn: UIBarButtonItem!
     
+    
+    //@IBOutlet var nuevaSolicitudButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,10 +36,10 @@ class TramiteViewController: UIViewController {
         self.descriptionLabel.text = self.tramite?.descripcion
         self.instructionsLabel.text = self.tramite?.instructions
         
-        for data in self.tramite?.data ?? [] {
+        /*for data in self.tramite?.data ?? [] {
             
             print("\(data.name) - \(data.label) - \(data.value)")
-        }
+        }*/
 
         // Do any additional setup after loading the view.
     }
@@ -51,5 +54,21 @@ class TramiteViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+    /*@IBAction func nuevaSolicudButtonClick(_ sender: Any) {
+        self.performSegue(withIdentifier: "NuevaSolicitudSegue", sender: Self.self)
+    }*/
+    
+    
+    @IBAction func nuevaSolicudButtonClick2(_ sender: Any) {
+        self.performSegue(withIdentifier: "NuevaSolicitudSegue", sender: Self.self)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          let destination = segue.destination as! NuevaSolicitudViewController
+        destination.tramite = self.tramite
+    }
+    
 }

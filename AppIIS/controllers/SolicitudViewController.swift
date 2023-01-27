@@ -110,7 +110,7 @@ class SolicitudViewController: UIViewController, UITableViewDelegate, UITableVie
 
    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as! DataCell
+       let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as! SolicitudDataCell
         let condition = self.solicitud!.currentStep.conditions[indexPath.row]
         
        

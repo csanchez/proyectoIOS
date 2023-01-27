@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DataCell: UITableViewCell {
+class SolicitudDataCell: UITableViewCell {
     
     
     
