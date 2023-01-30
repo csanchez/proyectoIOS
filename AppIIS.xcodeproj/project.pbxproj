@@ -65,6 +65,8 @@
 		B8A6CCC4296DF8210067A497 /* TramiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A6CCC3296DF8210067A497 /* TramiteViewController.swift */; };
 		B8A6CCC6296E1C2F0067A497 /* SolicitudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A6CCC5296E1C2D0067A497 /* SolicitudViewController.swift */; };
 		B8B68DD4293015DC002FB7A6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B68DD3293015DC002FB7A6 /* LaunchViewController.swift */; };
+		B8B794952988499700FD4B91 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B794942988499700FD4B91 /* NetworkMonitor.swift */; };
+		B8B7949729886B9C00FD4B91 /* TramiteDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7949629886B9B00FD4B91 /* TramiteDataCell.swift */; };
 		B8BAD01629844A0F0063B22F /* TramitesPersonalesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BAD01529844A0F0063B22F /* TramitesPersonalesNavigationController.swift */; };
 		B8BAD01829844DA70063B22F /* TramitesInstitucionalesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BAD01729844DA70063B22F /* TramitesInstitucionalesNavigationController.swift */; };
 		B8BAD01C298456BF0063B22F /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BAD01B298456BF0063B22F /* UINavigationController.swift */; };
@@ -160,6 +162,8 @@
 		B8A6CCC3296DF8210067A497 /* TramiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramiteViewController.swift; sourceTree = "<group>"; };
 		B8A6CCC5296E1C2D0067A497 /* SolicitudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolicitudViewController.swift; sourceTree = "<group>"; };
 		B8B68DD3293015DC002FB7A6 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		B8B794942988499700FD4B91 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		B8B7949629886B9B00FD4B91 /* TramiteDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramiteDataCell.swift; sourceTree = "<group>"; };
 		B8BAD01529844A0F0063B22F /* TramitesPersonalesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramitesPersonalesNavigationController.swift; sourceTree = "<group>"; };
 		B8BAD01729844DA70063B22F /* TramitesInstitucionalesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramitesInstitucionalesNavigationController.swift; sourceTree = "<group>"; };
 		B8BAD01B298456BF0063B22F /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
@@ -229,6 +233,7 @@
 				1800D102290B126300845D00 /* SideMenuModel.swift */,
 				B8990BF9292D8D590035A177 /* CalendarHelper.swift */,
 				B8BD302A2939558E00947E16 /* PushNotificationManager.swift */,
+				B8B794942988499700FD4B91 /* NetworkMonitor.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 				B86E48AB293FBFD500E523CC /* SolicitudCell.swift */,
 				B8BD13E529720EA300F47769 /* SolicitudDataCell.swift */,
 				B8BAD01F2984696C0063B22F /* NewSolicitudDataCell.swift */,
+				B8B7949629886B9B00FD4B91 /* TramiteDataCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -508,6 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18894B9228F6060B00C5EBEB /* LoginViewController.swift in Sources */,
+				B8B794952988499700FD4B91 /* NetworkMonitor.swift in Sources */,
 				B8D73457293EB465004A1C6E /* Condition.swift in Sources */,
 				B8BAD0202984696C0063B22F /* NewSolicitudDataCell.swift in Sources */,
 				B8A6CCC6296E1C2F0067A497 /* SolicitudViewController.swift in Sources */,
@@ -517,6 +524,7 @@
 				B82E70B02925677900839202 /* ReservationViewController.swift in Sources */,
 				1876361228FDDE2200C0E046 /* PasswordValidator.swift in Sources */,
 				B8D7344F293EACAF004A1C6E /* TramiteCell.swift in Sources */,
+				B8B7949729886B9C00FD4B91 /* TramiteDataCell.swift in Sources */,
 				B8386101292D6CF3009B3CDD /* CalendarViewController.swift in Sources */,
 				B8D73459293EB6A6004A1C6E /* TramiteData.swift in Sources */,
 				B8990BFA292D8D590035A177 /* CalendarHelper.swift in Sources */,

@@ -24,11 +24,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // if user is logged in before
             
+       /* let mainTabBarController = storyboard.instantiateViewController(identifier: "MainController")
+            //window?.rootViewController = mainTabBarController
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+        */
+        
         if UserDefaults.standard.string(forKey: "loggedIn") != nil {
                 // instantiate the main tab bar controller and set it as root view controller
                 // using the storyboard identifier we set earlier
                 //let mainTabBarController = storyboard.instantiateViewController(identifier: "MainController")
-            let mainTabBarController = storyboard.instantiateViewController(identifier: "StartController")
+            let mainTabBarController = storyboard.instantiateViewController(identifier: "MainController")
                 window?.rootViewController = mainTabBarController 
         } else {
                 // if user isn't logged in

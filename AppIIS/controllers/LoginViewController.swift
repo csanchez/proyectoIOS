@@ -38,7 +38,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
        
        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+      
        
+       
+       
+       if (NetworkMonitor.shared.isConected){
+           
+           self.loginButton.isEnabled = true
+       }else{
+           self.loginButton.isEnabled = false
+           showAlert(title: "Error en Red", message: "No hay conexión a internet")
+           
+       }
         
     }
     

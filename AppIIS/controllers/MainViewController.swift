@@ -27,7 +27,15 @@ class MainViewController: UIViewController {
     private var alphaConstant: CGFloat = 0.0
     
     var gestureEnabled: Bool = true
-
+    
+    
+    
+    
+    @IBOutlet var messageLabel: UILabel!
+    
+    @IBOutlet var subMessageLabel: UILabel!
+    @IBOutlet var backgroundGradientView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -73,12 +81,36 @@ class MainViewController: UIViewController {
         panGestureRecognizer.delegate = self
         view.addGestureRecognizer(panGestureRecognizer)
         
-        // Default Main View Controller
-        showViewController(viewController: UINavigationController.self, storyboardId: "NotificationsID")
+        
         
         
        NotificationCenter.default.addObserver(self, selector: #selector(sendTipoTramiteSelected(_:)), name: NSNotification.Name("tipoTramiteSend"), object: nil)
+        
+        
+        //self.setGradienteBackground(self.backgroundGradientView)
+        
+        print("Checando red")
+        //showViewController(viewController: UINavigationController.self, storyboardId: "NotificationsID")
+        
+        
+         
+        if (NetworkMonitor.shared.isConected){
+            self.backgroundGradientView.isHidden = true
+            showViewController(viewController: UINavigationController.self, storyboardId: "NotificationsID")
+        }else{
+            self.messageLabel.text = "La aplicación necesita una conexión a internet para su adecuado funcionamiento."
+            self.subMessageLabel.text = "Vaya a Configuración -> Wi-Fi"
+        }
+        
+        
+        // Default Main View Controller
+        //
     }
+    
+    
+   
+
+   
     
     
     @objc func sendTipoTramiteSelected(_ notification: Notification) {

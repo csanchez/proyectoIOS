@@ -3,11 +3,11 @@
 //  AppIIS
 //
 //  Created by Tecnologias iis on 10/01/23.
-//
+// https://fluffy.es/scrollview-storyboard-xcode-11/
 
 import UIKit
 
-class TramiteViewController: UIViewController {
+class TramiteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate  {
     
     var tramite: Tramite?
     
@@ -18,6 +18,9 @@ class TramiteViewController: UIViewController {
     @IBOutlet var viewDecoration: UIView!
     @IBOutlet var contentView: UIView!
     @IBOutlet var sideMenuBtn: UIBarButtonItem!
+    
+    
+    @IBOutlet var dataTable: UITableView!
     
     
     //@IBOutlet var nuevaSolicitudButton: UIButton!
@@ -36,12 +39,7 @@ class TramiteViewController: UIViewController {
         self.descriptionLabel.text = self.tramite?.descripcion
         self.instructionsLabel.text = self.tramite?.instructions
         
-        /*for data in self.tramite?.data ?? [] {
-            
-            print("\(data.name) - \(data.label) - \(data.value)")
-        }*/
-
-        // Do any additional setup after loading the view.
+       
     }
     
 
@@ -70,5 +68,39 @@ class TramiteViewController: UIViewController {
           let destination = segue.destination as! NuevaSolicitudViewController
         destination.tramite = self.tramite
     }
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+       // #warning Incomplete implementation, return the number of sections
+       return 1
+   }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.tramite?.data.count ?? 0
+   }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tramiteDataCell", for: indexPath) as! TramiteDataCell
+        
+         
+        let data = self.tramite?.data [indexPath.row]
+        
+        
+         
+         /*cell.instructionsLabel?.text =  condition.instruction
+         cell.statusLabel?.text =  condition.iisRole*/
+        cell.dataName?.text = data?.name
+         
+
+         
+         
+        // cell.makeCircle(solicitud.departmentColor)
+        return cell
+    }
+    
+    
+    
+    
+    
     
 }
