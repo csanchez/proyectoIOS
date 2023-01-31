@@ -191,6 +191,10 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
         request.httpMethod = "PUT"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer \(authToken!)", forHTTPHeaderField: "Authorization")
+        
+        
+        
+        
 
         let params = ["id": self.notificationSelected?.userNotificationId] //as Dictionary<String, String>
 

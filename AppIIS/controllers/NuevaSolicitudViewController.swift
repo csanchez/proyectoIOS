@@ -127,13 +127,18 @@ class NuevaSolicitudViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBAction func registerNewSolicitud(_ sender: Any) {
         
-        var data =   self.tramite?.data
+        var data = self.tramite?.data
+        
+        var dataArray: [[String:String]] = []
         
         let cells = self.dataTable.visibleCells as! Array<NewSolicitudDataCell>
-
+        
         for (index, cell) in cells.enumerated() {
             
             data![index].value = cell.dataValue.text ?? ""
+            let d =  ["value": cell.dataValue.text ?? "","label": data![index].label,"name": data![index].name ]
+            
+            dataArray.append(d)
             
         }
         
@@ -141,11 +146,11 @@ class NuevaSolicitudViewController: UIViewController, UITableViewDelegate, UITab
         print(data![1].value)
         print(data![2].value)
         
-        /*showActivityIndicator()
+        showActivityIndicator()
         
         do {
-                
-            let defaults = UserDefaults.standard
+            
+            
             
             
             let url = URL(string: "https://notificaciones.sociales.unam.mx/api/app/tramites_users/")!
@@ -156,107 +161,93 @@ class NuevaSolicitudViewController: UIViewController, UITableViewDelegate, UITab
             request.addValue("Bearer \( UserDefaults.standard.string(forKey: "app_token")!)", forHTTPHeaderField: "Authorization")
             
             
-            let jsonEncoder = JSONEncoder()
-            let jsonData = try jsonEncoder.encode(self.tramite.)
-            let json = String(data: jsonData, encoding: String.Encoding.utf16)
             
-
-            let params = ["tramite": ["d":self.tramite?.slug, "data":password] ] //as Dictionary<String, String>
-
-            guard let postData = try? JSONSerialization.data(withJSONObject: params, options: []) else {
+            
+            let nuevaSolicitud = NuevaSolicitud(tramite: TramiteNuevaSolicitud(id:  self.tramite?.slug ?? "" , data: data ??  [] ) )
+            
+            
+            let jsonEncoder = JSONEncoder()
+            guard let postData = try?jsonEncoder.encode(nuevaSolicitud) else {
                 return
             }
             
-
-
             request.httpBody = postData
-
+            
+            
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                
+                if let httpResponse = response as? HTTPURLResponse {
+                    if httpResponse.statusCode == 401 {
+                        self.showAlert(title: "No se puede acceder", message: "Tu sesión ha expirado.")
+                        let defaults = UserDefaults.standard
+                        defaults.set(false, forKey: "loggedIn")
+                        self.hideActivityIndicator()
+                        return
+                    }
+                }
                 
                 // ensure there is no error for this HTTP response
                 guard error == nil else {
-                    print ("error: \(error!)")
-                    //throw AppError.customError(message: "Ocurrio un error indesperado")
-                   
-                    self.showAlertAndEnableView(title: "Error", message: "ocurrio un error desconocido")
+                    self.showAlert(title: "Error", message: "ocurrio un error desconocido")
                     return
                 }
                 
                 // ensure there is data returned from this HTTP response
                 guard let content = data else {
-                    print("No data")
-                    //throw AppError.customError(message: "No hay datos en la respuesta")
+                    self.showAlert(title: "Error", message: "No hay datos en la respuesta")
+                    return
+                }
+                
+                
+                
+                
+                
+                do {
+                    let nuevaSolicitudResponse = try JSONDecoder().decode(NuevaSolicitudResponse.self, from: content)
+                    print(nuevaSolicitudResponse.message)
                     
-                    self.showAlertAndEnableView(title: "Error", message: "No hay datos en la respuesta")
-                    return
+                    /*self.tramites = tramitesResponse.tramites
+                    DispatchQueue.main.async {
+                        self.tramitesTable.reloadData()
+                        if(self.tramites.isEmpty){
+                            self.noTramitesLabel.isHidden = false
+                            self.tramitesTable.isHidden = true
+                        }else{
+                            print("contr amites")
+                            self.noTramitesLabel.isHidden = true
+                            self.tramitesTable.isHidden = false
+                        }
+                    }*/
+                    //self.hideActivityIndicator()
+                    self.hideActivityIndicator()
+                } catch let ex {
+                    self.hideActivityIndicator()
+                    print(ex)
+                    self.showAlert(title:"Error", message: "ocurrio un error al procesar la respuesta del servidor")
                 }
                 
                 
                 
-                // serialise the data / NSData object into Dictionary [String : Any]
-               guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
-                    print("Not containing JSON")
-                   
-                   self.showAlertAndEnableView(title:"Error", message:"ocurrio un error al procesar la respuesta del servidor")
-                    //throw AppError.invalidJsonResponse
-                    return
-                }
-                
-                print("gotten json response dictionary is \n \(json)")
-                if let httpResponse = response as? HTTPURLResponse {
-                    print(httpResponse)
-                    print("status",httpResponse.statusCode)
-                    if httpResponse.statusCode == 401 {
-                        
-                        self.showAlertAndEnableView(title: "No se puede acceder", message: "Nombre de usuario o contraseña inváida")
-                        //throw AppError.invalidUserOrPassword
-                        return
-                    }
-                        
-                }
-                
-                let user = json["user"] as? [String:Any]
-                
-                let appToken =  user?["app_token"]
-                let email =  user?["email"]
-                let firstName =  user?["first_name"]
-                //let firstName =  user?["iis_role"]
-                let lastName =  user?["last_name"]
-                let picture =  user?["picture_url"]
-                let rfc =  user?["rfc"]
-                let userType =  user?["user_type"]
                 
                 
-                defaults.set(true, forKey: "loggedIn")
-                defaults.set(appToken!, forKey: "app_token")
-                defaults.set(email!, forKey: "email")
-                defaults.set(firstName!, forKey: "first_name")
-                //defaults.set( forKey: "iis_role")
-                defaults.set(lastName!, forKey: "last_name")
-                defaults.set(picture!, forKey: "picture_url")
-                defaults.set(rfc!, forKey: "rfc")
-                defaults.set(userType!, forKey: "user_type")
                 
-                DispatchQueue.main.async {
-                   // self.loginButton.isEnabled = true
-                    self.hideSpinner()
-                    //self.performSegue(withIdentifier: "loginToMainSegue", sender: Self.self)
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let mainTabBarController = storyboard.instantiateViewController(identifier: "MainController")
-                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
-                }
-                
-               
             }
             
             //self.view.makeToast("This is a piece of toast")
             // execute the HTTP request
-            task.resume()*/
-        
-        
-        
-        
+            task.resume()
+            
+        }
     }
+        
+        
+        private func showAlertAndEnableView(title:String, message:String){
+            DispatchQueue.main.async {
+                self.showAlert(title:title, message: message);
+                
+                self.hideActivityIndicator()
+            }
+        }
     
     
     

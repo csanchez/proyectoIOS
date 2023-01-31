@@ -52,6 +52,9 @@
 		B83249B32926FB5100C7B238 /* ReservationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83249B22926FB5100C7B238 /* ReservationCell.swift */; };
 		B83860FF292D5958009B3CDD /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83860FE292D5958009B3CDD /* UIView.swift */; };
 		B8386101292D6CF3009B3CDD /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8386100292D6CF3009B3CDD /* CalendarViewController.swift */; };
+		B856136529899D4F003B6B7A /* NuevaSolicitudResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856136429899D4F003B6B7A /* NuevaSolicitudResponse.swift */; };
+		B85613672989CDEA003B6B7A /* NuevaSolicitud.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85613662989CDE9003B6B7A /* NuevaSolicitud.swift */; };
+		B85613692989D4B8003B6B7A /* TramiteNuevaSolicitud.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85613682989D4B8003B6B7A /* TramiteNuevaSolicitud.swift */; };
 		B85A5BF8296750C0005AE08A /* TramitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85A5BF7296750C0005AE08A /* TramitesViewController.swift */; };
 		B85A5BFA29678584005AE08A /* TramitesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85A5BF929678584005AE08A /* TramitesResponse.swift */; };
 		B86E48AA293FBF3E00E523CC /* SolicitudesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86E48A9293FBF3E00E523CC /* SolicitudesResponse.swift */; };
@@ -151,6 +154,9 @@
 		B83249B22926FB5100C7B238 /* ReservationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationCell.swift; sourceTree = "<group>"; };
 		B83860FE292D5958009B3CDD /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B8386100292D6CF3009B3CDD /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		B856136429899D4F003B6B7A /* NuevaSolicitudResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NuevaSolicitudResponse.swift; sourceTree = "<group>"; };
+		B85613662989CDE9003B6B7A /* NuevaSolicitud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NuevaSolicitud.swift; sourceTree = "<group>"; };
+		B85613682989D4B8003B6B7A /* TramiteNuevaSolicitud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramiteNuevaSolicitud.swift; sourceTree = "<group>"; };
 		B85A5BF7296750C0005AE08A /* TramitesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramitesViewController.swift; sourceTree = "<group>"; };
 		B85A5BF929678584005AE08A /* TramitesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramitesResponse.swift; sourceTree = "<group>"; };
 		B86E48A9293FBF3E00E523CC /* SolicitudesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolicitudesResponse.swift; sourceTree = "<group>"; };
@@ -216,6 +222,7 @@
 				184C217F2909E9FE00C7E44D /* ReservationResponse.swift */,
 				B86E48A9293FBF3E00E523CC /* SolicitudesResponse.swift */,
 				B85A5BF929678584005AE08A /* TramitesResponse.swift */,
+				B856136429899D4F003B6B7A /* NuevaSolicitudResponse.swift */,
 			);
 			path = Reponse;
 			sourceTree = "<group>";
@@ -368,6 +375,8 @@
 				B8D73456293EB465004A1C6E /* Condition.swift */,
 				B8D73458293EB6A6004A1C6E /* TramiteData.swift */,
 				B8D7345A293EB6B7004A1C6E /* Department.swift */,
+				B85613662989CDE9003B6B7A /* NuevaSolicitud.swift */,
+				B85613682989D4B8003B6B7A /* TramiteNuevaSolicitud.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -549,6 +558,7 @@
 				184091C529009AD1007FA886 /* URLSessionExtension.swift in Sources */,
 				B8A6CCC4296DF8210067A497 /* TramiteViewController.swift in Sources */,
 				1800D0FF290B0D2D00845D00 /* SideMenuCell.swift in Sources */,
+				B85613672989CDEA003B6B7A /* NuevaSolicitud.swift in Sources */,
 				B8D7345B293EB6B7004A1C6E /* Department.swift in Sources */,
 				1800D103290B126300845D00 /* SideMenuModel.swift in Sources */,
 				B814147A29352EAB0013FDF9 /* UIViewController.swift in Sources */,
@@ -576,8 +586,10 @@
 				1876360928FDDAF000C0E046 /* Validators.swift in Sources */,
 				B80C4413292EBA5E00F86D11 /* HourCell.swift in Sources */,
 				B86E48AA293FBF3E00E523CC /* SolicitudesResponse.swift in Sources */,
+				B856136529899D4F003B6B7A /* NuevaSolicitudResponse.swift in Sources */,
 				1801D53F28FF570300651F7A /* SolicitudesViewController.swift in Sources */,
 				B8D73455293EB407004A1C6E /* Step.swift in Sources */,
+				B85613692989D4B8003B6B7A /* TramiteNuevaSolicitud.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
