@@ -10,6 +10,7 @@ import UIKit
 class SolicitudViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var solicitud: Solicitud?
+    var senderParent = -1
     
     
     @IBOutlet var nameLabel: UILabel!
@@ -138,5 +139,36 @@ class SolicitudViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     //sudo docker run -dit -e VIRTUAL_HOST=notificaciones.sociales.unam.mx -e LETSENCRYPT_HOST=notificaciones.sociales.unam.mx -e LETSENCRYPT_EMAIL=csanchez@sociales.unam.mx --network=proxy --name test-notificaciones httpd:alpine
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("viewWillDisappear")
+        self.performSegue(withIdentifier: "returnToSolicitudesUnwind", sender: self)
+        super.viewWillDisappear(animated)
+        
+        //self.navigationController?.popViewController(animated: true)
+        
+       
+        
+    }
+    
+    
+   /* @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
+            let navigationController = presentingViewController is UINavigationController
+
+        if self.senderParent == 0  { //Solicitudes
+                self.dismiss(animated: true)
+        }else{
+            //navigationController?.popViewController(animated: true)
+           // performSegue(withIdentifier: "returnFromNewSolicitudUnwind", sender: self)
+            //self.navigationController?.popViewController(animated: true)
+            self.performSegue(withIdentifier: "returnToSolicitudes", sender: self)
+            //
+        }
+    }*/
+    
+    //showSolicitudDetail
+    //showSolicitudDetail2
+    
 
 }

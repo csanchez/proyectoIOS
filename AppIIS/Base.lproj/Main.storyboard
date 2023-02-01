@@ -887,7 +887,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wOe-Xs-HDP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6193" y="2667"/>
+            <point key="canvasLocation" x="6245" y="2667"/>
         </scene>
         <!--Notificaciones-->
         <scene sceneID="gaa-LX-Y29">
@@ -2095,7 +2095,7 @@
                         <outlet property="sideMenuBtn" destination="D68-JL-ZlA" id="9PH-bh-26k"/>
                         <outlet property="solicitudesTable" destination="Q62-YQ-6xL" id="IY7-Rb-7DF"/>
                         <outlet property="viewDecotations" destination="hfI-5s-m86" id="ps6-wd-neD"/>
-                        <segue destination="odn-jp-k47" kind="show" identifier="showSolicitudDetail" id="Cf7-PT-PfQ"/>
+                        <segue destination="odn-jp-k47" kind="show" identifier="showSolicitudDetail" id="Ujy-Et-NrD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7YB-3a-iNL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2210,8 +2210,8 @@
                                                                                 <constraint firstAttribute="width" constant="30" id="ueA-XD-Q2d"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0SR-X6-net">
-                                                                            <rect key="frame" x="40" y="10" width="329" height="14.666666666666664"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0SR-X6-net">
+                                                                            <rect key="frame" x="40" y="10" width="329" height="14.333333333333336"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -2346,11 +2346,13 @@
                         <outlet property="stepName" destination="elH-Oj-Q7z" id="t2v-IM-1IU"/>
                         <outlet property="stepNumberLabel" destination="F3D-0M-qcS" id="6aN-9g-PvV"/>
                         <outlet property="viewDecotations" destination="BPm-dx-STC" id="AK6-qu-h55"/>
+                        <segue destination="bhP-jx-9XV" kind="unwind" identifier="returnToSolicitudesUnwind" unwindAction="returnFromNewSolicitudUnwind:" id="nDs-XB-Y7v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyd-Be-iei" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="bhP-jx-9XV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6193" y="1854"/>
+            <point key="canvasLocation" x="6952" y="1870"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="5Ms-6o-WYc">
@@ -2730,14 +2732,16 @@
                         <outlet property="dataTable" destination="EJx-jj-5cL" id="kGx-Lq-Nqy"/>
                         <outlet property="sideMenuBtn" destination="ajd-yN-wfa" id="DDN-QJ-vRl"/>
                         <outlet property="tramiteName" destination="vWa-yp-SRh" id="8T9-vp-Ie6"/>
+                        <segue destination="odn-jp-k47" kind="show" identifier="showSolicitudDetail2" id="Iys-TU-P4f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2OP-OT-iZw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7182.6086956521749" y="1058.967391304348"/>
+            <point key="canvasLocation" x="7152" y="1024"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="Iys-TU-P4f"/>
         <segue reference="URg-R4-q2U"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -20,6 +20,8 @@ class NuevaSolicitudViewController: UIViewController, UITableViewDelegate, UITab
     
     
     var viewHeight = 0.0
+    var solicitudCreated: Solicitud?
+    
     
     
     
@@ -127,24 +129,17 @@ class NuevaSolicitudViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBAction func registerNewSolicitud(_ sender: Any) {
         
-        var data = self.tramite?.data
+        let data = self.tramite?.data
         
-        var dataArray: [[String:String]] = []
+     
         
         let cells = self.dataTable.visibleCells as! Array<NewSolicitudDataCell>
         
         for (index, cell) in cells.enumerated() {
-            
             data![index].value = cell.dataValue.text ?? ""
             let d =  ["value": cell.dataValue.text ?? "","label": data![index].label,"name": data![index].name ]
-            
-            dataArray.append(d)
-            
         }
         
-        print(data![0].value)
-        print(data![1].value)
-        print(data![2].value)
         
         showActivityIndicator()
         
@@ -205,19 +200,13 @@ class NuevaSolicitudViewController: UIViewController, UITableViewDelegate, UITab
                 do {
                     let nuevaSolicitudResponse = try JSONDecoder().decode(NuevaSolicitudResponse.self, from: content)
                     print(nuevaSolicitudResponse.message)
+                    self.solicitudCreated = nuevaSolicitudResponse.solicitud
                     
-                    /*self.tramites = tramitesResponse.tramites
+                    
+                    
                     DispatchQueue.main.async {
-                        self.tramitesTable.reloadData()
-                        if(self.tramites.isEmpty){
-                            self.noTramitesLabel.isHidden = false
-                            self.tramitesTable.isHidden = true
-                        }else{
-                            print("contr amites")
-                            self.noTramitesLabel.isHidden = true
-                            self.tramitesTable.isHidden = false
-                        }
-                    }*/
+                        self.performSegue(withIdentifier: "showSolicitudDetail2", sender: Self.self)
+                    }
                     //self.hideActivityIndicator()
                     self.hideActivityIndicator()
                 } catch let ex {
@@ -248,6 +237,25 @@ class NuevaSolicitudViewController: UIViewController, UITableViewDelegate, UITab
                 self.hideActivityIndicator()
             }
         }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        
+        
+        
+        //let navigation = segue.destination as! UINavigationController
+        let destination = segue.destination as! SolicitudViewController
+        //let destination = navigation.viewControllers [0] as! SolicitudViewController
+               
+        destination.solicitud = self.solicitudCreated
+        destination.senderParent = 1
+    }
+    
+    
+    
+    
     
     
     

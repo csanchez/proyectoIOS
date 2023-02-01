@@ -10,4 +10,14 @@ import Foundation
 struct NuevaSolicitudResponse: Codable { // or Decodable
     
     let message: String
+    let solicitud: Solicitud
+    
+    
+    enum CodingKeys: String, CodingKey {
+        case message                  = "message"
+        case solicitud                    = "solicitud"
+        
+        
+    }
+    
 }

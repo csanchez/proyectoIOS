@@ -174,8 +174,23 @@ class SolicitudesViewController: UIViewController, UITableViewDelegate, UITableV
    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-          let destination = segue.destination as! SolicitudViewController
+        //let navigation = segue.destination as! UINavigationController
+        let destination = segue.destination as! SolicitudViewController
+        //let destination = navigation.viewControllers [0] as! SolicitudViewController
+        
         destination.solicitud = self.solicitudSelected
-       }
+        destination.senderParent = 0
+    }
+    
+    
+    
+    //https://matteomanferdini.com/unwind-segue/
+    
+    @IBAction func returnFromNewSolicitudUnwind(_ seg: UIStoryboardSegue) {
+        print("en unwind")
+      //  performSegue(withIdentifier: "", sender: self)
+    }
+    
+    
 
 }
